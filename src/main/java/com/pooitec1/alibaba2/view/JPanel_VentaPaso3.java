@@ -72,6 +72,8 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
         JLbl_descripcion = new javax.swing.JLabel();
         JLbl_productType = new javax.swing.JLabel();
         JLbl_price = new javax.swing.JLabel();
+        jtf_quantity = new javax.swing.JLabel();
+        JLbl_quantity = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -131,6 +133,9 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
 
         JLbl_price.setText("jLabel3");
 
+        jtf_quantity.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jtf_quantity.setText("Quantity:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -151,7 +156,11 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jlbl_precio)
                                 .addGap(40, 40, 40)
-                                .addComponent(JLbl_price, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(JLbl_price, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jtf_quantity)
+                                .addGap(40, 40, 40)
+                                .addComponent(JLbl_quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jbtn_cancelarventapaso3)
@@ -193,7 +202,11 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlbl_precio)
                     .addComponent(JLbl_price))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtf_quantity)
+                    .addComponent(JLbl_quantity))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtn_cancelarventapaso3)
                     .addComponent(jbtn_atrasventapaso3)
@@ -243,6 +256,7 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
     private javax.swing.JLabel JLbl_descripcion;
     private javax.swing.JLabel JLbl_price;
     private javax.swing.JLabel JLbl_productType;
+    private javax.swing.JLabel JLbl_quantity;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbtn_agregarproduct;
     private javax.swing.JButton jbtn_atrasventapaso3;
@@ -252,6 +266,7 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
     private javax.swing.JLabel jlbl_prodcutname;
     private javax.swing.JLabel jlbl_tipoproducto;
     private javax.swing.JTable jtbl_products;
+    private javax.swing.JLabel jtf_quantity;
     private javax.swing.JTextField jtxf_productname;
     // End of variables declaration//GEN-END:variables
 

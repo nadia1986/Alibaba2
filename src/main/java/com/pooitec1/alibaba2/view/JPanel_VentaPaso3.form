@@ -41,6 +41,11 @@
                               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                               <Component id="JLbl_price" min="-2" pref="315" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jtf_quantity" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="JLbl_quantity" min="-2" pref="315" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -97,7 +102,12 @@
                   <Component id="jlbl_precio" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JLbl_price" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="65" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jtf_quantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JLbl_quantity" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="37" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jbtn_cancelarventapaso3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jbtn_atrasventapaso3" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -216,6 +226,16 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel3"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jtf_quantity">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Quantity:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="JLbl_quantity">
     </Component>
   </SubComponents>
 </Form>
