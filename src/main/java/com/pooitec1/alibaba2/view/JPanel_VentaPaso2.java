@@ -105,11 +105,11 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
 
             },
             new String [] {
-                "CodeProduct", "Description", "Price", "Sub_Total"
+                "CodeProduct", "Description", "Price", "Quantity", "Sub_Total"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -122,6 +122,7 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
             jTable_lineadeventa.getColumnModel().getColumn(1).setPreferredWidth(50);
             jTable_lineadeventa.getColumnModel().getColumn(2).setPreferredWidth(30);
             jTable_lineadeventa.getColumnModel().getColumn(3).setPreferredWidth(50);
+            jTable_lineadeventa.getColumnModel().getColumn(4).setPreferredWidth(50);
         }
 
         jBtn_addproduct.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N

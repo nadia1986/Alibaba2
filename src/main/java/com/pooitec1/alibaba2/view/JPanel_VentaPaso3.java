@@ -7,10 +7,12 @@ package com.pooitec1.alibaba2.view;
 import com.pooitec1.alibaba2.controller.SaleController;
 import com.pooitec1.alibaba2.entity.LoteProduct;
 import com.pooitec1.alibaba2.entity.Product;
+import com.pooitec1.alibaba2.entity.SaleLine;
 import com.pooitec1.alibaba2.view.resources.TableModelListenerProduct;
 import com.pooitec1.alibaba2.view.resources.TableModelProduct;
 import com.pooitec1.alibaba2.view.resources.ValidadorDeCampos;
 import java.awt.Color;
+import java.util.List;
 
 /**
  *
@@ -27,6 +29,7 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
     private LoteProduct loteProductSelected;
 
     SaleController controlador;
+    
     private JPanelAplication panelMenu;
 
     /**
@@ -69,8 +72,8 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
         jlbl_tipoproducto = new javax.swing.JLabel();
         jlbl_precio = new javax.swing.JLabel();
         jtxf_productname = new javax.swing.JTextField();
-        JLbl_descripcion = new javax.swing.JLabel();
-        JLbl_productType = new javax.swing.JLabel();
+        JLbl_code = new javax.swing.JLabel();
+        JLbl_description = new javax.swing.JLabel();
         JLbl_price = new javax.swing.JLabel();
         jtf_quantity = new javax.swing.JLabel();
         JLbl_quantity = new javax.swing.JLabel();
@@ -108,7 +111,7 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
         });
 
         jlbl_descripcion.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jlbl_descripcion.setText("Description:");
+        jlbl_descripcion.setText("Code:");
 
         jlbl_tipoproducto.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jlbl_tipoproducto.setText("Proyuct type:");
@@ -127,9 +130,9 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
             }
         });
 
-        JLbl_descripcion.setText("jLabel1");
+        JLbl_code.setText("jLabel1");
 
-        JLbl_productType.setText("jLabel2");
+        JLbl_description.setText("jLabel2");
 
         JLbl_price.setText("jLabel3");
 
@@ -148,18 +151,18 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jlbl_descripcion)
                                 .addGap(18, 18, 18)
-                                .addComponent(JLbl_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(JLbl_code, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jlbl_tipoproducto)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(JLbl_productType, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(JLbl_description, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jlbl_precio)
                                 .addGap(40, 40, 40)
                                 .addComponent(JLbl_price, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jtf_quantity)
-                                .addGap(40, 40, 40)
+                                .addGap(155, 155, 155)
                                 .addComponent(JLbl_quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
@@ -193,11 +196,11 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
                         .addComponent(jlbl_descripcion))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JLbl_descripcion)))
+                        .addComponent(JLbl_code)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlbl_tipoproducto)
-                    .addComponent(JLbl_productType))
+                    .addComponent(JLbl_description))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlbl_precio)
@@ -248,14 +251,28 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
     }//GEN-LAST:event_jtxf_productnameActionPerformed
 
     private void jbtn_agregarproductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_agregarproductActionPerformed
-        // TODO add your handling code here:
+        if (this.loteProductSelected != null) {
+            this.controlador.getNewSale().setSaleLines((List<SaleLine>) loteProductSelected);
+
+            JPanel_VentaPaso2 panelPaso2 = new JPanel_VentaPaso2(this.panelMenu, this.controlador);
+
+            panelPaso2.setSize(814, 600);
+            this.panelMenu.limpiarPanelContenido();
+
+            this.panelMenu.getjPanel_contenido().add(panelPaso2);
+            this.panelMenu.repaint();
+            this.panelMenu.validate();
+
+        } else {
+            System.out.println("selecciona cliente");
+        } // TODO add your handling code here:
     }//GEN-LAST:event_jbtn_agregarproductActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel JLbl_descripcion;
+    private javax.swing.JLabel JLbl_code;
+    private javax.swing.JLabel JLbl_description;
     private javax.swing.JLabel JLbl_price;
-    private javax.swing.JLabel JLbl_productType;
     private javax.swing.JLabel JLbl_quantity;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbtn_agregarproduct;
@@ -279,9 +296,9 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
         // si la fila esta seleccionada, seteamos  buyer auxiliar, llamando al modelo de tabla
         if (filaSeleccionada >= 0) {
             this.loteProductSelected = this.tableModelProduct.getProductIn(filaSeleccionada);
-            this.JLbl_descripcion.setText(this.loteProductSelected.getProduct().getCodProd());
-            this.JLbl_productType.setText(this.loteProductSelected.getProduct().getProductType().getDescription());
-          //  this.JLbl_price.setText(this.loteProductSelected.getSalePrice());
+            this.JLbl_code.setText(this.loteProductSelected.getProduct().getCodProd());
+            this.JLbl_description.setText(this.loteProductSelected.getProduct().getProductType().getDescription());
+          // this.JLbl_price.setText(this.loteProductSelected.getSalePrice());
 
         }
     }
