@@ -77,6 +77,9 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
         JLbl_price = new javax.swing.JLabel();
         jtf_quantity = new javax.swing.JLabel();
         JLbl_quantity = new javax.swing.JLabel();
+        Spncantidad = new javax.swing.JSpinner();
+        jLabel1 = new javax.swing.JLabel();
+        jLsubtotal = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -139,6 +142,29 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
         jtf_quantity.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jtf_quantity.setText("Quantity:");
 
+        Spncantidad.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        Spncantidad.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                SpncantidadStateChanged(evt);
+            }
+        });
+        Spncantidad.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                SpncantidadPropertyChange(evt);
+            }
+        });
+        Spncantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                SpncantidadKeyReleased(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setText("Subtotal:");
+
+        jLsubtotal.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLsubtotal.setText("$ 0.00");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -162,15 +188,14 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
                                 .addComponent(JLbl_price, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jtf_quantity)
-                                .addGap(155, 155, 155)
+                                .addGap(18, 18, 18)
+                                .addComponent(Spncantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLsubtotal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(JLbl_quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jbtn_cancelarventapaso3)
-                        .addGap(134, 134, 134)
-                        .addComponent(jbtn_atrasventapaso3)
-                        .addGap(131, 131, 131)
-                        .addComponent(jbtn_agregarproduct))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,8 +203,14 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jlbl_prodcutname)
                                 .addGap(18, 18, 18)
-                                .addComponent(jtxf_productname, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(56, Short.MAX_VALUE))
+                                .addComponent(jtxf_productname, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jbtn_cancelarventapaso3)
+                                .addGap(60, 60, 60)
+                                .addComponent(jbtn_atrasventapaso3)
+                                .addGap(58, 58, 58)
+                                .addComponent(jbtn_agregarproduct)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,8 +239,11 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtf_quantity)
-                    .addComponent(JLbl_quantity))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                    .addComponent(JLbl_quantity)
+                    .addComponent(Spncantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLsubtotal))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtn_cancelarventapaso3)
                     .addComponent(jbtn_atrasventapaso3)
@@ -268,12 +302,27 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
         } // TODO add your handling code here:
     }//GEN-LAST:event_jbtn_agregarproductActionPerformed
 
+    private void SpncantidadKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SpncantidadKeyReleased
+      
+    }//GEN-LAST:event_SpncantidadKeyReleased
+
+    private void SpncantidadStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpncantidadStateChanged
+       calcularSubtotal();
+    }//GEN-LAST:event_SpncantidadStateChanged
+
+    private void SpncantidadPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_SpncantidadPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SpncantidadPropertyChange
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JLbl_code;
     private javax.swing.JLabel JLbl_description;
     private javax.swing.JLabel JLbl_price;
     private javax.swing.JLabel JLbl_quantity;
+    private javax.swing.JSpinner Spncantidad;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLsubtotal;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbtn_agregarproduct;
     private javax.swing.JButton jbtn_atrasventapaso3;
@@ -298,9 +347,21 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
             this.loteProductSelected = this.tableModelProduct.getProductIn(filaSeleccionada);
             this.JLbl_code.setText(this.loteProductSelected.getProduct().getCodProd());
             this.JLbl_description.setText(this.loteProductSelected.getProduct().getProductType().getDescription());
-          // this.JLbl_price.setText(this.loteProductSelected.getSalePrice());
+            this.JLbl_price.setText(pasarMoneda(this.loteProductSelected.getSalePrice()));
 
         }
+    }
+    
+    public void calcularSubtotal(){
+    Double  precio= this.loteProductSelected.getSalePrice();
+    int  cantidad= Integer.parseInt(Spncantidad.getValue().toString());
+    
+    jLsubtotal.setText(pasarMoneda(precio*cantidad)); 
+    }
+    
+    public String pasarMoneda(Double precio){
+        return "$ " + Math.round(precio*100.0)/100.0;  
+        
     }
 
     private void validadarCampos() {
