@@ -10,7 +10,6 @@ import com.pooitec1.alibaba2.entity.Sale;
 import com.pooitec1.alibaba2.entity.LoteProduct;
 
 import com.pooitec1.alibaba2.entity.repository.Conexion;
-import com.pooitec1.alibaba2.entity.repository.ProductRepository;
 import com.pooitec1.alibaba2.entity.repository.LoteProductRepository;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -23,11 +22,9 @@ import java.util.List;
 public class LoteProductService {
 
     private final LoteProductRepository stockRepository;
-    private final ProductRepository productRepository;
     private final ProductService service;
 
     public LoteProductService() {
-        this.productRepository = new ProductRepository(Conexion.getEmf());
         this.stockRepository = new LoteProductRepository(Conexion.getEmf());
         this.service = new ProductService();
 

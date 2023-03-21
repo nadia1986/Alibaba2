@@ -6,49 +6,52 @@ package com.pooitec1.alibaba2.view;
 
 import com.pooitec1.alibaba2.controller.SaleController;
 import com.pooitec1.alibaba2.view.resources.ValidadorDeCampos;
+import java.time.LocalDate;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author nadia
  */
 public class JPanel_VentaPaso2 extends javax.swing.JPanel {
-    
-    
+
+    LocalDate fi = LocalDate.now();
+
     //Validado de campos
     ValidadorDeCampos validadorDeCampos;
-    
+
     //variables de tabla
-   // private final TableModelLibro tableModelLibro;
-
-   // private Book libroSeleccionado;
-
+    DefaultTableModel modelo = new DefaultTableModel();
     SaleController controlador;
     private JPanelAplication panelMenu;
 
     /**
      * Creates new form JPanel_ProcesarPrestamo_paso1
      */
-
     /**
      * Creates new form JPanel_VentaPaso2
      */
     public JPanel_VentaPaso2(JPanelAplication panelMenu, SaleController controladorP) {
         this.validadorDeCampos = new ValidadorDeCampos();
-        
-        //this.tableModelLibro = new TableModelLibro();
 
+        //this.tableModelLibro = new TableModelLibro();
         this.controlador = controladorP;
         this.panelMenu = panelMenu;
-        
-       // System.out.println(controlador.getNewSale().getEmployee().getFirstName());
+
+        // System.out.println(controlador.getNewSale().getEmployee().getFirstName());
         //this.jlbl_employee.setText(controlador.getNewSale().getEmployee().getFirstName()+" "+ controlador.getNewSale().getEmployee().getLastName());
         initComponents();
-          //agrega escuchadores de las tablas
+        modelo.addColumn("Code Product");
+        modelo.addColumn("Description");
+        modelo.addColumn("Price");
+        modelo.addColumn("Quantity");
+        modelo.addColumn("Subtotal");
+        actualizarTabla();
+
+        //agrega escuchadores de las tablas
         //this.jtbl_libros.getSelectionModel().addListSelectionListener(new TableModelListenerLibro(this));
-    
-      //  validadarCampos();
-        
-       // setupBotones();
+        //  validadarCampos();
+        // setupBotones();
     }
 
     /**
@@ -270,18 +273,16 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
     private void jBtn_addproductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_addproductActionPerformed
         JPanel_VentaPaso3 panelventapaso3 = new JPanel_VentaPaso3(this.panelMenu, this.controlador);
 
-            panelventapaso3.setSize(814, 600);
+        panelventapaso3.setSize(814, 600);
 
-            this.panelMenu.limpiarPanelContenido();
+        this.panelMenu.limpiarPanelContenido();
 
-            this.panelMenu.getjPanel_contenido().add(panelventapaso3);
+        this.panelMenu.getjPanel_contenido().add(panelventapaso3);
 
-            this.panelMenu.repaint();
-            this.panelMenu.validate();
-            
-            
-        
-  // TODO add your handling code here:
+        this.panelMenu.repaint();
+        this.panelMenu.validate();
+
+        // TODO add your handling code here:
     }//GEN-LAST:event_jBtn_addproductActionPerformed
 
     private void jbtn_cancelarventapaso2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_cancelarventapaso2ActionPerformed
@@ -290,7 +291,7 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
     }//GEN-LAST:event_jbtn_cancelarventapaso2ActionPerformed
 
     private void jBtn_atrasventapaso2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_atrasventapaso2ActionPerformed
-           JPanel_VentaPaso1 panelPaso1 = new JPanel_VentaPaso1(this.panelMenu, this.controlador);
+        JPanel_VentaPaso1 panelPaso1 = new JPanel_VentaPaso1(this.panelMenu, this.controlador);
 
         panelPaso1.setSize(814, 600);
 
@@ -324,4 +325,9 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
     private javax.swing.JButton jbtn_cancelarventapaso2;
     private javax.swing.JLabel jlbl_employee;
     // End of variables declaration//GEN-END:variables
+
+    public void actualizarTabla() {
+        jTable_lineadeventa.setModel(modelo);
+    }
+
 }

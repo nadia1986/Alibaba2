@@ -15,26 +15,21 @@ import com.pooitec1.alibaba2.entity.repository.SaleLineRepository;
  */
 public class SaleLineService {
 
-    private final SaleLine newSaleLine;
-    private final SaleLineRepository saleLineRepository;
-  
+    private  SaleLineRepository saleLineRepository;
 
-    public SaleLineService(Product pr, int quantity) {
+    public SaleLineService() {
 
-        this.newSaleLine = new SaleLine();
-        newSaleLine.setQuantity(quantity);
-        newSaleLine.setProduct(pr);
+        //   this.newSaleLine = new SaleLine();
+        // newSaleLine.setQuantity(quantity);
+        // newSaleLine.setProduct(pr);
         this.saleLineRepository = new SaleLineRepository(Conexion.getEmf());
-        
 
     }
 
-    public SaleLine getNewSaleLine() {
-        return newSaleLine;
-
-    }
-
-    private void saveSaleLine(SaleLine saleLine) {
+    // public SaleLine getNewSaleLine() {
+    //return newSaleLine;
+    // }
+    public void saveSaleLine(SaleLine saleLine) {
         this.saleLineRepository.create(saleLine);
 
     }
