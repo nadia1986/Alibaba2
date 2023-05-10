@@ -163,13 +163,14 @@ public class JPanelAplication extends javax.swing.JPanel {
     private void jbtn_nuevaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_nuevaVentaActionPerformed
 
         //1-crear controlador
-        Employee employee = this.controlador.findByUser(this.controlador.getUserSelected());
+       // Employee employee = this.controlador.findByUser(this.controlador.getUserSelected());
+       
        // Employee employee = this.controlador.buscarByUser(this.controlador.getUserSelected());
         
        // System.out.println(this.controlador.getUserSelected().getEmployee().getId());
         
         
-        SaleController controladorVenta = new SaleController(employee);
+        SaleController controladorVenta = new SaleController();
         //2- crear panel enchufando el controlador creado en paso 1
         JPanel_VentaPaso1 panelPaso1 = new JPanel_VentaPaso1(this, controladorVenta);
         // JPanel_VentaPaso1 panelPaso1 = new JPanel_VentaPaso1(this, controlador);

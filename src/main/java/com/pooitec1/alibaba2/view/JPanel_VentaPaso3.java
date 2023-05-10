@@ -5,6 +5,7 @@
 package com.pooitec1.alibaba2.view;
 
 import com.pooitec1.alibaba2.controller.SaleController;
+import com.pooitec1.alibaba2.controller.SaleLineController;
 import com.pooitec1.alibaba2.entity.LoteProduct;
 import com.pooitec1.alibaba2.entity.Product;
 import com.pooitec1.alibaba2.entity.SaleLine;
@@ -12,6 +13,7 @@ import com.pooitec1.alibaba2.view.resources.TableModelListenerProduct;
 import com.pooitec1.alibaba2.view.resources.TableModelProduct;
 import com.pooitec1.alibaba2.view.resources.ValidadorDeCampos;
 import java.awt.Color;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -19,6 +21,8 @@ import java.util.List;
  * @author nadia
  */
 public class JPanel_VentaPaso3 extends javax.swing.JPanel {
+    
+     LocalDate fecha = LocalDate.now();
 
     //Validado de campos
     ValidadorDeCampos validadorDeCampos;
@@ -27,6 +31,8 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
     private final TableModelProduct tableModelProduct;
 
     private LoteProduct loteProductSelected;
+    
+    SaleLineController controladorSaleLine;
 
     SaleController controlador;
     
@@ -35,12 +41,13 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
     /**
      * Creates new form JPanel_VentaPaso3
      */
-    public JPanel_VentaPaso3(JPanelAplication panelMenu, SaleController controladorP) {
+    public JPanel_VentaPaso3(JPanelAplication panelMenu, SaleController controladorP, SaleLineController controladorL) {
         this.validadorDeCampos = new ValidadorDeCampos();
 
         this.tableModelProduct = new TableModelProduct();
 
         this.controlador = controladorP;
+        this.controladorSaleLine= controladorL;
         this.panelMenu = panelMenu;
         
         
@@ -286,7 +293,9 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
 
     private void jbtn_agregarproductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_agregarproductActionPerformed
         if (this.loteProductSelected != null) {
-            this.controlador.getNewSale().setSaleLines((List<SaleLine>) loteProductSelected);
+            this.controladorSaleLine.getNewSaleLine().setProduct(loteProductSelected.getProduct());
+           // this.controladorSaleLine.getNewSaleLine().setQuantity(Spncantidad);
+            //this.controlador.getNewSale().setSaleLines((List<SaleLine>) loteProductSelected);
 
             JPanel_VentaPaso2 panelPaso2 = new JPanel_VentaPaso2(this.panelMenu, this.controlador);
 

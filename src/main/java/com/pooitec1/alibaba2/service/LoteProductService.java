@@ -5,12 +5,11 @@
 package com.pooitec1.alibaba2.service;
 
 import com.pooitec1.alibaba2.entity.Product;
-import com.pooitec1.alibaba2.entity.Purchase;
-import com.pooitec1.alibaba2.entity.Sale;
 import com.pooitec1.alibaba2.entity.LoteProduct;
-
 import com.pooitec1.alibaba2.entity.repository.Conexion;
 import com.pooitec1.alibaba2.entity.repository.LoteProductRepository;
+
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,17 +21,16 @@ import java.util.List;
 public class LoteProductService {
 
     private final LoteProductRepository stockRepository;
-    private final ProductService service;
+    //private final ProductService service;(???)
 
     public LoteProductService() {
         this.stockRepository = new LoteProductRepository(Conexion.getEmf());
-        this.service = new ProductService();
+        //this.service = new ProductService();
 
     }
-    
-    
+
     //BUSCO UN PRODUCTO POR DESCRIPCION
-       public List<LoteProduct> findByProductDescription(String description) {
+    public List<LoteProduct> findByProductDescription(String description) {
         List<LoteProduct> productsfound = new ArrayList<>();
 
         for (LoteProduct productSearch : stockRepository.findStockProductEntities()) {
@@ -40,38 +38,22 @@ public class LoteProductService {
                 productsfound.add(productSearch);
             }
         }
-        return  productsfound;
+        return productsfound;
     }
-       
-       
+
     //FALTA AGREGAR QUE BUSQUE POR CODIGO Y TRAIGA UN SOLO PRODUCTO
-       
-     
-       
-         public List<LoteProduct> getLoteProduct() {
+    public List<LoteProduct> getLoteProduct() {
         List<LoteProduct> listLoteProducts = stockRepository.findStockProductEntities();
         return listLoteProducts;
 
     }
 
-    // El purchase suma al stock
-    public void addPurchaseStock(Purchase purchase) {
-
-        //  LoteProduct stockProduct= new LoteProduct(0, Integer.MIN_VALUE, 0, LocalDate.MIN, 0, 0, 0, 0, sector, productRepository);
-    }
-
-    //Sale resta al stock
-    public void addSaleStock(Sale sale) {
-
-    }
-    
-    
-    //
-    public List<LoteProduct> findByProduct(Product product){
-       List<LoteProduct> stockProductfound = new ArrayList<>();
+  
+    public List<LoteProduct> findByProduct(Product product) {
+        List<LoteProduct> stockProductfound = new ArrayList<>();
         for (LoteProduct stockPr : this.stockRepository.findStockProductEntities()) {
             if (stockPr.getProduct().equals(product)) {
-              stockProductfound.add(stockPr);
+                stockProductfound.add(stockPr);
 
             }
 
@@ -79,38 +61,22 @@ public class LoteProductService {
 
         return stockProductfound;
 
-    }   
-    
-    
-    
-    //creo una funcion o agrego una  nueva clase PrecioProducto con precioVenta y precioCompra???
+    }
 
+    //creo una funcion o agrego una  nueva clase PrecioProducto con precioVenta y precioCompra???
     public double obtenerPrecioVentaProducto(Product product) {
-        
-        double precioProducto= 0;
+
+        double precioProducto = 0;
         for (LoteProduct stockPr : this.stockRepository.findStockProductEntities()) {
-             if (stockPr.getProduct().equals(product)) {
-            precioProducto= stockPr.getSalePrice();
-             }
+            if (stockPr.getProduct().equals(product)) {
+                precioProducto = stockPr.getSalePrice();
+            }
 
         }
         return precioProducto;
     }
-    
-    
-    
 
-    // desconat stock producto disponible
-    public void deductProductAvailable(int quantity, String code) {
-        for (Product pr : service.findByCodeProduct(code)) {
-            // if (checkStock(pr, quantity) ) {
-            //hacer algo tengo que setear el nuevo valor de stock
-            //pr.getStockProduct().getQuantity()
-
-        }
-    }
-
-    public Integer verStockTotalProducto(Product product) {
+     public Integer verStockTotalProducto(Product product) {
 
         Integer cantidadTotalProducto = 0;
 

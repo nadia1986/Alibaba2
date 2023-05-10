@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package com.pooitec1.alibaba2.view;
 
 import com.pooitec1.alibaba2.controller.SaleController;
@@ -16,8 +12,8 @@ import java.awt.Color;
  * @author nadia
  */
 public class JPanel_VentaPaso1 extends javax.swing.JPanel {
+   
     //Validado de campos
-
     ValidadorDeCampos validadorDeCampos;
 
     //variables de tabla
@@ -33,14 +29,17 @@ public class JPanel_VentaPaso1 extends javax.swing.JPanel {
      * Creates new form JPanel_VentaPaso1
      */
     public JPanel_VentaPaso1(JPanelAplication panelMenu, SaleController controladorP) {
+       
         this.validadorDeCampos = new ValidadorDeCampos();
+       
         //JTable vacio
         this.tableModelBuyer = new TableModelBuyer();
 
         this.controlador = controladorP;
         this.panelMenu = panelMenu;
-        
+
         initComponents();
+       //escuchador de tabla
         this.jtb_buyers.getSelectionModel().addListSelectionListener(new TableModelListenerBuyer(this));
 
         validadarCampos();

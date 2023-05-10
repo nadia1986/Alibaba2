@@ -117,7 +117,8 @@ public class JPanelLogin extends javax.swing.JPanel {
             this.frame.dispose();
         }else {
             //this.jbtn_login.setText("Error");
-            JOptionPane.showMessageDialog(null, "User or Password incorrect");
+           // JOptionPane.showMessageDialog(null, "User or Password incorrect");
+           this.jbtn_login.setText("Error");
         }
 // TODO add your handling code here:
     }//GEN-LAST:event_jbtn_loginActionPerformed

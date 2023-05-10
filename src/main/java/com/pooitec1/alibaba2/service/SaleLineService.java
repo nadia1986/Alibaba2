@@ -4,7 +4,6 @@
  */
 package com.pooitec1.alibaba2.service;
 
-import com.pooitec1.alibaba2.entity.Product;
 import com.pooitec1.alibaba2.entity.SaleLine;
 import com.pooitec1.alibaba2.entity.repository.Conexion;
 import com.pooitec1.alibaba2.entity.repository.SaleLineRepository;
@@ -14,24 +13,27 @@ import com.pooitec1.alibaba2.entity.repository.SaleLineRepository;
  * @author nadia
  */
 public class SaleLineService {
+    
+     private  SaleLine newSaleLine;
 
-    private  SaleLineRepository saleLineRepository;
+    private SaleLineRepository saleLineRepository;
 
     public SaleLineService() {
-
-        //   this.newSaleLine = new SaleLine();
-        // newSaleLine.setQuantity(quantity);
-        // newSaleLine.setProduct(pr);
+        this.newSaleLine = new SaleLine();
         this.saleLineRepository = new SaleLineRepository(Conexion.getEmf());
 
     }
 
-    // public SaleLine getNewSaleLine() {
-    //return newSaleLine;
-    // }
     public void saveSaleLine(SaleLine saleLine) {
         this.saleLineRepository.create(saleLine);
 
     }
+    
+      public SaleLine getNewSaleLine(){
+        return newSaleLine;
+    }
+
+    
+    
 
 }

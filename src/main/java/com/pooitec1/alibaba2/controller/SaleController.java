@@ -13,6 +13,7 @@ import com.pooitec1.alibaba2.entity.SaleLine;
 import com.pooitec1.alibaba2.service.BuyerService;
 import com.pooitec1.alibaba2.service.SaleService;
 import com.pooitec1.alibaba2.service.LoteProductService;
+import com.pooitec1.alibaba2.service.SaleLineService;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -22,75 +23,65 @@ import java.util.List;
  */
 public class SaleController {
 
-    private final Sale newSale;
+    private  Sale newSale;
     private final BuyerService buyerService;
-    // private final ProductService productService;
     private final LoteProductService stockService;
-    private final SaleService saleService;
+    private final SaleLineService saleLineService;
+    private  final SaleService saleService;
+
+    public SaleController() {
+        
+         this.newSale = new Sale();
+        this.buyerService = new BuyerService();
+        this.stockService = new LoteProductService();
+        this.saleService = new SaleService();
+        this.saleLineService= new SaleLineService();
+         
+    }
+    
+    
 
     public SaleController(Employee employee) {
 
         this.newSale = new Sale();
         newSale.setDateSale(LocalDate.now());
         newSale.setEmployee(employee);
-        //this.productService = new ProductService();
         this.buyerService = new BuyerService();
         this.stockService = new LoteProductService();
         this.saleService = new SaleService();
+        this.saleLineService= new SaleLineService();
 
     }
 
-    public Sale getNewSale() {
-        return newSale;
-    }
+   
 
     //FUNCION QUE LLAMO EN VENTA PASO 1 PARA BUSCAR CLIENTE
     public List<Buyer> findBuyerByDni(String dni) {
-        return saleService.findBuyerByDni(dni);
+        return buyerService.findByDni(dni);
     }
 
     //FUNCION QUE LLAMO EN VENTA PASO 3 PARA BUSCAR PRODUCTOS EN LoteProduct(porque el lote es quien tiene el producto)
     public List<LoteProduct> findProductByDescription(String description) {
-        return saleService.findProductByDescription(description);
+        return stockService.findByProductDescription(description);
+    }
+    
+    public SaleLine getNewSaleLine(){
+        return saleLineService.getNewSaleLine();
+    }
+    
+    public void saveSaleLine(SaleLine saleLine){
+        this.saleLineService.saveSaleLine(saleLine);
     }
 
-    public List<LoteProduct> findByProduct(Product product) {
-        return saleService.findByProduct(product);
-    }
-
-    // public Product findOneProduct(String codeProduct){
-    //return saleService.findProductByDescription(codeProduct);
-    //}
-    public List<Buyer> findAllBuyer() {
-        return saleService.findAllBuyer();
-    }
-
-    public List<Product> findProductByCode(String code) {
-        return saleService.findProductByCode(code);
-    }
-
-    public List<Product> findAllProduct() {
-        return saleService.findAllProduct();
-    }
-
-    public void addBuyer(Buyer buyer) {
-
-        this.newSale.setBuyer(buyer);
-
-    }
-
-    public void addProduct(SaleLine saleLine) {
-
-        // if(this.stockService.verStockTotalProducto(product)){
-        //llamar al servicio de stockService para ver si hay o no ptos 
-        this.newSale.getSaleLines().add(saleLine);
-        // }
-
+ 
+     public Sale getNewSale() {
+        return newSale;
     }
 
     public void saveSale(Sale sale) {
         this.saleService.saveSale(sale);
 
     }
-
+    
+  
 }
