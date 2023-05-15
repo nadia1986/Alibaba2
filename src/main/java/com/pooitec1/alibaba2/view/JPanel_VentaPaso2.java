@@ -1,8 +1,9 @@
-
 package com.pooitec1.alibaba2.view;
 
 import com.pooitec1.alibaba2.controller.SaleController;
 import com.pooitec1.alibaba2.controller.SaleLineController;
+import com.pooitec1.alibaba2.controller.UserController;
+import com.pooitec1.alibaba2.entity.User;
 import com.pooitec1.alibaba2.view.resources.ValidadorDeCampos;
 import java.time.LocalDate;
 import javax.swing.table.DefaultTableModel;
@@ -17,29 +18,32 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
 
     //Validado de campos
     ValidadorDeCampos validadorDeCampos;
-
     //variables de tabla
     DefaultTableModel modelo = new DefaultTableModel();
     SaleController controlador;
-    SaleLineController controladorSaleLine;
-  
+    //SaleLineController controladorSaleLine;
+
     private JPanelAplication panelMenu;
 
-    
     /**
      * Creates new form JPanel_VentaPaso2
      */
     public JPanel_VentaPaso2(JPanelAplication panelMenu, SaleController controladorP) {
+        //public JPanel_VentaPaso2(JPanelAplication panelMenu, SaleController controladorP) {
+
         this.validadorDeCampos = new ValidadorDeCampos();
 
         //this.tableModelLibro = new TableModelLibro();
         this.controlador = controladorP;
-        
         this.panelMenu = panelMenu;
-
-        // System.out.println(controlador.getNewSale().getEmployee().getFirstName());
-        //this.jlbl_employee.setText(controlador.getNewSale().getEmployee().getFirstName()+" "+ controlador.getNewSale().getEmployee().getLastName());
+        
         initComponents();
+
+        System.out.println(this.controlador.getNewSale().getEmployee().getFirstName());
+        this.jlbl_employee.setText(this.controlador.getNewSale().getEmployee().getFirstName() + " " + this.controlador.getNewSale().getEmployee().getLastName());
+        this.jlbl_date.setText(this.controlador.getNewSale().getDateSale().toString());
+        this.jlbl_cliente.setText(this.controlador.getNewSale().getBuyer().getFirstName());
+        //this.jlbl_employee.setText(controlador.getNewSale().getEmployee().getFirstName()+" "+ controlador.getNewSale().getEmployee().getLastName());
         modelo.addColumn("Code Product");
         modelo.addColumn("Description");
         modelo.addColumn("Price");
@@ -53,7 +57,6 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
         // setupBotones();
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -72,11 +75,12 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jbtn_cancelarventapaso2 = new javax.swing.JButton();
         jBtn_atrasventapaso2 = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
+        jlbl_cliente = new javax.swing.JLabel();
         jlbl_employee = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jlbl_date = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -156,7 +160,7 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
             }
         });
 
-        jLabel10.setText("jLabel10");
+        jlbl_cliente.setText("jLabel10");
 
         jlbl_employee.setText("jLabel11");
 
@@ -165,6 +169,8 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
         jLabel12.setText("jLabel12");
 
         jLabel13.setText("jLabel13");
+
+        jlbl_date.setText("jLabel14");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -188,12 +194,15 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addGap(31, 31, 31)
-                                .addComponent(jLabel10))
+                                .addComponent(jlbl_cliente))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(86, 86, 86)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jlbl_date, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(63, 63, 63)
                                 .addComponent(jLabel3))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
@@ -229,7 +238,8 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(jlbl_date))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -237,7 +247,7 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel10))
+                    .addComponent(jlbl_cliente))
                 .addGap(37, 37, 37)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -266,7 +276,7 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtn_addproductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_addproductActionPerformed
-        JPanel_VentaPaso3 panelventapaso3 = new JPanel_VentaPaso3(this.panelMenu, this.controlador,this.controladorSaleLine);
+        JPanel_VentaPaso3 panelventapaso3 = new JPanel_VentaPaso3(this.panelMenu, this.controlador);
 
         panelventapaso3.setSize(814, 600);
 
@@ -303,7 +313,6 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
     private javax.swing.JButton jBtn_addproduct;
     private javax.swing.JButton jBtn_atrasventapaso2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -318,6 +327,8 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_lineadeventa;
     private javax.swing.JButton jbtn_cancelarventapaso2;
+    private javax.swing.JLabel jlbl_cliente;
+    private javax.swing.JLabel jlbl_date;
     private javax.swing.JLabel jlbl_employee;
     // End of variables declaration//GEN-END:variables
 

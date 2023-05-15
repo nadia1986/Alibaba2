@@ -1,7 +1,9 @@
 package com.pooitec1.alibaba2.view;
 
 import com.pooitec1.alibaba2.controller.SaleController;
+import com.pooitec1.alibaba2.controller.UserController;
 import com.pooitec1.alibaba2.entity.Buyer;
+import com.pooitec1.alibaba2.entity.User;
 import com.pooitec1.alibaba2.view.resources.TableModelBuyer;
 import com.pooitec1.alibaba2.view.resources.TableModelListenerBuyer;
 import com.pooitec1.alibaba2.view.resources.ValidadorDeCampos;
@@ -12,7 +14,7 @@ import java.awt.Color;
  * @author nadia
  */
 public class JPanel_VentaPaso1 extends javax.swing.JPanel {
-   
+
     //Validado de campos
     ValidadorDeCampos validadorDeCampos;
 
@@ -20,28 +22,27 @@ public class JPanel_VentaPaso1 extends javax.swing.JPanel {
     private final TableModelBuyer tableModelBuyer;
 
     private Buyer buyerSeleccionado;
-
+    User user;
     SaleController controlador;
-
     private JPanelAplication panelMenu;
+    
 
     /**
      * Creates new form JPanel_VentaPaso1
      */
     public JPanel_VentaPaso1(JPanelAplication panelMenu, SaleController controladorP) {
-       
+        //this.user = controladorP.getUserSelected();
+
         this.validadorDeCampos = new ValidadorDeCampos();
-       
         //JTable vacio
         this.tableModelBuyer = new TableModelBuyer();
 
         this.controlador = controladorP;
         this.panelMenu = panelMenu;
-
         initComponents();
-       //escuchador de tabla
+        //escuchador de tabla
         this.jtb_buyers.getSelectionModel().addListSelectionListener(new TableModelListenerBuyer(this));
-
+        //this.jlbl_userName2.setText(this.controlador.getUserSelected().getNickname());
         validadarCampos();
 
         setupBotones();
@@ -278,7 +279,7 @@ public class JPanel_VentaPaso1 extends javax.swing.JPanel {
     /**
      * Selecciona una fila de la tabla, devolviendo un objeto Buyer/Cliente
      */
-    public void seleccionarSocio() {
+    public void seleccionarCliente() {
         //obtiene el indice de la fila seleccionada en la tabla de buyer
         int filaSeleccionada = this.jtb_buyers.getSelectedRow();
         // si la fila esta seleccionada, seteamos  buyer auxiliar, llamando al modelo de tabla

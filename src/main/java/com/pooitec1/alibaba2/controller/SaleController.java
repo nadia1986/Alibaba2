@@ -7,13 +7,14 @@ package com.pooitec1.alibaba2.controller;
 import com.pooitec1.alibaba2.entity.Buyer;
 import com.pooitec1.alibaba2.entity.Employee;
 import com.pooitec1.alibaba2.entity.LoteProduct;
-import com.pooitec1.alibaba2.entity.Product;
 import com.pooitec1.alibaba2.entity.Sale;
 import com.pooitec1.alibaba2.entity.SaleLine;
+import com.pooitec1.alibaba2.entity.User;
 import com.pooitec1.alibaba2.service.BuyerService;
 import com.pooitec1.alibaba2.service.SaleService;
 import com.pooitec1.alibaba2.service.LoteProductService;
 import com.pooitec1.alibaba2.service.SaleLineService;
+import com.pooitec1.alibaba2.service.UserService;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -23,37 +24,42 @@ import java.util.List;
  */
 public class SaleController {
 
-    private  Sale newSale;
+    private Sale newSale;
     private final BuyerService buyerService;
     private final LoteProductService stockService;
     private final SaleLineService saleLineService;
-    private  final SaleService saleService;
+    private final SaleService saleService;
+    private final UserService userService;
+
 
     public SaleController() {
-        
-         this.newSale = new Sale();
-        this.buyerService = new BuyerService();
-        this.stockService = new LoteProductService();
-        this.saleService = new SaleService();
-        this.saleLineService= new SaleLineService();
-         
-    }
-    
-    
-
-    public SaleController(Employee employee) {
 
         this.newSale = new Sale();
-        newSale.setDateSale(LocalDate.now());
-        newSale.setEmployee(employee);
         this.buyerService = new BuyerService();
         this.stockService = new LoteProductService();
         this.saleService = new SaleService();
-        this.saleLineService= new SaleLineService();
+        this.saleLineService = new SaleLineService();
+        this.userService=new UserService();
+       
 
     }
 
+    public SaleController(User user) {
+
+        this.newSale = new Sale();
+       
+        this.buyerService = new BuyerService();
+        this.stockService = new LoteProductService();
+        this.saleService = new SaleService();
+        this.saleLineService = new SaleLineService();
+        this.userService=new UserService();
+        newSale.setDateSale(LocalDate.now());
+        newSale.setEmployee(this.userService.findEmployeeByUser(user));
+        
+        
    
+
+    }
 
     //FUNCION QUE LLAMO EN VENTA PASO 1 PARA BUSCAR CLIENTE
     public List<Buyer> findBuyerByDni(String dni) {
@@ -64,17 +70,18 @@ public class SaleController {
     public List<LoteProduct> findProductByDescription(String description) {
         return stockService.findByProductDescription(description);
     }
-    
-    public SaleLine getNewSaleLine(){
+
+  
+
+    public SaleLine getNewSaleLine() {
         return saleLineService.getNewSaleLine();
     }
-    
-    public void saveSaleLine(SaleLine saleLine){
+
+    public void saveSaleLine(SaleLine saleLine) {
         this.saleLineService.saveSaleLine(saleLine);
     }
 
- 
-     public Sale getNewSale() {
+    public Sale getNewSale() {
         return newSale;
     }
 
@@ -82,6 +89,5 @@ public class SaleController {
         this.saleService.saveSale(sale);
 
     }
-    
-  
+
 }

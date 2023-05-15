@@ -41,10 +41,14 @@ public class Sale implements Serializable {
         this.saleLines = new ArrayList<>();
     }
 
-    public Sale(Employee employee) {
-        this.saleLines = new ArrayList<>();
+
+    public Sale( LocalDate dateSale, Buyer buyer, Employee employee, List<SaleLine> saleLines) {
+        this.dateSale = dateSale;
+        this.buyer = buyer;
         this.employee = employee;
+        this.saleLines = new ArrayList<>();
     }
+    
 
     public Long getSaleId() {
         return saleId;

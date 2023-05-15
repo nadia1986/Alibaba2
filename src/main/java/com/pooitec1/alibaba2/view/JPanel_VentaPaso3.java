@@ -5,10 +5,8 @@
 package com.pooitec1.alibaba2.view;
 
 import com.pooitec1.alibaba2.controller.SaleController;
-import com.pooitec1.alibaba2.controller.SaleLineController;
+import com.pooitec1.alibaba2.controller.UserController;
 import com.pooitec1.alibaba2.entity.LoteProduct;
-import com.pooitec1.alibaba2.entity.Product;
-import com.pooitec1.alibaba2.entity.SaleLine;
 import com.pooitec1.alibaba2.view.resources.TableModelListenerProduct;
 import com.pooitec1.alibaba2.view.resources.TableModelProduct;
 import com.pooitec1.alibaba2.view.resources.ValidadorDeCampos;
@@ -21,8 +19,8 @@ import java.util.List;
  * @author nadia
  */
 public class JPanel_VentaPaso3 extends javax.swing.JPanel {
-    
-     LocalDate fecha = LocalDate.now();
+
+    LocalDate fecha = LocalDate.now();
 
     //Validado de campos
     ValidadorDeCampos validadorDeCampos;
@@ -31,33 +29,33 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
     private final TableModelProduct tableModelProduct;
 
     private LoteProduct loteProductSelected;
-    
-    SaleLineController controladorSaleLine;
 
     SaleController controlador;
-    
+    UserController userController;
+  
+
     private JPanelAplication panelMenu;
 
     /**
      * Creates new form JPanel_VentaPaso3
      */
-    public JPanel_VentaPaso3(JPanelAplication panelMenu, SaleController controladorP, SaleLineController controladorL) {
+    public JPanel_VentaPaso3(JPanelAplication panelMenu, SaleController controladorP) {
         this.validadorDeCampos = new ValidadorDeCampos();
 
         this.tableModelProduct = new TableModelProduct();
 
         this.controlador = controladorP;
-        this.controladorSaleLine= controladorL;
+
         this.panelMenu = panelMenu;
-        
-        
+
         initComponents();
-        
+
         this.jtbl_products.getSelectionModel().addListSelectionListener(new TableModelListenerProduct(this));
-       
+
         validadarCampos();
-        
+
         setupBotones();
+       //this.spncantidad.
     }
 
     /**
@@ -84,7 +82,7 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
         JLbl_price = new javax.swing.JLabel();
         jtf_quantity = new javax.swing.JLabel();
         JLbl_quantity = new javax.swing.JLabel();
-        Spncantidad = new javax.swing.JSpinner();
+        spncantidad = new javax.swing.JSpinner();
         jLabel1 = new javax.swing.JLabel();
         jLsubtotal = new javax.swing.JLabel();
 
@@ -149,20 +147,20 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
         jtf_quantity.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jtf_quantity.setText("Quantity:");
 
-        Spncantidad.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-        Spncantidad.addChangeListener(new javax.swing.event.ChangeListener() {
+        spncantidad.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        spncantidad.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                SpncantidadStateChanged(evt);
+                spncantidadStateChanged(evt);
             }
         });
-        Spncantidad.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        spncantidad.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                SpncantidadPropertyChange(evt);
+                spncantidadPropertyChange(evt);
             }
         });
-        Spncantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+        spncantidad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                SpncantidadKeyReleased(evt);
+                spncantidadKeyReleased(evt);
             }
         });
 
@@ -196,7 +194,7 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jtf_quantity)
                                 .addGap(18, 18, 18)
-                                .addComponent(Spncantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(spncantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(32, 32, 32)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -247,7 +245,7 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtf_quantity)
                     .addComponent(JLbl_quantity)
-                    .addComponent(Spncantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spncantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLsubtotal))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
@@ -280,7 +278,7 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
     private void jtxf_productnameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxf_productnameKeyReleased
         if (this.jtxf_productname.isEditable()) {
             //Actualizar el TableModel con la lista del controlador
-             this.tableModelProduct.setProducts(this.controlador.findProductByDescription(this.jtxf_productname.getText()));
+            this.tableModelProduct.setProducts(this.controlador.findProductByDescription(this.jtxf_productname.getText()));
 
             //Refrescar el modelo en la tabla
             this.tableModelProduct.fireTableDataChanged();
@@ -293,8 +291,8 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
 
     private void jbtn_agregarproductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_agregarproductActionPerformed
         if (this.loteProductSelected != null) {
-            this.controladorSaleLine.getNewSaleLine().setProduct(loteProductSelected.getProduct());
-           // this.controladorSaleLine.getNewSaleLine().setQuantity(Spncantidad);
+            this.controlador.getNewSaleLine().setProduct(loteProductSelected.getProduct());
+            // this.controladorSaleLine.getNewSaleLine().setQuantity(Spncantidad);
             //this.controlador.getNewSale().setSaleLines((List<SaleLine>) loteProductSelected);
 
             JPanel_VentaPaso2 panelPaso2 = new JPanel_VentaPaso2(this.panelMenu, this.controlador);
@@ -311,17 +309,17 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
         } // TODO add your handling code here:
     }//GEN-LAST:event_jbtn_agregarproductActionPerformed
 
-    private void SpncantidadKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SpncantidadKeyReleased
-      
-    }//GEN-LAST:event_SpncantidadKeyReleased
+    private void spncantidadKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_spncantidadKeyReleased
 
-    private void SpncantidadStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpncantidadStateChanged
-       calcularSubtotal();
-    }//GEN-LAST:event_SpncantidadStateChanged
+    }//GEN-LAST:event_spncantidadKeyReleased
 
-    private void SpncantidadPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_SpncantidadPropertyChange
+    private void spncantidadStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spncantidadStateChanged
+        calcularSubtotal();
+    }//GEN-LAST:event_spncantidadStateChanged
+
+    private void spncantidadPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_spncantidadPropertyChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_SpncantidadPropertyChange
+    }//GEN-LAST:event_spncantidadPropertyChange
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -329,7 +327,6 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
     private javax.swing.JLabel JLbl_description;
     private javax.swing.JLabel JLbl_price;
     private javax.swing.JLabel JLbl_quantity;
-    private javax.swing.JSpinner Spncantidad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLsubtotal;
     private javax.swing.JScrollPane jScrollPane1;
@@ -343,6 +340,7 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
     private javax.swing.JTable jtbl_products;
     private javax.swing.JLabel jtf_quantity;
     private javax.swing.JTextField jtxf_productname;
+    private javax.swing.JSpinner spncantidad;
     // End of variables declaration//GEN-END:variables
 
     /**
@@ -360,17 +358,17 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
 
         }
     }
-    
-    public void calcularSubtotal(){
-    Double  precio= this.loteProductSelected.getSalePrice();
-    int  cantidad= Integer.parseInt(Spncantidad.getValue().toString());
-    
-    jLsubtotal.setText(pasarMoneda(precio*cantidad)); 
+
+    public void calcularSubtotal() {
+        Double precio = this.loteProductSelected.getSalePrice();
+        int cantidad = Integer.parseInt(spncantidad.getValue().toString());
+
+        jLsubtotal.setText(pasarMoneda(precio * cantidad));
     }
-    
-    public String pasarMoneda(Double precio){
-        return "$ " + Math.round(precio*100.0)/100.0;  
-        
+
+    public String pasarMoneda(Double precio) {
+        return "$ " + Math.round(precio * 100.0) / 100.0;
+
     }
 
     private void validadarCampos() {

@@ -4,10 +4,9 @@
  */
 package com.pooitec1.alibaba2.view;
 
-import com.pooitec1.alibaba2.controller.PurchaseController;
+
 import com.pooitec1.alibaba2.controller.SaleController;
 import com.pooitec1.alibaba2.controller.UserController;
-import com.pooitec1.alibaba2.entity.Employee;
 import com.pooitec1.alibaba2.entity.User;
 
 /**
@@ -161,16 +160,8 @@ public class JPanelAplication extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_nuevaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_nuevaVentaActionPerformed
-
-        //1-crear controlador
-       // Employee employee = this.controlador.findByUser(this.controlador.getUserSelected());
-       
-       // Employee employee = this.controlador.buscarByUser(this.controlador.getUserSelected());
-        
-       // System.out.println(this.controlador.getUserSelected().getEmployee().getId());
-        
-        
-        SaleController controladorVenta = new SaleController();
+ 
+        SaleController controladorVenta = new SaleController(user);
         //2- crear panel enchufando el controlador creado en paso 1
         JPanel_VentaPaso1 panelPaso1 = new JPanel_VentaPaso1(this, controladorVenta);
         // JPanel_VentaPaso1 panelPaso1 = new JPanel_VentaPaso1(this, controlador);

@@ -25,7 +25,7 @@ public class TableModelListenerBuyer implements ListSelectionListener{
 
     @Override
     public void valueChanged(ListSelectionEvent e) {
-        this.jPanelProcesarCompraPaso1.seleccionarSocio();
+        this.jPanelProcesarCompraPaso1.seleccionarCliente();
     }
     
   

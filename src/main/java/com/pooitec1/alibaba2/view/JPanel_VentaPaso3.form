@@ -44,7 +44,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jtf_quantity" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="Spncantidad" min="-2" pref="60" max="-2" attributes="0"/>
+                              <Component id="spncantidad" min="-2" pref="60" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                               <Component id="jLabel1" min="-2" pref="71" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -111,7 +111,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jtf_quantity" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JLbl_quantity" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Spncantidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="spncantidad" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                   <Component id="jLsubtotal" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -245,16 +245,16 @@
     </Component>
     <Component class="javax.swing.JLabel" name="JLbl_quantity">
     </Component>
-    <Component class="javax.swing.JSpinner" name="Spncantidad">
+    <Component class="javax.swing.JSpinner" name="spncantidad">
       <Properties>
         <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
           <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="SpncantidadStateChanged"/>
-        <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="SpncantidadPropertyChange"/>
-        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SpncantidadKeyReleased"/>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="spncantidadStateChanged"/>
+        <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="spncantidadPropertyChange"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="spncantidadKeyReleased"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
