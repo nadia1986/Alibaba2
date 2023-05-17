@@ -147,7 +147,7 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
         jtf_quantity.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jtf_quantity.setText("Quantity:");
 
-        spncantidad.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        spncantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
         spncantidad.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 spncantidadStateChanged(evt);
@@ -203,12 +203,12 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
                                 .addComponent(JLbl_quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jlbl_prodcutname)
                                 .addGap(18, 18, 18)
-                                .addComponent(jtxf_productname, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jtxf_productname))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jbtn_cancelarventapaso3)
                                 .addGap(60, 60, 60)
@@ -305,7 +305,7 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
             this.panelMenu.validate();
 
         } else {
-            System.out.println("selecciona cliente");
+            System.out.println("selecciona Producto");
         } // TODO add your handling code here:
     }//GEN-LAST:event_jbtn_agregarproductActionPerformed
 
@@ -355,6 +355,7 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
             this.JLbl_code.setText(this.loteProductSelected.getProduct().getCodProd());
             this.JLbl_description.setText(this.loteProductSelected.getProduct().getProductType().getDescription());
             this.JLbl_price.setText(pasarMoneda(this.loteProductSelected.getSalePrice()));
+            jLsubtotal.setText(pasarMoneda(this.loteProductSelected.getSalePrice()));
 
         }
     }

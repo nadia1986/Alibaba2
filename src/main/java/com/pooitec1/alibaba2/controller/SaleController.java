@@ -7,6 +7,8 @@ package com.pooitec1.alibaba2.controller;
 import com.pooitec1.alibaba2.entity.Buyer;
 import com.pooitec1.alibaba2.entity.Employee;
 import com.pooitec1.alibaba2.entity.LoteProduct;
+import static com.pooitec1.alibaba2.entity.LoteProduct_.product;
+import com.pooitec1.alibaba2.entity.Product;
 import com.pooitec1.alibaba2.entity.Sale;
 import com.pooitec1.alibaba2.entity.SaleLine;
 import com.pooitec1.alibaba2.entity.User;
@@ -69,6 +71,10 @@ public class SaleController {
     //FUNCION QUE LLAMO EN VENTA PASO 3 PARA BUSCAR PRODUCTOS EN LoteProduct(porque el lote es quien tiene el producto)
     public List<LoteProduct> findProductByDescription(String description) {
         return stockService.findByProductDescription(description);
+    }
+    
+    public Integer traerStockMax( Product product){
+        return stockService.verStockTotalProducto(product);
     }
 
   
