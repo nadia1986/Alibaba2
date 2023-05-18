@@ -1,13 +1,13 @@
 package com.pooitec1.alibaba2.view;
 
 import com.pooitec1.alibaba2.controller.SaleController;
-import com.pooitec1.alibaba2.controller.SaleLineController;
-import com.pooitec1.alibaba2.controller.UserController;
-import com.pooitec1.alibaba2.entity.User;
+import com.pooitec1.alibaba2.entity.SaleLine;
 import com.pooitec1.alibaba2.view.resources.ValidadorDeCampos;
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.time.LocalDateTime;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
+
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -17,14 +17,15 @@ import javax.swing.table.DefaultTableModel;
 public class JPanel_VentaPaso2 extends javax.swing.JPanel {
 
     LocalDate fi = LocalDate.now();
-    Calendar calendario = new GregorianCalendar();
+    LocalDateTime localDate = LocalDateTime.now();
+    double listaIva[]={21,10.5,5};
+   
+    // ArrayList<SaleLine> saleLines = new ArrayList<SaleLine>();
 
-    //Validado de campos
     ValidadorDeCampos validadorDeCampos;
-    //variables de tabla
+
     DefaultTableModel modelo = new DefaultTableModel();
     SaleController controlador;
-    //SaleLineController controladorSaleLine;
 
     private JPanelAplication panelMenu;
 
@@ -36,29 +37,28 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
 
         this.validadorDeCampos = new ValidadorDeCampos();
 
-        //this.tableModelLibro = new TableModelLibro();
         this.controlador = controladorP;
         this.panelMenu = panelMenu;
-        
+
         initComponents();
 
-        System.out.println(this.controlador.getNewSale().getEmployee().getFirstName());
+        // System.out.println(this.controlador.getNewSale().getEmployee().getFirstName());
         this.jlbl_employee.setText(this.controlador.getNewSale().getEmployee().getFirstName() + " " + this.controlador.getNewSale().getEmployee().getLastName());
         this.jlbl_date.setText(this.controlador.getNewSale().getDateSale().toString());
-        this.jlbl_cliente.setText(this.controlador.getNewSale().getBuyer().getFirstName());
-        this.jlbl_time.setText(this.calendario.getCalendarType());
-        //this.jlbl_employee.setText(controlador.getNewSale().getEmployee().getFirstName()+" "+ controlador.getNewSale().getEmployee().getLastName());
+        this.jlbl_cliente.setText(this.controlador.getNewSale().getBuyer().getFirstName() + " " + this.controlador.getNewSale().getBuyer().getLastName());
+        this.jlbl_time.setText(this.localDate.getHour() + ":" + this.localDate.getMinute() + ":" + this.localDate.getSecond());
+
         modelo.addColumn("Code Product");
         modelo.addColumn("Description");
         modelo.addColumn("Price");
         modelo.addColumn("Quantity");
         modelo.addColumn("Subtotal");
+        //saleLines.add(this.controlador.getNewSaleLine());
+        //this.controlador.getNewSale().setSaleLines(saleLines);
         actualizarTabla();
+        //DefaultComboBoxModel comboModel= new DefaultComboBoxModel(listaIva.toString());
+        //jcombo_iva.setModel(comboModel);
 
-        //agrega escuchadores de las tablas
-        //this.jtbl_libros.getSelectionModel().addListSelectionListener(new TableModelListenerLibro(this));
-        //  validadarCampos();
-        // setupBotones();
     }
 
     @SuppressWarnings("unchecked")
@@ -81,11 +81,11 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
         jBtn_atrasventapaso2 = new javax.swing.JButton();
         jlbl_cliente = new javax.swing.JLabel();
         jlbl_employee = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jlbl_date = new javax.swing.JLabel();
         jlbl_time = new javax.swing.JLabel();
+        jcombo_iva = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -169,8 +169,6 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
 
         jlbl_employee.setText("jLabel11");
 
-        jLabel11.setText("jLabel11");
-
         jLabel12.setText("jLabel12");
 
         jLabel13.setText("jLabel13");
@@ -178,6 +176,13 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
         jlbl_date.setText("jLabel14");
 
         jlbl_time.setText("jLabel10");
+
+        jcombo_iva.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcombo_iva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcombo_ivaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -200,8 +205,8 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
                                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel7)
-                                    .addGap(71, 71, 71)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGap(44, 44, 44)
+                                    .addComponent(jcombo_iva, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(46, 46, 46)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,13 +267,13 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBtn_addproduct)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(jcombo_iva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(19, 19, 19)
                         .addComponent(jLabel8))
                     .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
@@ -284,6 +289,7 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtn_addproductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn_addproductActionPerformed
+
         JPanel_VentaPaso3 panelventapaso3 = new JPanel_VentaPaso3(this.panelMenu, this.controlador);
 
         panelventapaso3.setSize(814, 600);
@@ -316,12 +322,15 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
         this.panelMenu.validate(); // TODO add your handling code here:
     }//GEN-LAST:event_jBtn_atrasventapaso2ActionPerformed
 
+    private void jcombo_ivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcombo_ivaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcombo_ivaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtn_addproduct;
     private javax.swing.JButton jBtn_atrasventapaso2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
@@ -335,14 +344,39 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_lineadeventa;
     private javax.swing.JButton jbtn_cancelarventapaso2;
+    private javax.swing.JComboBox<String> jcombo_iva;
     private javax.swing.JLabel jlbl_cliente;
     private javax.swing.JLabel jlbl_date;
     private javax.swing.JLabel jlbl_employee;
     private javax.swing.JLabel jlbl_time;
     // End of variables declaration//GEN-END:variables
 
+    
+        public void calcularPrecio(){
+           
+           
+        }
     public void actualizarTabla() {
+        while (modelo.getRowCount() > 0) {
+            modelo.removeRow(0);
+        }
+
+        for (SaleLine saleLine : this.controlador.getNewSale().getSaleLines()) {
+            Object x[] = new Object[5];
+            x[0] = saleLine.getProduct().getCodProd();
+            x[1] = saleLine.getProduct().getDescription();
+            x[2] = pasarMoneda(this.controlador.obtenerPrecio(saleLine.getProduct()));
+            x[3] = saleLine.getQuantity();
+            x[4] = pasarMoneda(this.controlador.obtenerPrecio(saleLine.getProduct()) * saleLine.getQuantity());
+            modelo.addRow(x);
+
+        }
         jTable_lineadeventa.setModel(modelo);
+    }
+
+    public String pasarMoneda(Double precio) {
+        return "$ " + Math.round(precio * 100.0) / 100.0;
+
     }
 
 }

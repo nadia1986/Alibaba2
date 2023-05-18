@@ -1,7 +1,6 @@
 package com.pooitec1.alibaba2.view;
 
 import com.pooitec1.alibaba2.controller.SaleController;
-import com.pooitec1.alibaba2.controller.UserController;
 import com.pooitec1.alibaba2.entity.Buyer;
 import com.pooitec1.alibaba2.entity.User;
 import com.pooitec1.alibaba2.view.resources.TableModelBuyer;
@@ -25,13 +24,11 @@ public class JPanel_VentaPaso1 extends javax.swing.JPanel {
     User user;
     SaleController controlador;
     private JPanelAplication panelMenu;
-    
 
     /**
      * Creates new form JPanel_VentaPaso1
      */
     public JPanel_VentaPaso1(JPanelAplication panelMenu, SaleController controladorP) {
-        //this.user = controladorP.getUserSelected();
 
         this.validadorDeCampos = new ValidadorDeCampos();
         //JTable vacio
@@ -42,7 +39,7 @@ public class JPanel_VentaPaso1 extends javax.swing.JPanel {
         initComponents();
         //escuchador de tabla
         this.jtb_buyers.getSelectionModel().addListSelectionListener(new TableModelListenerBuyer(this));
-        //this.jlbl_userName2.setText(this.controlador.getUserSelected().getNickname());
+
         validadarCampos();
 
         setupBotones();

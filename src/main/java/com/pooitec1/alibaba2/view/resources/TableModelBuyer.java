@@ -14,16 +14,16 @@ import javax.swing.table.AbstractTableModel;
  * @author nadia
  */
 public class TableModelBuyer extends AbstractTableModel {
-     private static final String[] COLUMNAS = {"FisrtName", "LastName", "Dni", "Address", "Phone", "Email"};
+
+    private static final String[] COLUMNAS = {"FisrtName", "LastName", "Dni", "Address", "Phone", "Email"};
     private List<Buyer> buyers;
-    
 
     public TableModelBuyer() {
         buyers = new ArrayList<>();
     }
 
     @Override
-    public int getRowCount() {        
+    public int getRowCount() {
         return buyers == null ? 0 : buyers.size();
     }
 
@@ -51,10 +51,10 @@ public class TableModelBuyer extends AbstractTableModel {
                 retorno = buyer.getAddress();
                 break;
             case 4:
-                retorno= buyer.getPhone();
+                retorno = buyer.getPhone();
                 break;
             case 5:
-                retorno=buyer.getEmail();
+                retorno = buyer.getEmail();
                 break;
         }
         return retorno;
@@ -69,16 +69,16 @@ public class TableModelBuyer extends AbstractTableModel {
         this.buyers = buyers;
     }
 
-    public Buyer getBuyerIn (int row) {
+    public Buyer getBuyerIn(int row) {
         return buyers.get(row);
     }
 
-    public int findRowBuyer(Buyer buyerSearch){
+    public int findRowBuyer(Buyer buyerSearch) {
         int row = 0;
         int accountant = 0;
         for (Buyer buyerR : buyers) {
-            accountant = accountant +1;
-            if (buyerSearch.getDni()==buyerR.getDni()) {
+            accountant = accountant + 1;
+            if (buyerSearch.getDni() == buyerR.getDni()) {
                 row = accountant;
             }
         }

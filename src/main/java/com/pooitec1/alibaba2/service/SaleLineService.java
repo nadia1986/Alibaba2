@@ -7,6 +7,7 @@ package com.pooitec1.alibaba2.service;
 import com.pooitec1.alibaba2.entity.SaleLine;
 import com.pooitec1.alibaba2.entity.repository.Conexion;
 import com.pooitec1.alibaba2.entity.repository.SaleLineRepository;
+import java.util.List;
 
 /**
  *
@@ -34,6 +35,8 @@ public class SaleLineService {
     }
 
     
-    
+    public List<SaleLine> getSaleLines(){
+        return this.saleLineRepository.findSaleLineEntities();
+    }
 
 }

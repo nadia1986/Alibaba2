@@ -29,17 +29,17 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jlbl_descripcion" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="JLbl_code" min="-2" pref="315" max="-2" attributes="0"/>
+                              <Component id="jlblcode" min="-2" pref="315" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jlbl_tipoproducto" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="JLbl_description" min="-2" pref="274" max="-2" attributes="0"/>
+                              <Component id="jlbldescription" min="-2" pref="274" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jlbl_precio" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="JLbl_price" min="-2" pref="315" max="-2" attributes="0"/>
+                              <Component id="jlblprice" min="-2" pref="315" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jtf_quantity" min="-2" max="-2" attributes="0"/>
@@ -48,7 +48,7 @@
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                               <Component id="jLabel1" min="-2" pref="71" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLsubtotal" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlblsubtotal" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="JLbl_quantity" min="-2" pref="315" max="-2" attributes="0"/>
                           </Group>
@@ -68,7 +68,7 @@
                               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                               <Component id="jbtn_atrasventapaso3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                              <Component id="jbtn_agregarproduct" min="-2" max="-2" attributes="0"/>
+                              <Component id="jbtn_agregarsaleline" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -94,18 +94,18 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JLbl_code" min="-2" max="-2" attributes="0"/>
+                      <Component id="jlblcode" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jlbl_tipoproducto" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JLbl_description" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jlbldescription" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jlbl_precio" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JLbl_price" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jlblprice" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -113,13 +113,13 @@
                   <Component id="JLbl_quantity" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="spncantidad" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                  <Component id="jLsubtotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jlblsubtotal" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="35" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jbtn_cancelarventapaso3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jbtn_atrasventapaso3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jbtn_agregarproduct" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbtn_agregarsaleline" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
           </Group>
@@ -179,7 +179,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtn_atrasventapaso3ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jbtn_agregarproduct">
+    <Component class="javax.swing.JButton" name="jbtn_agregarsaleline">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="18" style="1"/>
@@ -187,7 +187,7 @@
         <Property name="text" type="java.lang.String" value="ADD"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtn_agregarproductActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtn_agregarsalelineActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jlbl_descripcion">
@@ -220,17 +220,17 @@
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtxf_productnameKeyReleased"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="JLbl_code">
+    <Component class="javax.swing.JLabel" name="jlblcode">
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="JLbl_description">
+    <Component class="javax.swing.JLabel" name="jlbldescription">
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel2"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="JLbl_price">
+    <Component class="javax.swing.JLabel" name="jlblprice">
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel3"/>
       </Properties>
@@ -265,7 +265,7 @@
         <Property name="text" type="java.lang.String" value="Subtotal:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLsubtotal">
+    <Component class="javax.swing.JLabel" name="jlblsubtotal">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="18" style="1"/>

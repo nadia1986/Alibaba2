@@ -7,7 +7,6 @@ package com.pooitec1.alibaba2.controller;
 import com.pooitec1.alibaba2.entity.Buyer;
 import com.pooitec1.alibaba2.entity.Employee;
 import com.pooitec1.alibaba2.entity.LoteProduct;
-import static com.pooitec1.alibaba2.entity.LoteProduct_.product;
 import com.pooitec1.alibaba2.entity.Product;
 import com.pooitec1.alibaba2.entity.Sale;
 import com.pooitec1.alibaba2.entity.SaleLine;
@@ -75,6 +74,10 @@ public class SaleController {
     
     public Integer traerStockMax( Product product){
         return stockService.verStockTotalProducto(product);
+    }
+    
+    public Double obtenerPrecio(Product product){
+        return stockService.obtenerPrecioVentaProducto(product);
     }
 
   

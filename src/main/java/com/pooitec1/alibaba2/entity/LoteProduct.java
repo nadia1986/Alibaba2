@@ -24,14 +24,14 @@ public class LoteProduct implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idLote;
 
-    private int quantity;
+    private Integer quantity;
     private Integer cantidadActual;
-    private int stockMin;
+    private Integer stockMin;
     private LocalDate expiration;
-    private int stockMax;
-    private double price;
-    private double priceUnit;
-    private double salePrice;
+    private Integer stockMax;
+    private Double price;
+    private Double priceUnit;
+    private Double salePrice;
 
     @ManyToOne
     private Sector sector;
@@ -42,7 +42,7 @@ public class LoteProduct implements Serializable {
     public LoteProduct() {
     }
 
-    public LoteProduct(int quantity, Integer cantidadActual, int stockMin, LocalDate expiration, int stockMax, double price, double priceUnit, double salePrice, Sector sector, Product product) {
+    public LoteProduct(Integer quantity, Integer cantidadActual, Integer stockMin, LocalDate expiration, Integer stockMax, Double price, Double priceUnit, Double salePrice, Sector sector, Product product) {
         this.quantity = quantity;
         this.cantidadActual = cantidadActual;
         this.stockMin = stockMin;
