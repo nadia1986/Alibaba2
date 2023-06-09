@@ -1,14 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.pooitec1.alibaba2.service;
 
 import com.pooitec1.alibaba2.entity.Product;
 import com.pooitec1.alibaba2.entity.LoteProduct;
 import com.pooitec1.alibaba2.entity.repository.Conexion;
 import com.pooitec1.alibaba2.entity.repository.LoteProductRepository;
-
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -21,11 +16,9 @@ import java.util.List;
 public class LoteProductService {
 
     private final LoteProductRepository stockRepository;
-    //private final ProductService service;(???)
 
     public LoteProductService() {
         this.stockRepository = new LoteProductRepository(Conexion.getEmf());
-        //this.service = new ProductService();
 
     }
 
@@ -48,7 +41,6 @@ public class LoteProductService {
 
     }
 
-  
     public List<LoteProduct> findByProduct(Product product) {
         List<LoteProduct> stockProductfound = new ArrayList<>();
         for (LoteProduct stockPr : this.stockRepository.findStockProductEntities()) {
@@ -76,7 +68,7 @@ public class LoteProductService {
         return precioProducto;
     }
 
-     public Integer verStockTotalProducto(Product product) {
+    public Integer verStockTotalProducto(Product product) {
 
         Integer cantidadTotalProducto = 0;
 
@@ -117,6 +109,25 @@ public class LoteProductService {
         }
 
         return state;
+    }
+
+    public void discountStockProduct(Product productSeleccionado, int quantity) {
+
+        Integer productStock = verStockTotalProducto(productSeleccionado);
+
+        for (LoteProduct stockProduct : this.stockRepository.findStockProductEntities()) {
+            if (stockProduct.getProduct().equals(productSeleccionado)) {
+
+                productStock = productStock - quantity;
+                System.out.println("el stock es " + productStock);
+              
+
+            }
+
+        }
+       
+
+        
     }
 
 }

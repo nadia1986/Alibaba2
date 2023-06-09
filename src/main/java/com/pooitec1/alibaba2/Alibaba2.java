@@ -17,6 +17,6 @@ public class Alibaba2 {
 
         new Conexion();
        JFrameLogin app = new JFrameLogin();
-        System.out.println("Hello World!");
+
     }
 }

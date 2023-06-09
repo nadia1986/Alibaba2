@@ -2,7 +2,6 @@ package com.pooitec1.alibaba2.view;
 
 import com.pooitec1.alibaba2.controller.SaleController;
 import com.pooitec1.alibaba2.entity.Buyer;
-import com.pooitec1.alibaba2.entity.User;
 import com.pooitec1.alibaba2.view.resources.TableModelBuyer;
 import com.pooitec1.alibaba2.view.resources.TableModelListenerBuyer;
 import com.pooitec1.alibaba2.view.resources.ValidadorDeCampos;
@@ -21,7 +20,7 @@ public class JPanel_VentaPaso1 extends javax.swing.JPanel {
     private final TableModelBuyer tableModelBuyer;
 
     private Buyer buyerSeleccionado;
-    User user;
+
     SaleController controlador;
     private JPanelAplication panelMenu;
 
@@ -100,7 +99,7 @@ public class JPanel_VentaPaso1 extends javax.swing.JPanel {
         jLabel4.setText("Dni:");
 
         jbtn_cancelar.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jbtn_cancelar.setText("CANCELAR");
+        jbtn_cancelar.setText("CANCEL");
         jbtn_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtn_cancelarActionPerformed(evt);
@@ -108,7 +107,7 @@ public class JPanel_VentaPaso1 extends javax.swing.JPanel {
         });
 
         jbtn_siguientepaso1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jbtn_siguientepaso1.setText("SIGUIENTE");
+        jbtn_siguientepaso1.setText("NEXT");
         jbtn_siguientepaso1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtn_siguientepaso1ActionPerformed(evt);

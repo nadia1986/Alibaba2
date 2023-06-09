@@ -1,11 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.pooitec1.alibaba2.controller;
 
 import com.pooitec1.alibaba2.entity.Buyer;
-import com.pooitec1.alibaba2.entity.Employee;
 import com.pooitec1.alibaba2.entity.LoteProduct;
 import com.pooitec1.alibaba2.entity.Product;
 import com.pooitec1.alibaba2.entity.Sale;
@@ -32,7 +27,6 @@ public class SaleController {
     private final SaleService saleService;
     private final UserService userService;
 
-
     public SaleController() {
 
         this.newSale = new Sale();
@@ -40,25 +34,21 @@ public class SaleController {
         this.stockService = new LoteProductService();
         this.saleService = new SaleService();
         this.saleLineService = new SaleLineService();
-        this.userService=new UserService();
-       
+        this.userService = new UserService();
 
     }
 
     public SaleController(User user) {
 
         this.newSale = new Sale();
-       
+
         this.buyerService = new BuyerService();
         this.stockService = new LoteProductService();
         this.saleService = new SaleService();
         this.saleLineService = new SaleLineService();
-        this.userService=new UserService();
+        this.userService = new UserService();
         newSale.setDateSale(LocalDate.now());
         newSale.setEmployee(this.userService.findEmployeeByUser(user));
-        
-        
-   
 
     }
 
@@ -71,16 +61,18 @@ public class SaleController {
     public List<LoteProduct> findProductByDescription(String description) {
         return stockService.findByProductDescription(description);
     }
-    
-    public Integer traerStockMax( Product product){
+
+    public Integer traerStockMax(Product product) {
         return stockService.verStockTotalProducto(product);
     }
-    
-    public Double obtenerPrecio(Product product){
+
+    public Double obtenerPrecio(Product product) {
         return stockService.obtenerPrecioVentaProducto(product);
     }
-
-  
+    
+    public void discountStock(Product product, Integer quantity){
+        this.stockService.discountStockProduct(product, quantity);
+    }
 
     public SaleLine getNewSaleLine() {
         return saleLineService.getNewSaleLine();

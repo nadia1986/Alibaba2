@@ -8,7 +8,8 @@ import com.pooitec1.alibaba2.view.resources.TableModelProduct;
 import com.pooitec1.alibaba2.view.resources.ValidadorDeCampos;
 import java.awt.Color;
 import java.time.LocalDate;
-import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.SpinnerNumberModel;
 
 /**
  *
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 public class JPanel_VentaPaso3 extends javax.swing.JPanel {
 
     LocalDate fecha = LocalDate.now();
-    ArrayList<SaleLine> saleLines = new ArrayList();
+
     ValidadorDeCampos validadorDeCampos;
 
     SaleController controlador;
@@ -277,23 +278,35 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
     private void jbtn_agregarsalelineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_agregarsalelineActionPerformed
         if (this.loteProductSelected != null) {
 
-            this.controlador.getNewSaleLine().setProduct(loteProductSelected.getProduct());
-            this.controlador.getNewSaleLine().setQuantity(Integer.parseInt(spncantidad.getValue().toString()));
+            if (Integer.parseInt(spncantidad.getValue().toString()) <= this.loteProductSelected.getCantidadActual() && Integer.parseInt(spncantidad.getValue().toString()) != 0) {
 
-            saleLines.add(this.controlador.getNewSaleLine());
-            this.controlador.getNewSale().setSaleLines(saleLines);
+                SaleLine saleLine = new SaleLine();
+                saleLine.setProduct(loteProductSelected.getProduct());
+                saleLine.setQuantity(Integer.parseInt(spncantidad.getValue().toString()));
 
-            JPanel_VentaPaso2 panelPaso2 = new JPanel_VentaPaso2(this.panelMenu, this.controlador);
+                this.controlador.getNewSale().getSaleLines().add(saleLine);
+                
+                this.controlador.discountStock(saleLine.getProduct(), saleLine.getQuantity());
+               
 
-            panelPaso2.setSize(814, 600);
-            this.panelMenu.limpiarPanelContenido();
+                JPanel_VentaPaso2 panelPaso2 = new JPanel_VentaPaso2(this.panelMenu, this.controlador);
 
-            this.panelMenu.getjPanel_contenido().add(panelPaso2);
-            this.panelMenu.repaint();
-            this.panelMenu.validate();
+                panelPaso2.setSize(814, 600);
+                this.panelMenu.limpiarPanelContenido();
+
+                this.panelMenu.getjPanel_contenido().add(panelPaso2);
+                this.panelMenu.repaint();
+                this.panelMenu.validate();
+
+            } else {
+
+                //System.out.println("Stock insuficiente");
+                JOptionPane.showMessageDialog(null, "Hola, stock insuficiente!" + " " + "El stock disponibke es: " + this.loteProductSelected.getCantidadActual());
+            }
 
         } else {
-            System.out.println("selecciona Producto");
+            JOptionPane.showMessageDialog(null, "Hola. Selecciona un producto");
+            //System.out.println("selecciona Producto");
         } // TODO add your handling code here:
     }//GEN-LAST:event_jbtn_agregarsalelineActionPerformed
 
@@ -302,6 +315,11 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
     }//GEN-LAST:event_spncantidadKeyReleased
 
     private void spncantidadStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spncantidadStateChanged
+        // SpinnerNumberModel modeloSpinner = new SpinnerNumberModel();
+        //modeloSpinner.setMaximum(this.loteProductSelected.getCantidadActual());
+        //modeloSpinner.setMaximum(loteProductSelected.getCantidadActual());
+        //modeloSpinner.setMinimum(1);
+        //spncantidad.setModel(modeloSpinner);
         calcularSubtotal();
     }//GEN-LAST:event_spncantidadStateChanged
 
@@ -331,13 +349,14 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
     private javax.swing.JSpinner spncantidad;
     // End of variables declaration//GEN-END:variables
 
-   
     public void seleccionarProducto() {
-       
+
         int filaSeleccionada = this.jtbl_products.getSelectedRow();
-       
+
         if (filaSeleccionada >= 0) {
+            
             this.loteProductSelected = this.tableModelProduct.getProductIn(filaSeleccionada);
+           
             this.jlblcode.setText(this.loteProductSelected.getProduct().getCodProd());
             this.jlbldescription.setText(this.loteProductSelected.getProduct().getProductType().getDescription());
             this.jlblprice.setText(pasarMoneda(this.loteProductSelected.getSalePrice()));
