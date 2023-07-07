@@ -4,13 +4,13 @@
  */
 package com.pooitec1.alibaba2.entity.repository;
 
+import com.pooitec1.alibaba2.entity.LoteProduct;
 import java.io.Serializable;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import com.pooitec1.alibaba2.entity.Sector;
-import com.pooitec1.alibaba2.entity.LoteProduct;
 import com.pooitec1.alibaba2.entity.repository.exceptions.NonexistentEntityException;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -31,19 +31,19 @@ public class LoteProductRepository implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(LoteProduct stockProduct) {
+    public void create(LoteProduct loteProduct) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Sector sector = stockProduct.getSector();
+            Sector sector = loteProduct.getSector();
             if (sector != null) {
                 sector = em.getReference(sector.getClass(), sector.getId());
-                stockProduct.setSector(sector);
+                loteProduct.setSector(sector);
             }
-            em.persist(stockProduct);
+            em.persist(loteProduct);
             if (sector != null) {
-                sector.getStocksProcucts().add(stockProduct);
+                sector.getStocksProcucts().add(loteProduct);
                 sector = em.merge(sector);
             }
             em.getTransaction().commit();
@@ -54,34 +54,34 @@ public class LoteProductRepository implements Serializable {
         }
     }
 
-    public void edit(LoteProduct stockProduct) throws NonexistentEntityException, Exception {
+    public void edit(LoteProduct loteProduct) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            LoteProduct persistentStockProduct = em.find(LoteProduct.class, stockProduct.getIdLote());
-            Sector sectorOld = persistentStockProduct.getSector();
-            Sector sectorNew = stockProduct.getSector();
+            LoteProduct persistentLoteProduct = em.find(LoteProduct.class, loteProduct.getIdLote());
+            Sector sectorOld = persistentLoteProduct.getSector();
+            Sector sectorNew = loteProduct.getSector();
             if (sectorNew != null) {
                 sectorNew = em.getReference(sectorNew.getClass(), sectorNew.getId());
-                stockProduct.setSector(sectorNew);
+                loteProduct.setSector(sectorNew);
             }
-            stockProduct = em.merge(stockProduct);
+            loteProduct = em.merge(loteProduct);
             if (sectorOld != null && !sectorOld.equals(sectorNew)) {
-                sectorOld.getStocksProcucts().remove(stockProduct);
+                sectorOld.getStocksProcucts().remove(loteProduct);
                 sectorOld = em.merge(sectorOld);
             }
             if (sectorNew != null && !sectorNew.equals(sectorOld)) {
-                sectorNew.getStocksProcucts().add(stockProduct);
+                sectorNew.getStocksProcucts().add(loteProduct);
                 sectorNew = em.merge(sectorNew);
             }
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = stockProduct.getIdLote();
-                if (findStockProduct(id) == null) {
-                    throw new NonexistentEntityException("The stockProduct with id " + id + " no longer exists.");
+                Long id = loteProduct.getIdLote();
+                if (findLoteProduct(id) == null) {
+                    throw new NonexistentEntityException("The loteProduct with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -97,19 +97,19 @@ public class LoteProductRepository implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            LoteProduct stockProduct;
+            LoteProduct loteProduct;
             try {
-                stockProduct = em.getReference(LoteProduct.class, id);
-                stockProduct.getIdLote();
+                loteProduct = em.getReference(LoteProduct.class, id);
+                loteProduct.getIdLote();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The stockProduct with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The loteProduct with id " + id + " no longer exists.", enfe);
             }
-            Sector sector = stockProduct.getSector();
+            Sector sector = loteProduct.getSector();
             if (sector != null) {
-                sector.getStocksProcucts().remove(stockProduct);
+                sector.getStocksProcucts().remove(loteProduct);
                 sector = em.merge(sector);
             }
-            em.remove(stockProduct);
+            em.remove(loteProduct);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -118,15 +118,15 @@ public class LoteProductRepository implements Serializable {
         }
     }
 
-    public List<LoteProduct> findStockProductEntities() {
-        return findStockProductEntities(true, -1, -1);
+    public List<LoteProduct> findLoteProductEntities() {
+        return findLoteProductEntities(true, -1, -1);
     }
 
-    public List<LoteProduct> findStockProductEntities(int maxResults, int firstResult) {
-        return findStockProductEntities(false, maxResults, firstResult);
+    public List<LoteProduct> findLoteProductEntities(int maxResults, int firstResult) {
+        return findLoteProductEntities(false, maxResults, firstResult);
     }
 
-    private List<LoteProduct> findStockProductEntities(boolean all, int maxResults, int firstResult) {
+    private List<LoteProduct> findLoteProductEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
@@ -142,7 +142,7 @@ public class LoteProductRepository implements Serializable {
         }
     }
 
-    public LoteProduct findStockProduct(Long id) {
+    public LoteProduct findLoteProduct(Long id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(LoteProduct.class, id);
@@ -151,7 +151,7 @@ public class LoteProductRepository implements Serializable {
         }
     }
 
-    public int getStockProductCount() {
+    public int getLoteProductCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();

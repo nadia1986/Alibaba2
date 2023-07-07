@@ -8,6 +8,7 @@ com\pooitec1\alibaba2\entity\repository\SaleLineRepository.class
 com\pooitec1\alibaba2\view\JPanelAplication$2.class
 com\pooitec1\alibaba2\entity\repository\BuyerRepository.class
 com\pooitec1\alibaba2\entity\User.class
+com\pooitec1\alibaba2\entity\repository\PurchaseLineJpaController.class
 com\pooitec1\alibaba2\entity\repository\WharehouseRepository.class
 com\pooitec1\alibaba2\view\JPanel_VentaPaso1$1.class
 com\pooitec1\alibaba2\entity\PurchaseLine.class
@@ -19,8 +20,9 @@ com\pooitec1\alibaba2\view\JPanel_VentaPaso2$2.class
 com\pooitec1\alibaba2\controller\UserController.class
 com\pooitec1\alibaba2\view\resources\TableModelSeller.class
 com\pooitec1\alibaba2\controller\PurchaseController.class
+com\pooitec1\alibaba2\view\JPanel_VentaPaso2$5.class
 com\pooitec1\alibaba2\entity\repository\ProductRepository.class
-com\pooitec1\alibaba2\entity\repository\SectorRepository.class
+com\pooitec1\alibaba2\service\EmployeeService.class
 com\pooitec1\alibaba2\service\PurchaseService.class
 com\pooitec1\alibaba2\view\JPanel_VentaPaso1$3.class
 com\pooitec1\alibaba2\entity\Sale_.class
@@ -34,6 +36,7 @@ com\pooitec1\alibaba2\view\JFrameLogin.class
 com\pooitec1\alibaba2\entity\ProductType.class
 com\pooitec1\alibaba2\service\SellerService.class
 com\pooitec1\alibaba2\view\JFrameAplication.class
+com\pooitec1\alibaba2\entity\repository\ProductTypeJpaController.class
 com\pooitec1\alibaba2\view\JPanelLogin.class
 com\pooitec1\alibaba2\Alibaba2.class
 com\pooitec1\alibaba2\entity\repository\PurchaseRepository.class
@@ -61,7 +64,6 @@ com\pooitec1\alibaba2\entity\repository\EmployeeRepository.class
 com\pooitec1\alibaba2\entity\Seller_.class
 com\pooitec1\alibaba2\view\JPanel_VentaPaso3$4.class
 com\pooitec1\alibaba2\view\resources\TableModelListenerBuyer.class
-com\pooitec1\alibaba2\entity\repository\PurchaseLineRepository.class
 com\pooitec1\alibaba2\view\JPanel_VentaPaso3$6.class
 com\pooitec1\alibaba2\service\ProductService.class
 com\pooitec1\alibaba2\view\resources\ValidadorDeCampos.class
@@ -76,13 +78,13 @@ com\pooitec1\alibaba2\view\JPanelLogin$1.class
 com\pooitec1\alibaba2\entity\Wharehouse.class
 com\pooitec1\alibaba2\service\BuyerService.class
 com\pooitec1\alibaba2\entity\User_.class
-com\pooitec1\alibaba2\entity\repository\ProductTypeRepository.class
 com\pooitec1\alibaba2\service\SaleLineService.class
 com\pooitec1\alibaba2\view\JPanel_VentaPaso3.class
 com\pooitec1\alibaba2\entity\ProductType_.class
 com\pooitec1\alibaba2\entity\repository\UserRepository.class
 com\pooitec1\alibaba2\view\JPanel_VentaPaso3$7.class
 com\pooitec1\alibaba2\entity\repository\ShippingJpaController.class
+com\pooitec1\alibaba2\entity\repository\SectorJpaController.class
 com\pooitec1\alibaba2\view\resources\ValidadorDeCampos$3.class
 com\pooitec1\alibaba2\entity\SaleLine.class
 com\pooitec1\alibaba2\view\JPanel_VentaPaso2$4.class
@@ -90,6 +92,7 @@ com\pooitec1\alibaba2\view\resources\ValidadorDeCampos$4.class
 com\pooitec1\alibaba2\entity\Buyer.class
 com\pooitec1\alibaba2\view\resources\TableModelListenerProduct.class
 com\pooitec1\alibaba2\view\JPanel_VentaPaso3$2.class
+com\pooitec1\alibaba2\view\resources\TableModelSaleLine.class
 com\pooitec1\alibaba2\view\resources\TableModelListenerSeller.class
 com\pooitec1\alibaba2\entity\SaleLine_.class
 com\pooitec1\alibaba2\entity\LoteProduct_.class

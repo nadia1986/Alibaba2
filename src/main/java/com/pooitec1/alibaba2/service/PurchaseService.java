@@ -4,10 +4,9 @@
  */
 package com.pooitec1.alibaba2.service;
 
-import com.pooitec1.alibaba2.entity.Employee;
+
 import com.pooitec1.alibaba2.entity.Product;
 import com.pooitec1.alibaba2.entity.Purchase;
-import com.pooitec1.alibaba2.entity.PurchaseLine;
 import com.pooitec1.alibaba2.entity.Seller;
 import com.pooitec1.alibaba2.entity.Wharehouse;
 import com.pooitec1.alibaba2.entity.repository.Conexion;

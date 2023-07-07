@@ -69,9 +69,9 @@ public class SaleController {
     public Double obtenerPrecio(Product product) {
         return stockService.obtenerPrecioVentaProducto(product);
     }
-    
-    public void discountStock(Product product, Integer quantity){
-        this.stockService.discountStockProduct(product, quantity);
+
+    public void discountStock(LoteProduct loteProduct, Integer quantity) {
+        this.stockService.discountStock(loteProduct, quantity);
     }
 
     public SaleLine getNewSaleLine() {
@@ -89,6 +89,31 @@ public class SaleController {
     public void saveSale(Sale sale) {
         this.saleService.saveSale(sale);
 
+    }
+    
+    public void saveSaleModif(Sale sale){
+         if (sale.getSaleLines() == null) {
+            throw new IllegalArgumentException("La lista de SaleLine no puede ser nula");
+        }
+
+        // Establecer la relación entre Sale y SaleLine
+        for (SaleLine saleLine : sale.getSaleLines()) {
+            saleLine.setSale(sale);
+        }
+
+        // Guardar la venta en la base de datos
+        this.saleService.saveSale(sale);
+    }
+    
+    
+    public int validarProductoACargar(LoteProduct loteProductSelected){
+        
+      int resultado=0;
+      resultado=this.stockService.verStockTotalProducto(loteProductSelected.getProduct())-loteProductSelected.getCantidadActual();
+      
+ 
+      return resultado;
+     
     }
 
 }

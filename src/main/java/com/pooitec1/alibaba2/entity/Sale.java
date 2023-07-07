@@ -8,7 +8,9 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,6 +25,7 @@ import javax.persistence.OneToMany;
 public class Sale implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long saleId;
@@ -34,21 +37,22 @@ public class Sale implements Serializable {
     @ManyToOne
     private Employee employee;
 
-    @OneToMany
+    //@OneToMany(mappedBy = "sale", cascade = CascadeType.PERSIST)
+    //@OneToMany(mappedBy = "sale", cascade = CascadeType.ALL)
+        @OneToMany(mappedBy = "sale", cascade = { CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.REMOVE }, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<SaleLine> saleLines;
 
     public Sale() {
         this.saleLines = new ArrayList<>();
     }
 
-
-    public Sale( LocalDate dateSale, Buyer buyer, Employee employee, List<SaleLine> saleLines) {
+    public Sale(LocalDate dateSale, Buyer buyer, Employee employee, List<SaleLine> saleLines) {
         this.dateSale = dateSale;
         this.buyer = buyer;
         this.employee = employee;
         this.saleLines = new ArrayList<>();
     }
-    
 
     public Long getSaleId() {
         return saleId;

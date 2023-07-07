@@ -27,13 +27,13 @@ public class JPanel_VentaPaso1 extends javax.swing.JPanel {
     /**
      * Creates new form JPanel_VentaPaso1
      */
-    public JPanel_VentaPaso1(JPanelAplication panelMenu, SaleController controladorP) {
+    public JPanel_VentaPaso1(JPanelAplication panelMenu, SaleController controladorV) {
 
         this.validadorDeCampos = new ValidadorDeCampos();
         //JTable vacio
         this.tableModelBuyer = new TableModelBuyer();
 
-        this.controlador = controladorP;
+        this.controlador = controladorV;
         this.panelMenu = panelMenu;
         initComponents();
         //escuchador de tabla

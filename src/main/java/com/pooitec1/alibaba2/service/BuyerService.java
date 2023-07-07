@@ -9,6 +9,7 @@ import com.pooitec1.alibaba2.entity.repository.BuyerRepository;
 import com.pooitec1.alibaba2.entity.repository.Conexion;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -24,19 +25,14 @@ public class BuyerService {
     }
 
     public List<Buyer> findByDni(String dni) {
-        List<Buyer> buyersfound = new ArrayList<>();
-
-        for (Buyer buyerSearch : repository.findBuyerEntities()) {
-            if (buyerSearch.getDni().contains(dni)) {
-                buyersfound.add(buyerSearch);
-            }
-        }
-        return buyersfound;
+        return repository.findBuyerEntities()
+                .stream()
+                .filter(buyer -> buyer.getDni().contains(dni))
+                .collect(Collectors.toList());
     }
 
     public List<Buyer> getBuyer() {
-        List<Buyer> listBuyers = repository.findBuyerEntities();
-        return listBuyers;
+        return repository.findBuyerEntities();
 
     }
 

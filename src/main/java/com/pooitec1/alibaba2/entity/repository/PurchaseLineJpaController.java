@@ -20,9 +20,9 @@ import javax.persistence.EntityManagerFactory;
  *
  * @author nadia
  */
-public class PurchaseLineRepository implements Serializable {
+public class PurchaseLineJpaController implements Serializable {
 
-    public PurchaseLineRepository(EntityManagerFactory emf) {
+    public PurchaseLineJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;

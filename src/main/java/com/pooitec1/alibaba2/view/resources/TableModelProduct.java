@@ -1,12 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.pooitec1.alibaba2.view.resources;
 
 
 import com.pooitec1.alibaba2.entity.LoteProduct;
-import com.pooitec1.alibaba2.entity.Product;
+import com.pooitec1.alibaba2.service.LoteProductService;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -18,6 +15,7 @@ import javax.swing.table.AbstractTableModel;
 public class TableModelProduct extends AbstractTableModel {
     private static final String[] COLUMNAS = {"Cod_prod", "Producto", "Descripcion", "StockProduct ", "Precio"};
     private List<LoteProduct> loteProducts;
+    private LoteProductService loteProductService;
     
 
     public TableModelProduct() {
@@ -52,6 +50,7 @@ public class TableModelProduct extends AbstractTableModel {
             
             case 3:
                retorno= loteProduct.getCantidadActual();
+              // retorno=this.loteProductService.verStockTotalProducto(loteProduct.getProduct());
                 break;
            case 4:
                 retorno=loteProduct.getSalePrice();

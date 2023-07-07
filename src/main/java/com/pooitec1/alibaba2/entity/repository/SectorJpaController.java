@@ -4,7 +4,6 @@
  */
 package com.pooitec1.alibaba2.entity.repository;
 
-import com.pooitec1.alibaba2.entity.Sector;
 import java.io.Serializable;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
@@ -12,6 +11,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import com.pooitec1.alibaba2.entity.Wharehouse;
 import com.pooitec1.alibaba2.entity.LoteProduct;
+import com.pooitec1.alibaba2.entity.Sector;
 import com.pooitec1.alibaba2.entity.repository.exceptions.NonexistentEntityException;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +22,9 @@ import javax.persistence.EntityManagerFactory;
  *
  * @author nadia
  */
-public class SectorRepository implements Serializable {
+public class SectorJpaController implements Serializable {
 
-    public SectorRepository(EntityManagerFactory emf) {
+    public SectorJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -47,9 +47,9 @@ public class SectorRepository implements Serializable {
                 sector.setWharehouse(wharehouse);
             }
             List<LoteProduct> attachedStocksProcucts = new ArrayList<LoteProduct>();
-            for (LoteProduct stocksProcuctsStockProductToAttach : sector.getStocksProcucts()) {
-                stocksProcuctsStockProductToAttach = em.getReference(stocksProcuctsStockProductToAttach.getClass(), stocksProcuctsStockProductToAttach.getIdLote());
-                attachedStocksProcucts.add(stocksProcuctsStockProductToAttach);
+            for (LoteProduct stocksProcuctsLoteProductToAttach : sector.getStocksProcucts()) {
+                stocksProcuctsLoteProductToAttach = em.getReference(stocksProcuctsLoteProductToAttach.getClass(), stocksProcuctsLoteProductToAttach.getIdLote());
+                attachedStocksProcucts.add(stocksProcuctsLoteProductToAttach);
             }
             sector.setStocksProcucts(attachedStocksProcucts);
             em.persist(sector);
@@ -57,13 +57,13 @@ public class SectorRepository implements Serializable {
                 wharehouse.getSectors().add(sector);
                 wharehouse = em.merge(wharehouse);
             }
-            for (LoteProduct stocksProcuctsStockProduct : sector.getStocksProcucts()) {
-                Sector oldSectorOfStocksProcuctsStockProduct = stocksProcuctsStockProduct.getSector();
-                stocksProcuctsStockProduct.setSector(sector);
-                stocksProcuctsStockProduct = em.merge(stocksProcuctsStockProduct);
-                if (oldSectorOfStocksProcuctsStockProduct != null) {
-                    oldSectorOfStocksProcuctsStockProduct.getStocksProcucts().remove(stocksProcuctsStockProduct);
-                    oldSectorOfStocksProcuctsStockProduct = em.merge(oldSectorOfStocksProcuctsStockProduct);
+            for (LoteProduct stocksProcuctsLoteProduct : sector.getStocksProcucts()) {
+                Sector oldSectorOfStocksProcuctsLoteProduct = stocksProcuctsLoteProduct.getSector();
+                stocksProcuctsLoteProduct.setSector(sector);
+                stocksProcuctsLoteProduct = em.merge(stocksProcuctsLoteProduct);
+                if (oldSectorOfStocksProcuctsLoteProduct != null) {
+                    oldSectorOfStocksProcuctsLoteProduct.getStocksProcucts().remove(stocksProcuctsLoteProduct);
+                    oldSectorOfStocksProcuctsLoteProduct = em.merge(oldSectorOfStocksProcuctsLoteProduct);
                 }
             }
             em.getTransaction().commit();
@@ -89,9 +89,9 @@ public class SectorRepository implements Serializable {
                 sector.setWharehouse(wharehouseNew);
             }
             List<LoteProduct> attachedStocksProcuctsNew = new ArrayList<LoteProduct>();
-            for (LoteProduct stocksProcuctsNewStockProductToAttach : stocksProcuctsNew) {
-                stocksProcuctsNewStockProductToAttach = em.getReference(stocksProcuctsNewStockProductToAttach.getClass(), stocksProcuctsNewStockProductToAttach.getIdLote());
-                attachedStocksProcuctsNew.add(stocksProcuctsNewStockProductToAttach);
+            for (LoteProduct stocksProcuctsNewLoteProductToAttach : stocksProcuctsNew) {
+                stocksProcuctsNewLoteProductToAttach = em.getReference(stocksProcuctsNewLoteProductToAttach.getClass(), stocksProcuctsNewLoteProductToAttach.getIdLote());
+                attachedStocksProcuctsNew.add(stocksProcuctsNewLoteProductToAttach);
             }
             stocksProcuctsNew = attachedStocksProcuctsNew;
             sector.setStocksProcucts(stocksProcuctsNew);
@@ -104,20 +104,20 @@ public class SectorRepository implements Serializable {
                 wharehouseNew.getSectors().add(sector);
                 wharehouseNew = em.merge(wharehouseNew);
             }
-            for (LoteProduct stocksProcuctsOldStockProduct : stocksProcuctsOld) {
-                if (!stocksProcuctsNew.contains(stocksProcuctsOldStockProduct)) {
-                    stocksProcuctsOldStockProduct.setSector(null);
-                    stocksProcuctsOldStockProduct = em.merge(stocksProcuctsOldStockProduct);
+            for (LoteProduct stocksProcuctsOldLoteProduct : stocksProcuctsOld) {
+                if (!stocksProcuctsNew.contains(stocksProcuctsOldLoteProduct)) {
+                    stocksProcuctsOldLoteProduct.setSector(null);
+                    stocksProcuctsOldLoteProduct = em.merge(stocksProcuctsOldLoteProduct);
                 }
             }
-            for (LoteProduct stocksProcuctsNewStockProduct : stocksProcuctsNew) {
-                if (!stocksProcuctsOld.contains(stocksProcuctsNewStockProduct)) {
-                    Sector oldSectorOfStocksProcuctsNewStockProduct = stocksProcuctsNewStockProduct.getSector();
-                    stocksProcuctsNewStockProduct.setSector(sector);
-                    stocksProcuctsNewStockProduct = em.merge(stocksProcuctsNewStockProduct);
-                    if (oldSectorOfStocksProcuctsNewStockProduct != null && !oldSectorOfStocksProcuctsNewStockProduct.equals(sector)) {
-                        oldSectorOfStocksProcuctsNewStockProduct.getStocksProcucts().remove(stocksProcuctsNewStockProduct);
-                        oldSectorOfStocksProcuctsNewStockProduct = em.merge(oldSectorOfStocksProcuctsNewStockProduct);
+            for (LoteProduct stocksProcuctsNewLoteProduct : stocksProcuctsNew) {
+                if (!stocksProcuctsOld.contains(stocksProcuctsNewLoteProduct)) {
+                    Sector oldSectorOfStocksProcuctsNewLoteProduct = stocksProcuctsNewLoteProduct.getSector();
+                    stocksProcuctsNewLoteProduct.setSector(sector);
+                    stocksProcuctsNewLoteProduct = em.merge(stocksProcuctsNewLoteProduct);
+                    if (oldSectorOfStocksProcuctsNewLoteProduct != null && !oldSectorOfStocksProcuctsNewLoteProduct.equals(sector)) {
+                        oldSectorOfStocksProcuctsNewLoteProduct.getStocksProcucts().remove(stocksProcuctsNewLoteProduct);
+                        oldSectorOfStocksProcuctsNewLoteProduct = em.merge(oldSectorOfStocksProcuctsNewLoteProduct);
                     }
                 }
             }
@@ -156,9 +156,9 @@ public class SectorRepository implements Serializable {
                 wharehouse = em.merge(wharehouse);
             }
             List<LoteProduct> stocksProcucts = sector.getStocksProcucts();
-            for (LoteProduct stocksProcuctsStockProduct : stocksProcucts) {
-                stocksProcuctsStockProduct.setSector(null);
-                stocksProcuctsStockProduct = em.merge(stocksProcuctsStockProduct);
+            for (LoteProduct stocksProcuctsLoteProduct : stocksProcucts) {
+                stocksProcuctsLoteProduct.setSector(null);
+                stocksProcuctsLoteProduct = em.merge(stocksProcuctsLoteProduct);
             }
             em.remove(sector);
             em.getTransaction().commit();

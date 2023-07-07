@@ -32,37 +32,30 @@ public class SaleRepository implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Sale sale) {
-        if (sale.getSaleLines() == null) {
-            sale.setSaleLines(new ArrayList<SaleLine>());
+ 
+  public void create(Sale sale) {
+    if (sale.getSaleLines() == null) {
+        sale.setSaleLines(new ArrayList<SaleLine>());
+    }
+    EntityManager em = null;
+    try {
+        em = getEntityManager();
+        em.getTransaction().begin();
+        List<SaleLine> attachedSaleLines = new ArrayList<SaleLine>();
+        for (SaleLine saleLine : sale.getSaleLines()) {
+            saleLine.setSale(sale);
+            em.persist(saleLine);
+            attachedSaleLines.add(saleLine);
         }
-        EntityManager em = null;
-        try {
-            em = getEntityManager();
-            em.getTransaction().begin();
-            List<SaleLine> attachedSaleLines = new ArrayList<SaleLine>();
-            for (SaleLine saleLinesSaleLineToAttach : sale.getSaleLines()) {
-                saleLinesSaleLineToAttach = em.getReference(saleLinesSaleLineToAttach.getClass(), saleLinesSaleLineToAttach.getId());
-                attachedSaleLines.add(saleLinesSaleLineToAttach);
-            }
-            sale.setSaleLines(attachedSaleLines);
-            em.persist(sale);
-            for (SaleLine saleLinesSaleLine : sale.getSaleLines()) {
-                Sale oldSaleOfSaleLinesSaleLine = saleLinesSaleLine.getSale();
-                saleLinesSaleLine.setSale(sale);
-                saleLinesSaleLine = em.merge(saleLinesSaleLine);
-                if (oldSaleOfSaleLinesSaleLine != null) {
-                    oldSaleOfSaleLinesSaleLine.getSaleLines().remove(saleLinesSaleLine);
-                    oldSaleOfSaleLinesSaleLine = em.merge(oldSaleOfSaleLinesSaleLine);
-                }
-            }
-            em.getTransaction().commit();
-        } finally {
-            if (em != null) {
-                em.close();
-            }
+        sale.setSaleLines(attachedSaleLines);
+        em.persist(sale); // Guardar Sale
+        em.getTransaction().commit();
+    } finally {
+        if (em != null) {
+            em.close();
         }
     }
+}
 
     public void edit(Sale sale) throws NonexistentEntityException, Exception {
         EntityManager em = null;

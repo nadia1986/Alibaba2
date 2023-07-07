@@ -2,6 +2,7 @@ package com.pooitec1.alibaba2.view;
 
 import com.pooitec1.alibaba2.controller.SaleController;
 import com.pooitec1.alibaba2.entity.LoteProduct;
+import com.pooitec1.alibaba2.entity.Sale;
 import com.pooitec1.alibaba2.entity.SaleLine;
 import com.pooitec1.alibaba2.view.resources.TableModelListenerProduct;
 import com.pooitec1.alibaba2.view.resources.TableModelProduct;
@@ -21,16 +22,20 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
 
     ValidadorDeCampos validadorDeCampos;
 
-    SaleController controlador;
+    private SaleController controlador;
 
     private final TableModelProduct tableModelProduct;
     private LoteProduct loteProductSelected;
     private JPanelAplication panelMenu;
+    private SpinnerNumberModel modeloSpinner;
 
     /**
      * Creates new form JPanel_VentaPaso3
      */
     public JPanel_VentaPaso3(JPanelAplication panelMenu, SaleController controladorP) {
+
+        this.modeloSpinner = new SpinnerNumberModel();
+
         this.validadorDeCampos = new ValidadorDeCampos();
 
         this.tableModelProduct = new TableModelProduct();
@@ -38,14 +43,14 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
         this.controlador = controladorP;
 
         this.panelMenu = panelMenu;
-
         initComponents();
-
         this.jtbl_products.getSelectionModel().addListSelectionListener(new TableModelListenerProduct(this));
 
         validadarCampos();
 
         setupBotones();
+
+        spncantidad.setEnabled(false);
 
     }
 
@@ -133,7 +138,7 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
         jtf_quantity.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jtf_quantity.setText("Quantity:");
 
-        spncantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        spncantidad.setModel(modeloSpinner);
         spncantidad.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 spncantidadStateChanged(evt);
@@ -278,31 +283,21 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
     private void jbtn_agregarsalelineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_agregarsalelineActionPerformed
         if (this.loteProductSelected != null) {
 
-            if (Integer.parseInt(spncantidad.getValue().toString()) <= this.loteProductSelected.getCantidadActual() && Integer.parseInt(spncantidad.getValue().toString()) != 0) {
-
-                SaleLine saleLine = new SaleLine();
-                saleLine.setProduct(loteProductSelected.getProduct());
-                saleLine.setQuantity(Integer.parseInt(spncantidad.getValue().toString()));
-
+            SaleLine saleLine = new SaleLine();
+            saleLine.setProduct(loteProductSelected.getProduct());
+            saleLine.setQuantity(Integer.parseInt(spncantidad.getValue().toString()));
+            if (!buscarSaleLine(saleLine)) {
                 this.controlador.getNewSale().getSaleLines().add(saleLine);
-                
-                this.controlador.discountStock(saleLine.getProduct(), saleLine.getQuantity());
-               
-
-                JPanel_VentaPaso2 panelPaso2 = new JPanel_VentaPaso2(this.panelMenu, this.controlador);
-
-                panelPaso2.setSize(814, 600);
-                this.panelMenu.limpiarPanelContenido();
-
-                this.panelMenu.getjPanel_contenido().add(panelPaso2);
-                this.panelMenu.repaint();
-                this.panelMenu.validate();
-
-            } else {
-
-                //System.out.println("Stock insuficiente");
-                JOptionPane.showMessageDialog(null, "Hola, stock insuficiente!" + " " + "El stock disponibke es: " + this.loteProductSelected.getCantidadActual());
             }
+            
+            JPanel_VentaPaso2 panelPaso2 = new JPanel_VentaPaso2(this.panelMenu, this.controlador);
+
+            panelPaso2.setSize(814, 600);
+            this.panelMenu.limpiarPanelContenido();
+
+            this.panelMenu.getjPanel_contenido().add(panelPaso2);
+            this.panelMenu.repaint();
+            this.panelMenu.validate();
 
         } else {
             JOptionPane.showMessageDialog(null, "Hola. Selecciona un producto");
@@ -315,11 +310,7 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
     }//GEN-LAST:event_spncantidadKeyReleased
 
     private void spncantidadStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spncantidadStateChanged
-        // SpinnerNumberModel modeloSpinner = new SpinnerNumberModel();
-        //modeloSpinner.setMaximum(this.loteProductSelected.getCantidadActual());
-        //modeloSpinner.setMaximum(loteProductSelected.getCantidadActual());
-        //modeloSpinner.setMinimum(1);
-        //spncantidad.setModel(modeloSpinner);
+
         calcularSubtotal();
     }//GEN-LAST:event_spncantidadStateChanged
 
@@ -354,9 +345,9 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
         int filaSeleccionada = this.jtbl_products.getSelectedRow();
 
         if (filaSeleccionada >= 0) {
-            
+
             this.loteProductSelected = this.tableModelProduct.getProductIn(filaSeleccionada);
-           
+
             this.jlblcode.setText(this.loteProductSelected.getProduct().getCodProd());
             this.jlbldescription.setText(this.loteProductSelected.getProduct().getProductType().getDescription());
             this.jlblprice.setText(pasarMoneda(this.loteProductSelected.getSalePrice()));
@@ -377,6 +368,12 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
 
     }
 
+    public void discountStock(LoteProduct loteSeleccionado, int spncantidad) {
+        Integer cantidadActual = loteSeleccionado.getCantidadActual();
+        cantidadActual -= spncantidad;
+        loteSeleccionado.setCantidadActual(cantidadActual);
+    }
+
     private void validadarCampos() {
         this.validadorDeCampos.validarSoloLetras(jtxf_productname);
         this.validadorDeCampos.LimitarCaracteres(jtxf_productname, 20);
@@ -384,6 +381,45 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
 
     private void setupBotones() {
         this.validadorDeCampos.habilitarBoton(true, jbtn_cancelarventapaso3, new Color(176, 128, 118), Color.WHITE, Color.GRAY, Color.BLACK);
+    }
+
+    private void actualizarTabla() {
+        for (int i = 0; i < tableModelProduct.getRowCount(); i++) {
+            if (loteProductSelected.equals(tableModelProduct.getProductIn(i))) {
+                discountStock(loteProductSelected, Integer.parseInt(spncantidad.getValue().toString()));
+            }
+        }
+    }
+
+    public boolean buscarSaleLine(SaleLine newSaleLine) {
+        for (SaleLine s : this.controlador.getNewSale().getSaleLines()) {
+            if (s.getProduct().getCodProd() == newSaleLine.getProduct().getCodProd()) {
+                s.setQuantity(s.getQuantity() + newSaleLine.getQuantity());
+                return true;
+            }
+
+        }
+        return false;
+    }
+
+    public javax.swing.JSpinner getSpncantidad() {
+        return spncantidad;
+    }
+
+    public LoteProduct getLoteProductSelected() {
+        return loteProductSelected;
+    }
+
+    public void setModeloSpinner(SpinnerNumberModel modeloSpinner) {
+        this.modeloSpinner = modeloSpinner;
+    }
+
+    public SpinnerNumberModel getModeloSpinner() {
+        return modeloSpinner;
+    }
+
+    public SaleController getControlador() {
+        return controlador;
     }
 
 }

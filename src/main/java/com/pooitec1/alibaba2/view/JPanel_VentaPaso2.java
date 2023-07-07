@@ -6,6 +6,7 @@ import com.pooitec1.alibaba2.view.resources.ValidadorDeCampos;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -17,7 +18,7 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
 
     LocalDate fi = LocalDate.now();
     LocalDateTime localDate = LocalDateTime.now();
-    String listaIva[] = {"21", "10.5"};
+   
 
     ValidadorDeCampos validadorDeCampos;
     private SaleLine saleLineSeleccionada;
@@ -45,10 +46,9 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
         this.jlbl_date.setText(this.controlador.getNewSale().getDateSale().toString());
         this.jlbl_cliente.setText(this.controlador.getNewSale().getBuyer().getFirstName() + " " + this.controlador.getNewSale().getBuyer().getLastName());
         this.jlbl_time.setText(this.localDate.getHour() + ":" + this.localDate.getMinute() + ":" + this.localDate.getSecond());
-
-        //COMBO BOX IVA...TENGO Q PASAR SU VALOR A DOUBLE PARA EL CÁLCULO
-        DefaultComboBoxModel comboModel = new DefaultComboBoxModel(listaIva);
-        jcombo_iva.setModel(comboModel);
+        calcularSubtotal();
+        
+       
 
         modeloTableSaleLine.addColumn("Code Product");
         modeloTableSaleLine.addColumn("Description");
@@ -79,15 +79,15 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
         jbtn_confirmsale = new javax.swing.JButton();
         jlbl_cliente = new javax.swing.JLabel();
         jlbl_employee = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        jLabel_subtotal = new javax.swing.JLabel();
+        jLabel_total = new javax.swing.JLabel();
         jlbl_date = new javax.swing.JLabel();
         jlbl_time = new javax.swing.JLabel();
-        jcombo_iva = new javax.swing.JComboBox<>();
         jbtn_atrasventapaso2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtable_lineadeventa = new javax.swing.JTable();
         jbtn_deletesaleline = new javax.swing.JButton();
+        jLabel_iva = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -146,20 +146,13 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
 
         jlbl_employee.setText("jLabel11");
 
-        jLabel12.setText("jLabel12");
+        jLabel_subtotal.setText("jLabel12");
 
-        jLabel13.setText("jLabel13");
+        jLabel_total.setText("jLabel13");
 
         jlbl_date.setText("jLabel14");
 
         jlbl_time.setText("jLabel10");
-
-        jcombo_iva.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jcombo_iva.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcombo_ivaActionPerformed(evt);
-            }
-        });
 
         jbtn_atrasventapaso2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jbtn_atrasventapaso2.setText("BACK");
@@ -190,6 +183,8 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
             }
         });
 
+        jLabel_iva.setText("jLabel14");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -206,23 +201,26 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
                                 .addGap(104, 104, 104)
                                 .addComponent(jbtn_confirmsale))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jcombo_iva, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jbtn_deletesaleline, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jBtn_addproduct, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel9)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(165, 165, 165)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel_iva, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jbtn_deletesaleline, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jBtn_addproduct, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel9)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jLabel_total, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(165, 165, 165)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel_subtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -277,17 +275,17 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
                     .addComponent(jBtn_addproduct)
                     .addComponent(jbtn_deletesaleline))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jcombo_iva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel_iva, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel_subtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel_total, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtn_cancelarventapaso2)
@@ -319,21 +317,12 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
     }//GEN-LAST:event_jbtn_cancelarventapaso2ActionPerformed
 
     private void jbtn_confirmsaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_confirmsaleActionPerformed
-        JPanel_VentaPaso1 panelPaso1 = new JPanel_VentaPaso1(this.panelMenu, this.controlador);
 
-        panelPaso1.setSize(814, 600);
-
+        this.controlador.saveSale(this.controlador.getNewSale());
+        JOptionPane.showMessageDialog(null, "Venta Registrada Correctamente");
+        this.panelMenu.bloquearBotones(true);
         this.panelMenu.limpiarPanelContenido();
-
-        this.panelMenu.getjPanel_contenido().add(panelPaso1);
-
-        this.panelMenu.repaint();
-        this.panelMenu.validate();
     }//GEN-LAST:event_jbtn_confirmsaleActionPerformed
-
-    private void jcombo_ivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcombo_ivaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jcombo_ivaActionPerformed
 
     private void jbtn_atrasventapaso2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_atrasventapaso2ActionPerformed
         // TODO add your handling code here:
@@ -347,8 +336,6 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtn_addproduct;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -357,12 +344,14 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel_iva;
+    private javax.swing.JLabel jLabel_subtotal;
+    private javax.swing.JLabel jLabel_total;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jbtn_atrasventapaso2;
     private javax.swing.JButton jbtn_cancelarventapaso2;
     private javax.swing.JButton jbtn_confirmsale;
     private javax.swing.JButton jbtn_deletesaleline;
-    private javax.swing.JComboBox<String> jcombo_iva;
     private javax.swing.JLabel jlbl_cliente;
     private javax.swing.JLabel jlbl_date;
     private javax.swing.JLabel jlbl_employee;
@@ -378,7 +367,7 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
         while (modeloTableSaleLine.getRowCount() > 0) {
             modeloTableSaleLine.removeRow(0);
         }
-
+            double subtotal=0;
         for (SaleLine saleLine : this.controlador.getNewSale().getSaleLines()) {
             Object x[] = new Object[5];
             x[0] = saleLine.getProduct().getCodProd();
@@ -386,9 +375,15 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
             x[2] = pasarMoneda(this.controlador.obtenerPrecio(saleLine.getProduct()));
             x[3] = saleLine.getQuantity();
             x[4] = pasarMoneda(this.controlador.obtenerPrecio(saleLine.getProduct()) * saleLine.getQuantity());
-           modeloTableSaleLine.addRow(x);
+           subtotal+=this.controlador.obtenerPrecio(saleLine.getProduct()) * saleLine.getQuantity();
+            modeloTableSaleLine.addRow(x);
 
         }
+        double iva= subtotal*0.21;
+        double total=subtotal+iva;
+        jLabel_iva.setText(pasarMoneda(iva));
+        jLabel_subtotal.setText(pasarMoneda(subtotal));
+        jLabel_total.setText(pasarMoneda(total));
         jtable_lineadeventa.setModel(modeloTableSaleLine);
     }
 
@@ -404,5 +399,21 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
         return "$ " + Math.round(precio * 100.0) / 100.0;
 
     }
+    
+    private void calcularSubtotal() {
+    double subtotal = 0.0;
+    
+             for (int i = 0; i < modeloTableSaleLine.getRowCount(); i++) {
+                 
+             }
+       
+    }
+    
+  
+         
+     
+    
+  
+
 
 }

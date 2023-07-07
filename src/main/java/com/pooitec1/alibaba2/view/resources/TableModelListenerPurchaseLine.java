@@ -15,18 +15,18 @@ import javax.swing.event.ListSelectionListener;
  *
  * @author nadia
  */
-public class TableModelListenerSeller implements ListSelectionListener{
+public class TableModelListenerPurchaseLine implements ListSelectionListener{
     
      private final JPanel_Comprapaso1 jPanelProcesarCompraPaso1;
 
-    public TableModelListenerSeller(JPanel_Comprapaso1 pantallaContenido) {
+    public TableModelListenerPurchaseLine(JPanel_Comprapaso1 pantallaContenido) {
         this.jPanelProcesarCompraPaso1 = pantallaContenido;
     }
 
 
     @Override
     public void valueChanged(ListSelectionEvent e) {
-        this.jPanelProcesarCompraPaso1.seleccionarSeller();
+        //this.jPanelProcesarCompraPaso1.seleccionarSeller();
     }
     
   

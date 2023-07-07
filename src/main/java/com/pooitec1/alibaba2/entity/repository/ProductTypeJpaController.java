@@ -19,9 +19,9 @@ import javax.persistence.criteria.Root;
  *
  * @author nadia
  */
-public class ProductTypeRepository implements Serializable {
+public class ProductTypeJpaController implements Serializable {
 
-    public ProductTypeRepository(EntityManagerFactory emf) {
+    public ProductTypeJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;

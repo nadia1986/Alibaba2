@@ -4,11 +4,9 @@
  */
 package com.pooitec1.alibaba2.service;
 
-
 import com.pooitec1.alibaba2.entity.Sale;
 import com.pooitec1.alibaba2.entity.repository.Conexion;
 import com.pooitec1.alibaba2.entity.repository.SaleRepository;
-
 
 /**
  *
@@ -17,20 +15,14 @@ import com.pooitec1.alibaba2.entity.repository.SaleRepository;
 public class SaleService {
 
     private final SaleRepository saleRepository;
-  
 
-    
-    
     public SaleService() {
 
         this.saleRepository = new SaleRepository(Conexion.getEmf());
-       
 
     }
 
- 
-
-    public  void saveSale(Sale sale) {
+    public void saveSale(Sale sale) {
         this.saleRepository.create(sale);
 
     }

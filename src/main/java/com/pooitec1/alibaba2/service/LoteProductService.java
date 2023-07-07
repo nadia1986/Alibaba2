@@ -26,7 +26,7 @@ public class LoteProductService {
     public List<LoteProduct> findByProductDescription(String description) {
         List<LoteProduct> productsfound = new ArrayList<>();
 
-        for (LoteProduct productSearch : stockRepository.findStockProductEntities()) {
+        for (LoteProduct productSearch : stockRepository.findLoteProductEntities()) {
             if (productSearch.getProduct().getDescription().contains(description)) {
                 productsfound.add(productSearch);
             }
@@ -36,14 +36,14 @@ public class LoteProductService {
 
     //FALTA AGREGAR QUE BUSQUE POR CODIGO Y TRAIGA UN SOLO PRODUCTO
     public List<LoteProduct> getLoteProduct() {
-        List<LoteProduct> listLoteProducts = stockRepository.findStockProductEntities();
+        List<LoteProduct> listLoteProducts = stockRepository.findLoteProductEntities();
         return listLoteProducts;
 
     }
 
     public List<LoteProduct> findByProduct(Product product) {
         List<LoteProduct> stockProductfound = new ArrayList<>();
-        for (LoteProduct stockPr : this.stockRepository.findStockProductEntities()) {
+        for (LoteProduct stockPr : this.stockRepository.findLoteProductEntities()) {
             if (stockPr.getProduct().equals(product)) {
                 stockProductfound.add(stockPr);
 
@@ -59,7 +59,7 @@ public class LoteProductService {
     public double obtenerPrecioVentaProducto(Product product) {
 
         double precioProducto = 0;
-        for (LoteProduct stockPr : this.stockRepository.findStockProductEntities()) {
+        for (LoteProduct stockPr : this.stockRepository.findLoteProductEntities()) {
             if (stockPr.getProduct().equals(product)) {
                 precioProducto = stockPr.getSalePrice();
             }
@@ -72,7 +72,7 @@ public class LoteProductService {
 
         Integer cantidadTotalProducto = 0;
 
-        for (LoteProduct stockPr : this.stockRepository.findStockProductEntities()) {
+        for (LoteProduct stockPr : this.stockRepository.findLoteProductEntities()) {
             if (stockPr.getProduct().equals(product)) {
                 if (verificarVencimiento(stockPr)) {
                     cantidadTotalProducto = cantidadTotalProducto + stockPr.getCantidadActual();
@@ -87,7 +87,7 @@ public class LoteProductService {
 
     public List<LoteProduct> verCantidadDeProductosPorlote(Product product) {
         List<LoteProduct> stockProductfound = new ArrayList<>();
-        for (LoteProduct stockPr : this.stockRepository.findStockProductEntities()) {
+        for (LoteProduct stockPr : this.stockRepository.findLoteProductEntities()) {
             if (stockPr.getProduct().equals(product)) {
                 if (verificarVencimiento(stockPr)) {
                     stockProductfound.add(stockPr);
@@ -115,7 +115,7 @@ public class LoteProductService {
 
         Integer productStock = verStockTotalProducto(productSeleccionado);
 
-        for (LoteProduct stockProduct : this.stockRepository.findStockProductEntities()) {
+        for (LoteProduct stockProduct : this.stockRepository.findLoteProductEntities()) {
             if (stockProduct.getProduct().equals(productSeleccionado)) {
 
                 productStock = productStock - quantity;
@@ -129,5 +129,37 @@ public class LoteProductService {
 
         
     }
+    
+        public void discountStock(LoteProduct loteSeleccionado, int quantity) {
+
+        Integer productStock =0;
+
+        for (LoteProduct stockProduct : this.stockRepository.findLoteProductEntities()) {
+            if (stockProduct.equals(loteSeleccionado)) {
+
+                productStock = loteSeleccionado.getCantidadActual() - quantity;
+                
+                loteSeleccionado.setCantidadActual(productStock);
+                
+                //System.out.println("el stock es " + productStock);
+                //System.out.println(loteSeleccionado.getCantidadActual());
+                
+              
+
+            }
+
+        }
+        }
+        
+         public void saveLoteProduct(LoteProduct loteProduct) {
+        this.stockRepository.create(loteProduct);
+
+    }
+       
+
+        
+    
+        
+       
 
 }

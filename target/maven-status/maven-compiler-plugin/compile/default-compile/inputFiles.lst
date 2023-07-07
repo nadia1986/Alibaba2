@@ -1,3 +1,4 @@
+C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\entity\repository\SectorJpaController.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\entity\ProductType.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\view\JFrameAplication.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\view\JPanel_VentaPaso1.java
@@ -10,7 +11,6 @@ C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\p
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\controller\PurchaseController.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\entity\Buyer.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\view\resources\TableModelListenerBuyer.java
-C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\entity\repository\ProductTypeRepository.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\service\LoteProductService.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\view\JPanelAplication.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\entity\Employee.java
@@ -20,14 +20,16 @@ C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\p
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\service\PurchaseService.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\entity\repository\BuyerRepository.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\view\JPanel_VentaPaso2.java
+C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\entity\repository\PurchaseLineJpaController.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\service\SellerService.java
-C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\entity\repository\SectorRepository.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\view\resources\ValidadorDeCampos.java
+C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\service\EmployeeService.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\service\SaleLineService.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\entity\repository\SellerRepository.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\entity\Sector.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\entity\repository\SaleLineRepository.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\entity\repository\LoteProductRepository.java
+C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\entity\repository\ProductTypeJpaController.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\controller\SaleController.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\entity\Wharehouse.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\service\ProductService.java
@@ -44,6 +46,7 @@ C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\p
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\entity\Shipping.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\entity\User.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\entity\Seller.java
+C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\view\resources\TableModelSaleLine.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\entity\repository\exceptions\PreexistingEntityException.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\view\JFrameLogin.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\entity\repository\UserRepository.java
@@ -60,4 +63,3 @@ C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\p
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\entity\Rol.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\Alibaba2.java
 C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\view\JPanel_VentaPaso3.java
-C:\Users\nadia\OneDrive\Documentos\NetBeansProjects\Alibaba2\src\main\java\com\pooitec1\alibaba2\entity\repository\PurchaseLineRepository.java

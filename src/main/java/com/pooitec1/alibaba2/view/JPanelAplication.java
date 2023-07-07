@@ -4,7 +4,7 @@
  */
 package com.pooitec1.alibaba2.view;
 
-
+import com.pooitec1.alibaba2.controller.PurchaseController;
 import com.pooitec1.alibaba2.controller.SaleController;
 import com.pooitec1.alibaba2.controller.UserController;
 import com.pooitec1.alibaba2.entity.User;
@@ -52,7 +52,7 @@ public class JPanelAplication extends javax.swing.JPanel {
         jPanel_boton.setBackground(new java.awt.Color(102, 102, 102));
 
         jbtn_nuevaVenta.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jbtn_nuevaVenta.setText("Nueva Venta");
+        jbtn_nuevaVenta.setText("Registrar Venta");
         jbtn_nuevaVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtn_nuevaVentaActionPerformed(evt);
@@ -60,7 +60,7 @@ public class JPanelAplication extends javax.swing.JPanel {
         });
 
         jbtn_nuevaCompra.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jbtn_nuevaCompra.setText("Nueva Compra");
+        jbtn_nuevaCompra.setText("Registar Compra");
         jbtn_nuevaCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtn_nuevaCompraActionPerformed(evt);
@@ -160,7 +160,7 @@ public class JPanelAplication extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_nuevaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_nuevaVentaActionPerformed
- 
+
         SaleController controladorVenta = new SaleController(user);
         //2- crear panel enchufando el controlador creado en paso 1
         JPanel_VentaPaso1 panelPaso1 = new JPanel_VentaPaso1(this, controladorVenta);
@@ -176,15 +176,16 @@ public class JPanelAplication extends javax.swing.JPanel {
     }//GEN-LAST:event_jbtn_nuevaVentaActionPerformed
 
     private void jbtn_nuevaCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_nuevaCompraActionPerformed
-        //PurchaseController controladorVenta = new PurchaseController(employee);
 
-        // JPanel_Comprapaso1 panelCPaso1 = new JPanel_Comprapaso1(this, controladorVenta);
-        // panelCPaso1.setSize(814, 600);
-        //this.jPanel_contenido.removeAll();
-        // this.jPanel_contenido.add(panelCPaso1);
-        //  this.repaint();
-        // this.validate();
-        //  bloquearBotones(false);   // TODO add your handling code here:
+        PurchaseController controladorCompra = new PurchaseController(user);
+
+        JPanel_Comprapaso1 panelPaso1 = new JPanel_Comprapaso1(this, controladorCompra);
+        panelPaso1.setSize(814, 600);
+        this.jPanel_contenido.removeAll();
+        this.jPanel_contenido.add(panelPaso1);
+        this.repaint();
+        this.validate();
+        bloquearBotones(false);   // TODO add your handling code here:
     }//GEN-LAST:event_jbtn_nuevaCompraActionPerformed
 
 

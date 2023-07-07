@@ -1,30 +1,26 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package com.pooitec1.alibaba2.view;
 
 import com.pooitec1.alibaba2.controller.PurchaseController;
-import com.pooitec1.alibaba2.entity.Seller;
-import com.pooitec1.alibaba2.view.resources.TableModelListenerSeller;
-import com.pooitec1.alibaba2.view.resources.TableModelSeller;
-import com.pooitec1.alibaba2.view.resources.ValidadorDeCampos;
-import java.awt.Color;
 
+import com.pooitec1.alibaba2.view.resources.TableModelListenerPurchaseLine;
+import com.pooitec1.alibaba2.view.resources.TableModelPurchaseLine;
+import com.pooitec1.alibaba2.view.resources.ValidadorDeCampos;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  *
  * @author nadia
  */
 public class JPanel_Comprapaso1 extends javax.swing.JPanel {
-      //Validado de campos
 
+    LocalDate fi = LocalDate.now();
+    LocalDateTime localDate = LocalDateTime.now();
     ValidadorDeCampos validadorDeCampos;
 
     //variables de tabla
-    private final TableModelSeller tableModelSeller;
-
-    private Seller sellerSeleccionado;
+    private final TableModelPurchaseLine tableModelPurchaseLine;
 
     PurchaseController controlador;
     private JPanelAplication panelMenu;
@@ -32,16 +28,18 @@ public class JPanel_Comprapaso1 extends javax.swing.JPanel {
     /**
      * Creates new form JPanel_Comprapaso1
      */
-    public JPanel_Comprapaso1(JPanelAplication panelMenu, PurchaseController controladorV) {
-       this.validadorDeCampos = new ValidadorDeCampos();
+    public JPanel_Comprapaso1(JPanelAplication panelMenu, PurchaseController controladorP) {
+        this.validadorDeCampos = new ValidadorDeCampos();
         //JTable vacio
-        this.tableModelSeller = new TableModelSeller();
+        this.tableModelPurchaseLine = new TableModelPurchaseLine();
 
-        this.controlador = controladorV;
+        this.controlador = controladorP;
         this.panelMenu = panelMenu;
         initComponents();
-
-       this.jtb_sellers.getSelectionModel().addListSelectionListener(new TableModelListenerSeller(this));
+        this.jLabel_date.setText(fi.toString());
+        this.jLabel_time.setText(this.localDate.getHour() + ":" + this.localDate.getMinute() + ":" + this.localDate.getSecond());
+        this.jLabel_employee.setText(this.controlador.getNewPurchase().getEmployee().getFirstName());
+        this.jtb_purchaseLine.getSelectionModel().addListSelectionListener(new TableModelListenerPurchaseLine(this));
 
         validadarCampos();
 
@@ -58,164 +56,205 @@ public class JPanel_Comprapaso1 extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jtx_sellerName = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtb_sellers = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jtb_purchaseLine = new javax.swing.JTable();
+        jButton_remove = new javax.swing.JButton();
+        jButton_product = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel_date = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel_time = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jLabel_employee = new javax.swing.JLabel();
+        jButton_atras1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(153, 153, 255));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jLabel1.setText("Seller Name:");
+        jLabel1.setText("PURCHASE DETAIL:");
 
-        jtb_sellers.setModel(tableModelSeller);
-        jScrollPane1.setViewportView(jtb_sellers);
+        jtb_purchaseLine.setModel(tableModelPurchaseLine);
+        jScrollPane1.setViewportView(jtb_purchaseLine);
 
-        jButton1.setText("CANCELAR");
+        jButton_remove.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton_remove.setText("REMOVE");
+        jButton_remove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_removeActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("SIGUIENTE");
+        jButton_product.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton_product.setText("ADD PRODUCT");
+        jButton_product.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_productActionPerformed(evt);
+            }
+        });
 
-        jLabel2.setText("jLabel2");
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel2.setText("DATE:");
 
-        jLabel3.setText("jLabel3");
+        jLabel_date.setText("jLabel3");
 
-        jLabel4.setText("jLabel4");
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel4.setText("TIME:");
 
-        jLabel5.setText("jLabel5");
+        jLabel_time.setText("jLabel5");
 
-        jLabel6.setText("jLabel6");
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel6.setText("EMPLOYEE:");
 
-        jLabel7.setText("jLabel7");
+        jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton4.setText("NEXT");
 
-        jLabel8.setText("jLabel8");
+        jLabel_employee.setText("jLabel7");
 
-        jLabel9.setText("jLabel9");
+        jButton_atras1.setFont(jButton_atras1.getFont().deriveFont(jButton_atras1.getFont().getStyle() | java.awt.Font.BOLD, jButton_atras1.getFont().getSize()+2));
+        jButton_atras1.setText("CANCEL");
+        jButton_atras1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_atras1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(48, 48, 48))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jtx_sellerName, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel_time, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jLabel_date, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(35, 35, 35)
+                                .addComponent(jLabel_employee, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2))
-                                .addGap(62, 62, 62)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5))
-                                .addGap(62, 62, 62)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel8))))))
-                .addContainerGap(19, Short.MAX_VALUE))
+                        .addGap(520, 520, 520)
+                        .addComponent(jButton4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(348, 348, 348)
+                        .addComponent(jButton_remove)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton_product, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(463, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(288, 288, 288)
+                    .addComponent(jButton_atras1)
+                    .addContainerGap(746, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtx_sellerName, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel2)))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel7))
-                .addGap(34, 34, 34)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel_date))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel8))
-                .addGap(30, 30, 30)
+                    .addComponent(jLabel_time))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(30, 30, 30))
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel_employee))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton_remove, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_product, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(512, Short.MAX_VALUE)
+                    .addComponent(jButton_atras1)
+                    .addGap(65, 65, 65)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton_removeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_removeActionPerformed
+        // this.panelMenu.bloquearBotones(true);
+        // this.panelMenu.limpiarPanelContenido();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_removeActionPerformed
+
+    private void jButton_productActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_productActionPerformed
+
+        JPanel_Comprapaso2 panelPaso2 = new JPanel_Comprapaso2(this.panelMenu, this.controlador);
+
+        panelPaso2.setSize(814, 600);
+        this.panelMenu.limpiarPanelContenido();
+
+        this.panelMenu.getjPanel_contenido().add(panelPaso2);
+        this.panelMenu.repaint();
+        this.panelMenu.validate();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_productActionPerformed
+
+    private void jButton_atras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_atras1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_atras1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton_atras1;
+    private javax.swing.JButton jButton_product;
+    private javax.swing.JButton jButton_remove;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel_date;
+    private javax.swing.JLabel jLabel_employee;
+    private javax.swing.JLabel jLabel_time;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jtb_sellers;
-    private javax.swing.JTextField jtx_sellerName;
+    private javax.swing.JTable jtb_purchaseLine;
     // End of variables declaration//GEN-END:variables
 
- public void seleccionarSeller() {
-        //obtiene el indice de la fila seleccionada en la tabla de buyer
-        int filaSeleccionada = this.jtb_sellers.getSelectedRow();
+    public void seleccionarSeller() {
+        //obtiene el indice de la fila seleccionada en la tabla de seller
+        int filaSeleccionada = this.jtb_purchaseLine.getSelectedRow();
         // si la fila esta seleccionada, seteamos  buyer auxiliar, llamando al modelo de tabla
         if (filaSeleccionada >= 0) {
-            this.sellerSeleccionado = this.tableModelSeller.getSellerIn(filaSeleccionada);
-           // this.jlbl_buyerfirstname.setText(this.buyerSeleccionado.getFirstName());
-           // this.jlbl_buyerlastname.setText(this.buyerSeleccionado.getLastName());
-           // this.jlbl_dnibuyer.setText(this.buyerSeleccionado.getDni());
-          //  this.jlbl_address.setText(this.buyerSeleccionado.getAddress());
-           // this.jlbl_phone.setText(this.buyerSeleccionado.getPhone());
+            //this.sellerSeleccionado = this.tableModelSeller.getSellerIn(filaSeleccionada);
+            //  this.jLabel_sellerName.setText(this.sellerSeleccionado.getName());
+            // this.jLabel_sellerAdress.setText(this.sellerSeleccionado.getDirection());
+            //this.jLabel_sellerPhone.setText(this.sellerSeleccionado.getPhone());
+            // this.jLabel_selleremail.setText(this.sellerSeleccionado.getEmail());
 
         }
     }
 
     private void validadarCampos() {
-        this.validadorDeCampos.validarSoloNumero(jtx_sellerName);
-        this.validadorDeCampos.LimitarCaracteres(jtx_sellerName, 20);
+        //this.validadorDeCampos.validarSoloNumero(jtx_productName);
+        //this.validadorDeCampos.LimitarCaracteres(jtx_productName, 20);
     }
 
     private void setupBotones() {
-      //  this.validadorDeCampos.habilitarBoton(true, jbtn_cancelar, new Color(176, 128, 118), Color.WHITE, Color.GRAY, Color.BLACK);
+        //  this.validadorDeCampos.habilitarBoton(true, jbtn_cancelar, new Color(176, 128, 118), Color.WHITE, Color.GRAY, Color.BLACK);
     }
 }
