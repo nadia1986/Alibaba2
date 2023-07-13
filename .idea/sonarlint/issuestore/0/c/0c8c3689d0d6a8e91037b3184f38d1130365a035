@@ -1,0 +1,68 @@
+
+i
+java:S1192_"GDefine a constant instead of duplicating this literal "Tahoma" 3 times.(Â¹çôıÿÿÿÿ8¨ĞÙã”1
+m
+java:S1192@"PDefine a constant instead of duplicating this literal "Times New Roman" 6 times.(ñı¨Ş8İ»·ã”1
+J
+java:S1604B"(Make this anonymous inner class a lambda(„È­ùÿÿÿÿ8à»·ã”1
+E
+java:S1604J"(Make this anonymous inner class a lambda(†Ğ¨Ú8à»·ã”1
+J
+java:S1604P"(Make this anonymous inner class a lambda(Ùêß›ıÿÿÿÿ8à»·ã”1
+J
+java:S1604n"(Make this anonymous inner class a lambda(Ê®Ö´şÿÿÿÿ8ã»·ã”1
+i	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Ñ£ˆå8ñˆ×à”1
+l	java:S116ï"VRename this field "jButton_add" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(û‰Ôş
+r	java:S116ğ"WRename this field "jButton_back" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŸˆÛøıÿÿÿÿ
+q	java:S116ñ"[Rename this field "jButton_cancelar" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—£·ß
+s	java:S116ô"]Rename this field "jLabel_description" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ííËÍ
+p	java:S116õ"ZRename this field "jLabel_quantity" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…¬Ã¢
+o	java:S116÷"YRename this field "jTable_product" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ëç…¥
+|	java:S116ø"aRename this field "jTextField_codProducto" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾àÇ‰ùÿÿÿÿ
+t	java:S116ù"^Rename this field "jTextField_quantity" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­ ‡Ÿ
+q
+java:S1450ï"ZRemove the "jButton_add" field and declare it as a local variable in the relevant methods.(û‰Ôş
+w
+java:S1450ğ"[Remove the "jButton_back" field and declare it as a local variable in the relevant methods.(ŸˆÛøıÿÿÿÿ
+r
+java:S1450ò"VRemove the "jLabel1" field and declare it as a local variable in the relevant methods.(°ãÉ¸ÿÿÿÿÿ
+r
+java:S1450ó"VRemove the "jLabel2" field and declare it as a local variable in the relevant methods.(™úòˆüÿÿÿÿ
+u
+java:S1450õ"^Remove the "jLabel_quantity" field and declare it as a local variable in the relevant methods.(…¬Ã¢
+w
+java:S1450ö"[Remove the "jScrollPane1" field and declare it as a local variable in the relevant methods.(¤á×ÿÿÿÿÿ
+O
+java:S1948"-Make "controlador" transient or serializable.(×•±‚ùÿÿÿÿ8Ä‰×à”1
+U
+java:S1948"3Make "validadorDeCampos" transient or serializable.(«¾º¹úÿÿÿÿ8Ä‰×à”1
+\
+java:S1161V":Add the "@Override" annotation above this method signature(ŠÖô„øÿÿÿÿ8È¼·ã”1
+p	java:S100´"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì± ôøÿÿÿÿ8÷‰×à”1
+M
+java:S1172´"*Remove this unused method parameter "evt".(ì± ôøÿÿÿÿ8÷‰×à”1
+O
+java:S1135¶"2Complete the task associated to this TODO comment.(²¥Ön8÷‰×à”1
+k	java:S100¹"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›³È8÷‰×à”1
+H
+java:S1172¹"*Remove this unused method parameter "evt".(›³È8ú‰×à”1
+U
+java:S1135º"2Complete the task associated to this TODO comment.(ÜÀ†áûÿÿÿÿ8ú‰×à”1
+p	java:S100½"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©Êæùøÿÿÿÿ8ú‰×à”1
+M
+java:S1172½"*Remove this unused method parameter "evt".(©Êæùøÿÿÿÿ8ú‰×à”1
+U
+java:S1135Ç"2Complete the task associated to this TODO comment.(„Õ£Ûûÿÿÿÿ8ÿ‰×à”1
+p	java:S100Ê"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢´©úÿÿÿÿ8ÿ‰×à”1
+M
+java:S1172Ê"*Remove this unused method parameter "evt".(¢´©úÿÿÿÿ8ÿ‰×à”1
+N
+java:S1135Ñ"2Complete the task associated to this TODO comment.(şç‹Ûúÿÿÿÿ
+k	java:S100Ô"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñé«õ8ÿ‰×à”1
+H
+java:S1172Ô"*Remove this unused method parameter "evt".(Ñé«õ8ÿ‰×à”1
+W	java:S125é"<This block of commented-out lines of code should be removed.(“ßäŸşÿÿÿÿ
+U
+java:S1135ê"2Complete the task associated to this TODO comment.(şç‹Ûúÿÿÿÿ8Š×à”1
+q
+java:S1128"[Remove this unused import 'com.pooitec1.alibaba2.view.resources.TableModelListenerProduct'.(…¡ÆÛ

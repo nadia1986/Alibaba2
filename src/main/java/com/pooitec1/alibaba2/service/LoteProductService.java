@@ -33,6 +33,18 @@ public class LoteProductService {
         }
         return productsfound;
     }
+    
+        //Busco el producto por codigo
+       public List<LoteProduct> findByCodeProduct(String code) {
+        List<LoteProduct> productsfound = new ArrayList<>();
+
+        for (LoteProduct productSearch :stockRepository.findLoteProductEntities()) {
+            if (productSearch.getProduct().getCodProd().contains(code)) {
+                productsfound.add(productSearch);
+            }
+        }
+        return productsfound;
+    }
 
     //FALTA AGREGAR QUE BUSQUE POR CODIGO Y TRAIGA UN SOLO PRODUCTO
     public List<LoteProduct> getLoteProduct() {

@@ -43,7 +43,7 @@ public class TableModelPurchaseLine extends AbstractTableModel {
                 retorno = purchaseLine.getProduct().getCodProd();
                 break;
             case 1:
-                retorno = purchaseLine.getProduct().getDescription();
+                retorno = purchaseLine.getProduct().getProductType().getDescription();
                 break;
             case 2:
                 retorno = purchaseLine.getQuantity();

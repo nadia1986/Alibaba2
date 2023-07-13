@@ -5,7 +5,7 @@ import com.pooitec1.alibaba2.entity.SaleLine;
 import com.pooitec1.alibaba2.view.resources.ValidadorDeCampos;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import javax.swing.DefaultComboBoxModel;
+
 import javax.swing.JOptionPane;
 
 import javax.swing.table.DefaultTableModel;
@@ -18,7 +18,6 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
 
     LocalDate fi = LocalDate.now();
     LocalDateTime localDate = LocalDateTime.now();
-   
 
     ValidadorDeCampos validadorDeCampos;
     private SaleLine saleLineSeleccionada;
@@ -47,8 +46,6 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
         this.jlbl_cliente.setText(this.controlador.getNewSale().getBuyer().getFirstName() + " " + this.controlador.getNewSale().getBuyer().getLastName());
         this.jlbl_time.setText(this.localDate.getHour() + ":" + this.localDate.getMinute() + ":" + this.localDate.getSecond());
         calcularSubtotal();
-        
-       
 
         modeloTableSaleLine.addColumn("Code Product");
         modeloTableSaleLine.addColumn("Description");
@@ -367,7 +364,7 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
         while (modeloTableSaleLine.getRowCount() > 0) {
             modeloTableSaleLine.removeRow(0);
         }
-            double subtotal=0;
+        double subtotal = 0;
         for (SaleLine saleLine : this.controlador.getNewSale().getSaleLines()) {
             Object x[] = new Object[5];
             x[0] = saleLine.getProduct().getCodProd();
@@ -375,12 +372,12 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
             x[2] = pasarMoneda(this.controlador.obtenerPrecio(saleLine.getProduct()));
             x[3] = saleLine.getQuantity();
             x[4] = pasarMoneda(this.controlador.obtenerPrecio(saleLine.getProduct()) * saleLine.getQuantity());
-           subtotal+=this.controlador.obtenerPrecio(saleLine.getProduct()) * saleLine.getQuantity();
+            subtotal += this.controlador.obtenerPrecio(saleLine.getProduct()) * saleLine.getQuantity();
             modeloTableSaleLine.addRow(x);
 
         }
-        double iva= subtotal*0.21;
-        double total=subtotal+iva;
+        double iva = subtotal * 0.21;
+        double total = subtotal + iva;
         jLabel_iva.setText(pasarMoneda(iva));
         jLabel_subtotal.setText(pasarMoneda(subtotal));
         jLabel_total.setText(pasarMoneda(total));
@@ -399,21 +396,14 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
         return "$ " + Math.round(precio * 100.0) / 100.0;
 
     }
-    
-    private void calcularSubtotal() {
-    double subtotal = 0.0;
-    
-             for (int i = 0; i < modeloTableSaleLine.getRowCount(); i++) {
-                 
-             }
-       
-    }
-    
-  
-         
-     
-    
-  
 
+    private void calcularSubtotal() {
+        double subtotal = 0.0;
+
+        for (int i = 0; i < modeloTableSaleLine.getRowCount(); i++) {
+
+        }
+
+    }
 
 }
