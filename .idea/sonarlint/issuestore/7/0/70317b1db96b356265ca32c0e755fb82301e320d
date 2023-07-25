@@ -1,0 +1,10 @@
+
+‰
+java:S1488 "gImmediately return this expression instead of assigning it to the temporary variable "listWharehouses".(úÅˆãûÿÿÿÿ8ãÄõæ˜1
+U	java:S106+"9Replace this use of System.out or System.err by a logger.(øŞéÚ8ÒëÇó˜1
+U	java:S1069"9Replace this use of System.out or System.err by a logger.(§Éş 8ÒëÇó˜1
+U	java:S106?"9Replace this use of System.out or System.err by a logger.(š•‡8ÒëÇó˜1
+U	java:S106H"9Replace this use of System.out or System.err by a logger.(§Éş 8ÒëÇó˜1
+Z	java:S106M"9Replace this use of System.out or System.err by a logger.(•é‘ôûÿÿÿÿ8ÒëÇó˜1
+M
+java:S1128	"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8Ä†‚÷˜1

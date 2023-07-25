@@ -23,21 +23,9 @@ public class WharehouseService {
     }
 
     public Wharehouse selectWharehouse(Wharehouse wharehouse) {
-        Wharehouse wharehouseSeleccionado = this.repository.findWharehouse(wharehouse.getId());
+       
+        return this.repository.findWharehouse(wharehouse.getId());
 
-        return wharehouseSeleccionado;
-
-    }
-
-    public List<Wharehouse> findByWharehouseId(long id) {
-        List<Wharehouse> wharehousefound = new ArrayList<>();
-
-        for (Wharehouse wharehouseSearch : repository.findWharehouseEntities()) {
-            if (wharehouseSearch.getId() == id) {
-                wharehousefound.add(wharehouseSearch);
-            }
-        }
-        return wharehousefound;
     }
 
     public List<Wharehouse> getWharehouse() {

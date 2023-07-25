@@ -1,6 +1,7 @@
 package com.pooitec1.alibaba2.view;
 
 import com.pooitec1.alibaba2.controller.PurchaseController;
+import com.pooitec1.alibaba2.entity.LoteProduct;
 import com.pooitec1.alibaba2.entity.Product;
 import com.pooitec1.alibaba2.entity.PurchaseLine;
 import com.pooitec1.alibaba2.entity.Seller;
@@ -249,6 +250,11 @@ public class JPanel_Comprapaso1 extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton_cancelarActionPerformed
 
     private void jButton_savepurchaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_savepurchaseActionPerformed
+        Seller seller = (Seller) jComboBox_seller.getSelectedItem();
+        this.controlador.getNewPurchase().setSeller(seller);
+        this.controlador.savePurchase(this.controlador.getNewPurchase());
+        actualizarStock();
+
 
     }//GEN-LAST:event_jButton_savepurchaseActionPerformed
 
@@ -292,19 +298,30 @@ public class JPanel_Comprapaso1 extends javax.swing.JPanel {
     }
 
     public void actualizarStock() {
-        int rowCount = jtb_purchaseLine.getRowCount();
+        int rowCount = tableModelPurchaseLine.getRowCount();
         for (int i = 0; i < rowCount; i++) {
+            String productCode = (String) tableModelPurchaseLine.getValueAt(i, 0);
+            int cantidad = (int) tableModelPurchaseLine.getValueAt(i, 2);
+            LoteProduct loteProduct = this.controlador.buscarLoteProduct(productCode);
+            int currentStock = loteProduct.getCantidadActual();
+            System.out.println(loteProduct.getCantidadActual());
+            int newStock = currentStock + cantidad;
+            System.out.println(newStock);
+            loteProduct.setCantidadActual(newStock);
+            System.out.println(loteProduct.getCantidadActual());
 
-            Product product = (Product) jtb_purchaseLine.getValueAt(i, 0);
-            int cantidad = (int) jtb_purchaseLine.getValueAt(3, 0);
+        }
+    }
 
-            //for (LoteProduct loteProduct :this.controlador.getNewPurchase().){
-            //if (loteProduct.getProduct().equals(product)) {
-            // loteProduct.setCantidadActual(cantidad);
-            // break;
-            //}
-            // }
-            // }
+    public void actualizar() {
+        for (PurchaseLine purchaseLine : this.controlador.getNewPurchase().getPurchaseLines()) {
+            Product product = purchaseLine.getProduct();
+            // LoteProduct loteProduct = this.controlador.buscarLoteProduct(product);
+            //int cantidadCompra = purchaseLine.getQuantity();
+            // int stockActual = loteProduct.getCantidadActual();
+            // int nuevoStock = stockActual + cantidadCompra;
+            // loteProduct.setCantidadActual(nuevoStock);
+
         }
     }
 }

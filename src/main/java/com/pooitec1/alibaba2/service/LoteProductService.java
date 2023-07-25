@@ -53,6 +53,30 @@ public class LoteProductService {
 
     }
 
+    public Product getOneProduct(String codeProduct) {
+        Product product = null;
+        for (LoteProduct stockPr : this.stockRepository.findLoteProductEntities()) {
+            if (stockPr.getProduct().getCodProd().equals(codeProduct)) {
+                product = stockPr.getProduct();
+
+            }
+        }
+
+        return product;
+    }
+
+    public LoteProduct buscarStockByProduct(String code) {
+        LoteProduct loteProduct = null;
+        for (LoteProduct stockPr : this.stockRepository.findLoteProductEntities()) {
+            if (stockPr.getProduct().getCodProd().equals(code)) {
+                loteProduct = stockPr;
+
+            }
+        }
+
+        return loteProduct;
+    }
+
     public List<LoteProduct> findByProduct(Product product) {
         List<LoteProduct> stockProductfound = new ArrayList<>();
         for (LoteProduct stockPr : this.stockRepository.findLoteProductEntities()) {

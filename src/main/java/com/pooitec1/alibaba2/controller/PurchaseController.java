@@ -79,9 +79,6 @@ public class PurchaseController {
         return wharehouseService.verificarSectorLote(loteProduct, wharehouse);
     }
 
-    //public boolean verificarSector(Product product, Wharehouse wharehouse){
-    //return wharehouseService.(product, wharehouse);
-    // }
     public List<Seller> getMayoristas() {
         return sellerService.getSeller();
     }
@@ -90,7 +87,15 @@ public class PurchaseController {
         this.stockService.actualizarStock(loteProduct, quantity);
     }
     
-    public LoteProduct buscarLoteProduct(Product product){
-       return  this.sectorService.buscarLoteProductPorProducto(product);
+    public LoteProduct buscarLoteProduct(String  code){
+       return  this.stockService.buscarStockByProduct(code);
+    }
+    
+    public List<LoteProduct> listarLoteProduct(){
+        return this.stockService.getLoteProduct();
+    }
+    
+    public void savePurchase(Purchase purchase){
+        this.purchaseService.savePurchase(purchase);
     }
 }
