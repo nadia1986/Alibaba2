@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.pooitec1.alibaba2.entity.repository;
 
 import com.pooitec1.alibaba2.entity.Purchase;
@@ -33,34 +30,26 @@ public class PurchaseRepository implements Serializable {
     }
 
     public void create(Purchase purchase) {
-        if (purchase.getPurchaseLines() == null) {
-            purchase.setPurchaseLines(new ArrayList<PurchaseLine>());
+         if (purchase.getPurchaseLines() == null) {
+        purchase.setPurchaseLines(new ArrayList<PurchaseLine>());
+    }
+    EntityManager em = null;
+    try {
+        em = getEntityManager();
+        em.getTransaction().begin();
+        List<PurchaseLine> attachedPurchaseLines = new ArrayList<PurchaseLine>();
+        for (PurchaseLine purchaseLine : purchase.getPurchaseLines()) {
+            purchaseLine.setPurchase(purchase);
+            em.persist( purchaseLine);
+            attachedPurchaseLines.add( purchaseLine);
         }
-        EntityManager em = null;
-        try {
-            em = getEntityManager();
-            em.getTransaction().begin();
-            List<PurchaseLine> attachedPurchaseLines = new ArrayList<PurchaseLine>();
-            for (PurchaseLine purchaseLinesPurchaseLineToAttach : purchase.getPurchaseLines()) {
-                purchaseLinesPurchaseLineToAttach = em.getReference(purchaseLinesPurchaseLineToAttach.getClass(), purchaseLinesPurchaseLineToAttach.getId());
-                attachedPurchaseLines.add(purchaseLinesPurchaseLineToAttach);
-            }
-            purchase.setPurchaseLines(attachedPurchaseLines);
-            em.persist(purchase);
-            for (PurchaseLine purchaseLinesPurchaseLine : purchase.getPurchaseLines()) {
-                Purchase oldPurchaseOfPurchaseLinesPurchaseLine = purchaseLinesPurchaseLine.getPurchase();
-                purchaseLinesPurchaseLine.setPurchase(purchase);
-                purchaseLinesPurchaseLine = em.merge(purchaseLinesPurchaseLine);
-                if (oldPurchaseOfPurchaseLinesPurchaseLine != null) {
-                    oldPurchaseOfPurchaseLinesPurchaseLine.getPurchaseLines().remove(purchaseLinesPurchaseLine);
-                    oldPurchaseOfPurchaseLinesPurchaseLine = em.merge(oldPurchaseOfPurchaseLinesPurchaseLine);
-                }
-            }
-            em.getTransaction().commit();
-        } finally {
-            if (em != null) {
-                em.close();
-            }
+         purchase.setPurchaseLines(attachedPurchaseLines);
+        em.persist(purchase); // Guardar Purchase
+        em.getTransaction().commit();
+    } finally {
+        if (em != null) {
+            em.close();
+         }
         }
     }
 

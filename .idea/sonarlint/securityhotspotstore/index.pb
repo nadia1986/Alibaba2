@@ -19,7 +19,5 @@ y
 Isrc/main/java/com/pooitec1/alibaba2/entity/repository/SaleRepository.java,f\7\f700bbcbec6906342c58762e25d0d6e70e66649a
 s
 Csrc/main/java/com/pooitec1/alibaba2/service/LoteProductService.java,1\7\17d99ef407b0ae5122bdc661f584918d82d379ab
-a
-1src/main/java/com/pooitec1/alibaba2/Alibaba2.java,a\8\a8061c90b6d7dd6373cb35bc4dc75df5189d0ebb
 p
-@src/main/java/com/pooitec1/alibaba2/view/JPanel_Comprapaso2.java,0\c\0c8c3689d0d6a8e91037b3184f38d1130365a035
+@src/main/java/com/pooitec1/alibaba2/view/JPanel_Comprapaso1.java,3\1\31e0c0385e51dc28a77ec9cc5f811341a1868104

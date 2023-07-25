@@ -21,7 +21,6 @@ public class PurchaseService {
 
     private final PurchaseRepository purchaseRepository;
     private final SellerService sellerService;
-    private final WharehouseService wharehouseService;
     private final ProductService productService;
 
     public PurchaseService() {
@@ -29,7 +28,7 @@ public class PurchaseService {
         this.purchaseRepository = new PurchaseRepository(Conexion.getEmf());
         this.productService = new ProductService();
         this.sellerService = new SellerService();
-        this.wharehouseService = new WharehouseService();
+        
 
     }
 
@@ -37,9 +36,7 @@ public class PurchaseService {
         return sellerService.findBySellerName(name);
     }
 
-    public List<Wharehouse> findWharehouse(long id) {
-        return wharehouseService.findByWharehouseId(id);
-    }
+   
 
     public List<Product> findProductByDescription(String description) {
         return productService.findByDescriptionProduct(description);

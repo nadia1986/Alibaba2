@@ -22,9 +22,9 @@ import javax.persistence.EntityManagerFactory;
  *
  * @author nadia
  */
-public class SectorJpaController implements Serializable {
+public class SectorRepository implements Serializable {
 
-    public SectorJpaController(EntityManagerFactory emf) {
+    public SectorRepository(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;

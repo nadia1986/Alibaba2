@@ -1,4 +1,3 @@
-
 package com.pooitec1.alibaba2.entity;
 
 import java.io.Serializable;
@@ -7,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
@@ -31,6 +31,7 @@ public class LoteProduct implements Serializable {
     private Double salePrice;
 
     @ManyToOne
+    @JoinColumn(nullable = false)
     private Sector sector;
 
     @ManyToOne
@@ -51,8 +52,6 @@ public class LoteProduct implements Serializable {
         this.sector = sector;
         this.product = product;
     }
-
-  
 
     public Long getIdLote() {
         return idLote;
@@ -111,7 +110,6 @@ public class LoteProduct implements Serializable {
         this.stockMax = stockMax;
     }
 
-
     public double getPriceUnit() {
         return priceUnit;
     }
@@ -167,6 +165,5 @@ public class LoteProduct implements Serializable {
     public void setCantidadActual(Integer cantidadActual) {
         this.cantidadActual = cantidadActual;
     }
-    
 
 }

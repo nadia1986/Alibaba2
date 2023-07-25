@@ -3,12 +3,15 @@ package com.pooitec1.alibaba2.view;
 import com.pooitec1.alibaba2.controller.PurchaseController;
 import com.pooitec1.alibaba2.entity.LoteProduct;
 import com.pooitec1.alibaba2.entity.PurchaseLine;
-import com.pooitec1.alibaba2.view.resources.TableModelListenerProduct;
+import com.pooitec1.alibaba2.entity.Wharehouse;
 import com.pooitec1.alibaba2.view.resources.TableModelListenerProductPurchase;
 import com.pooitec1.alibaba2.view.resources.TableModelProduct;
 import com.pooitec1.alibaba2.view.resources.ValidadorDeCampos;
 import java.awt.Color;
 import static java.lang.Integer.parseInt;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,11 +20,12 @@ import javax.swing.JOptionPane;
  */
 public class JPanel_Comprapaso2 extends javax.swing.JPanel {
 
-    PurchaseController controlador;
+    private PurchaseController controlador;
     private JPanelAplication panelMenu;
     ValidadorDeCampos validadorDeCampos;
     private LoteProduct loteProductSelected;
     private final TableModelProduct tableModelProduct;
+    DefaultComboBoxModel<Wharehouse> comboBoxModel = new DefaultComboBoxModel<>();
 
     public JPanel_Comprapaso2(JPanelAplication panelMenu, PurchaseController controladorV) {
         this.tableModelProduct = new TableModelProduct();
@@ -30,11 +34,11 @@ public class JPanel_Comprapaso2 extends javax.swing.JPanel {
         this.panelMenu = panelMenu;
 
         initComponents();
-        
+
         this.jTable_product.getSelectionModel().addListSelectionListener(new TableModelListenerProductPurchase(this));
 
         validadorCampos();
-
+        cargarDepositos();
         setupBotones();
     }
 
@@ -58,6 +62,8 @@ public class JPanel_Comprapaso2 extends javax.swing.JPanel {
         jButton_back = new javax.swing.JButton();
         jTextField_quantity = new javax.swing.JTextField();
         jLabel_quantity = new javax.swing.JLabel();
+        jComboBox_Wharehouse = new javax.swing.JComboBox();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -70,7 +76,12 @@ public class JPanel_Comprapaso2 extends javax.swing.JPanel {
         });
 
         jButton_add.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton_add.setText("ADD");
+        jButton_add.setText("CONFIRM");
+        jButton_add.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton_addMouseClicked(evt);
+            }
+        });
         jButton_add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_addActionPerformed(evt);
@@ -88,22 +99,21 @@ public class JPanel_Comprapaso2 extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 102));
-        jLabel1.setText("Product:");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel1.setText("PRODUCT CODE:");
 
         jTable_product.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTable_product.setForeground(new java.awt.Color(255, 0, 0));
         jTable_product.setModel(tableModelProduct);
         jScrollPane1.setViewportView(jTable_product);
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 102));
-        jLabel2.setText("ProductType:");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel2.setText("PRODUCT TYPE:");
 
         jLabel_description.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel_description.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel_description.setText("jLabel3");
 
         jButton_back.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton_back.setText("BACK");
@@ -116,59 +126,77 @@ public class JPanel_Comprapaso2 extends javax.swing.JPanel {
         jTextField_quantity.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField_quantity.setDisabledTextColor(new java.awt.Color(255, 0, 0));
 
-        jLabel_quantity.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel_quantity.setForeground(new java.awt.Color(0, 0, 102));
-        jLabel_quantity.setText("Quantity:");
+        jLabel_quantity.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel_quantity.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel_quantity.setText("QUANTITY:");
+
+        jComboBox_Wharehouse.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jComboBox_Wharehouse.setModel(comboBoxModel);
+        jComboBox_Wharehouse.setSelectedItem(comboBoxModel);
+        jComboBox_Wharehouse.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jComboBox_WharehouseKeyReleased(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel3.setText("WHAREHOSE:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField_codProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton_cancelar)
-                                .addGap(100, 100, 100)
-                                .addComponent(jButton_back)
-                                .addGap(110, 110, 110)
-                                .addComponent(jButton_add, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField_quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel_description, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField_codProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel_quantity)))
-                .addContainerGap(46, Short.MAX_VALUE))
+                        .addComponent(jButton_cancelar)
+                        .addGap(100, 100, 100)
+                        .addComponent(jButton_back)
+                        .addGap(110, 110, 110)
+                        .addComponent(jButton_add))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel_description, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBox_Wharehouse, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel_quantity)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField_quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextField_codProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(23, 23, 23)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel_description, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField_quantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel_quantity))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
+                    .addComponent(jLabel_quantity)
+                    .addComponent(jTextField_quantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(jComboBox_Wharehouse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_back, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -187,7 +215,7 @@ public class JPanel_Comprapaso2 extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField_codProductoActionPerformed
 
     private void jButton_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_backActionPerformed
-       JPanel_Comprapaso1 panelPaso1 = new JPanel_Comprapaso1(this.panelMenu, this.controlador);
+        JPanel_Comprapaso1 panelPaso1 = new JPanel_Comprapaso1(this.panelMenu, this.controlador);
 
         panelPaso1.setSize(814, 600);
 
@@ -200,7 +228,7 @@ public class JPanel_Comprapaso2 extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton_backActionPerformed
 
     private void jTextField_codProductoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_codProductoKeyReleased
-         if (this.jTextField_codProducto.isEditable()) {
+        if (this.jTextField_codProducto.isEditable()) {
             //Actualizar el TableModel con la lista del controlador
             this.tableModelProduct.setProducts(this.controlador.findByProductCode(this.jTextField_codProducto.getText()));
 
@@ -210,15 +238,19 @@ public class JPanel_Comprapaso2 extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField_codProductoKeyReleased
 
     private void jButton_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_addActionPerformed
-       if (this.loteProductSelected != null) {
+
+        Wharehouse wharehouseSeleccionado = this.controlador.selectWharehouse(jComboBox_Wharehouse);
+        if (this.loteProductSelected != null && this.controlador.verificarSectorProducto(loteProductSelected, wharehouseSeleccionado)) {
 
             PurchaseLine purchaseLine = new PurchaseLine();
             purchaseLine.setProduct(loteProductSelected.getProduct());
             purchaseLine.setQuantity(Integer.parseInt(jTextField_quantity.getText()));
-            
-            this.controlador.getNewPurchase().getPurchaseLines().add(purchaseLine);
-            
-            
+
+            if (!buscarPurchaseLine(purchaseLine)) {
+                this.controlador.getNewPurchase().getPurchaseLines().add(purchaseLine);
+
+            }
+
             JPanel_Comprapaso1 panelPaso1 = new JPanel_Comprapaso1(this.panelMenu, this.controlador);
 
             panelPaso1.setSize(814, 600);
@@ -229,18 +261,31 @@ public class JPanel_Comprapaso2 extends javax.swing.JPanel {
             this.panelMenu.validate();
 
         } else {
-            JOptionPane.showMessageDialog(null, "Hola. Selecciona un producto");
-            //System.out.println("selecciona Producto");
+            JOptionPane.showMessageDialog(null, "Hola.Producto null  o Wharehouse incorrecto");
+
         }  // TODO add your handling code here:
     }//GEN-LAST:event_jButton_addActionPerformed
+
+    private void jComboBox_WharehouseKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jComboBox_WharehouseKeyReleased
+        this.controlador.selectWharehouse(jComboBox_Wharehouse);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox_WharehouseKeyReleased
+
+    private void jButton_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_addMouseClicked
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_addMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_add;
     private javax.swing.JButton jButton_back;
     private javax.swing.JButton jButton_cancelar;
+    private javax.swing.JComboBox jComboBox_Wharehouse;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel_description;
     private javax.swing.JLabel jLabel_quantity;
     private javax.swing.JScrollPane jScrollPane1;
@@ -249,7 +294,7 @@ public class JPanel_Comprapaso2 extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField_quantity;
     // End of variables declaration//GEN-END:variables
 
- public void seleccionarProducto() {
+    public void seleccionarProducto() {
 
         int filaSeleccionada = this.jTable_product.getSelectedRow();
 
@@ -258,18 +303,53 @@ public class JPanel_Comprapaso2 extends javax.swing.JPanel {
             this.loteProductSelected = this.tableModelProduct.getProductIn(filaSeleccionada);
 
             this.jLabel_description.setText(this.loteProductSelected.getProduct().getProductType().getDescription());
-         
 
+            //  this.jLabel_sector.setText(this.loteProductSelected.getSector().getDescription());
         }
     }
- 
-  private void validadorCampos() {
-        this.validadorDeCampos.validarSoloNumero( jTextField_codProducto);
+
+    private void validadorCampos() {
+        this.validadorDeCampos.validarSoloNumero(jTextField_codProducto);
         this.validadorDeCampos.LimitarCaracteres(jTextField_codProducto, 20);
     }
 
     private void setupBotones() {
         this.validadorDeCampos.habilitarBoton(true, jButton_cancelar, new Color(176, 128, 118), Color.WHITE, Color.GRAY, Color.BLACK);
+    }
+
+    public boolean buscarPurchaseLine(PurchaseLine newPurchaseLine) {
+        for (PurchaseLine purchase : this.controlador.getNewPurchase().getPurchaseLines()) {
+            if (purchase.getProduct().getCodProd() == newPurchaseLine.getProduct().getCodProd()) {
+                purchase.setQuantity(purchase.getQuantity() + newPurchaseLine.getQuantity());
+                return true;
+            }
+
+        }
+        return false;
+    }
+
+    private void cargarDepositos() {
+
+        for (Wharehouse wharehouse : this.controlador.getWharehouses()) {
+            comboBoxModel.addElement(wharehouse);
+            jComboBox_Wharehouse.setModel(comboBoxModel);
+        }
+    }
+
+    public PurchaseController getControlador() {
+        return controlador;
+    }
+
+    public void setControlador(PurchaseController controlador) {
+        this.controlador = controlador;
+    }
+
+    public LoteProduct getLoteProductSelected() {
+        return loteProductSelected;
+    }
+
+    public void setLoteProductSelected(LoteProduct loteProductSelected) {
+        this.loteProductSelected = loteProductSelected;
     }
 
 }

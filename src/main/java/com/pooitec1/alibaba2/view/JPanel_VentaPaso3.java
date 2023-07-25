@@ -2,7 +2,6 @@ package com.pooitec1.alibaba2.view;
 
 import com.pooitec1.alibaba2.controller.SaleController;
 import com.pooitec1.alibaba2.entity.LoteProduct;
-import com.pooitec1.alibaba2.entity.Sale;
 import com.pooitec1.alibaba2.entity.SaleLine;
 import com.pooitec1.alibaba2.view.resources.TableModelListenerProduct;
 import com.pooitec1.alibaba2.view.resources.TableModelProduct;

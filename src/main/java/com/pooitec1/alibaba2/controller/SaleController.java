@@ -70,9 +70,7 @@ public class SaleController {
         return stockService.obtenerPrecioVentaProducto(product);
     }
 
-    public void discountStock(LoteProduct loteProduct, Integer quantity) {
-        this.stockService.discountStock(loteProduct, quantity);
-    }
+    
 
     public SaleLine getNewSaleLine() {
         return saleLineService.getNewSaleLine();

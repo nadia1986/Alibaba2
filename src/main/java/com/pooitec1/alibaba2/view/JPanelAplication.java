@@ -49,7 +49,7 @@ public class JPanelAplication extends javax.swing.JPanel {
         jPanel_user = new javax.swing.JPanel();
         jlbl_userName = new javax.swing.JLabel();
 
-        jPanel_boton.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel_boton.setBackground(new java.awt.Color(51, 51, 51));
 
         jbtn_nuevaVenta.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jbtn_nuevaVenta.setText("Registrar Venta");
@@ -120,7 +120,10 @@ public class JPanelAplication extends javax.swing.JPanel {
             .addGap(0, 626, Short.MAX_VALUE)
         );
 
-        jPanel_user.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel_user.setBackground(new java.awt.Color(0, 51, 102));
+
+        jlbl_userName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jlbl_userName.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel_userLayout = new javax.swing.GroupLayout(jPanel_user);
         jPanel_user.setLayout(jPanel_userLayout);
@@ -128,7 +131,7 @@ public class JPanelAplication extends javax.swing.JPanel {
             jPanel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_userLayout.createSequentialGroup()
                 .addGap(59, 59, 59)
-                .addComponent(jlbl_userName, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jlbl_userName, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel_userLayout.setVerticalGroup(

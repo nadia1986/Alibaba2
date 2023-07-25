@@ -1,16 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.pooitec1.alibaba2.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -29,7 +28,9 @@ public class Sector implements Serializable {
     private String sectorCode;
     private String description;
 
-    @OneToMany
+    //@OneToMany
+    @OneToMany(mappedBy = "sector", cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+        CascadeType.REMOVE}, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<LoteProduct> stocksProcucts;
 
     @ManyToOne
@@ -99,8 +100,6 @@ public class Sector implements Serializable {
         this.stocksProcucts = stocksProcucts;
     }
 
-   
-
     public String getSectorCode() {
         return sectorCode;
     }
@@ -124,7 +123,5 @@ public class Sector implements Serializable {
     public void setWharehouse(Wharehouse wharehouse) {
         this.wharehouse = wharehouse;
     }
-    
-    
 
 }

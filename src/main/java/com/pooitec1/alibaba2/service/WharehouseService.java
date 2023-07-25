@@ -1,9 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.pooitec1.alibaba2.service;
 
+import com.pooitec1.alibaba2.entity.LoteProduct;
 import com.pooitec1.alibaba2.entity.Product;
 import com.pooitec1.alibaba2.entity.Sector;
 import com.pooitec1.alibaba2.entity.Wharehouse;
@@ -11,54 +8,96 @@ import com.pooitec1.alibaba2.entity.repository.Conexion;
 import com.pooitec1.alibaba2.entity.repository.WharehouseRepository;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JComboBox;
 
 /**
  *
  * @author nadia
  */
 public class WharehouseService {
-    
-     private final WharehouseRepository repository;
-     
-     
-     
-     
+
+    private final WharehouseRepository repository;
 
     public WharehouseService() {
         this.repository = new WharehouseRepository(Conexion.getEmf());
+    }
+
+    public Wharehouse selectWharehouse(Wharehouse wharehouse) {
+        Wharehouse wharehouseSeleccionado = this.repository.findWharehouse(wharehouse.getId());
+
+        return wharehouseSeleccionado;
+
     }
 
     public List<Wharehouse> findByWharehouseId(long id) {
         List<Wharehouse> wharehousefound = new ArrayList<>();
 
         for (Wharehouse wharehouseSearch : repository.findWharehouseEntities()) {
-            if (wharehouseSearch.getId()==id) {
+            if (wharehouseSearch.getId() == id) {
                 wharehousefound.add(wharehouseSearch);
             }
         }
         return wharehousefound;
     }
 
-    public List<Wharehouse> getWharehose() {
+    public List<Wharehouse> getWharehouse() {
         List<Wharehouse> listWharehouses = repository.findWharehouseEntities();
         return listWharehouses;
 
     }
-    
-    public Sector verificarSectorProducto(Product product, Wharehouse wharehouse){
-        Sector sectorVerify= null;
-           for (Sector sectorR : wharehouse.getSectors()) {
-           
-               if (sectorR.getProductTypes().equals(product.getProductType())) {
-                   sectorVerify=sectorR;
-               }
-            
+
+    public Sector verificarSectorProducto(Product product, Wharehouse wharehouse) {
+        Sector sectorVerify = null;
+        for (Sector sectorR : wharehouse.getSectors()) {
+
+            if (sectorR.getProductTypes().equals(product.getProductType())) {
+                sectorVerify = sectorR;
+                System.out.println("Sector Verificado");
+            }
 
         }
- 
+
         return sectorVerify;
-        
-        
+
     }
-    
+
+    public String verificarSectorByLote(LoteProduct loteproduct, Wharehouse wharehouse) {
+        Sector sectorVerify = null;
+        for (Sector sectorR : wharehouse.getSectors()) {
+            if (sectorR.equals(loteproduct.getSector())) {
+                sectorVerify = sectorR;
+                System.out.println("Sector Verify" + " SECTOR: " + sectorR.getDescription());
+                break;
+            }
+
+        }
+        if (sectorVerify == null) {
+            System.out.println("Este producto no se encuentra almacenado en el wharehouse seleccionado");
+        }
+
+        return null;
+    }
+
+    public boolean verificarSectorLote(LoteProduct loteproduct, Wharehouse wharehouse) {
+        for (Sector sectorR : wharehouse.getSectors()) {
+            if (sectorR.equals(loteproduct.getSector())) {
+                System.out.println("Sector Verify" + " SECTOR: " + sectorR.getDescription());
+                return true;
+            }
+        }
+
+        System.out.println("El Producto no tiene sector asignado en este Wharehouse");
+        return false;
+    }
+
+    public Wharehouse obtenerAlmacenSeleccionado(JComboBox<Wharehouse> comboBox) {
+        Object selectedItem = comboBox.getSelectedItem();
+        if (selectedItem instanceof Wharehouse) {
+            return (Wharehouse) selectedItem;
+        } else {
+            // Maneja el caso cuando el elemento seleccionado no es un objeto Wharehouse
+            throw new IllegalArgumentException("El elemento seleccionado no es un Wharehouse");
+        }
+    }
+
 }

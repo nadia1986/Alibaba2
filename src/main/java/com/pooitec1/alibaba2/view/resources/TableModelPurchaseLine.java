@@ -5,6 +5,7 @@
 package com.pooitec1.alibaba2.view.resources;
 
 import com.pooitec1.alibaba2.entity.PurchaseLine;
+import com.pooitec1.alibaba2.entity.Sector;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,11 +17,13 @@ import javax.swing.table.AbstractTableModel;
  */
 public class TableModelPurchaseLine extends AbstractTableModel {
 
-    private static final String[] COLUMNAS = {"COD PRODUCTO", "PRODUCT", "QUANTITY"};
+    private static final String[] COLUMNAS = {"COD PRODUCTO", "PRODUCT", "QUANTITY",};
     private List<PurchaseLine> purchaseLines;
+   
 
     public TableModelPurchaseLine() {
         purchaseLines = new ArrayList<>();
+       
     }
 
     @Override
