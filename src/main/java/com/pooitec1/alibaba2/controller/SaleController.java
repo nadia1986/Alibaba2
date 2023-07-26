@@ -62,6 +62,10 @@ public class SaleController {
         return stockService.findByProductDescription(description);
     }
 
+    public LoteProduct buscarLoteProduct(String code) {
+        return this.stockService.buscarStockByProduct(code);
+    }
+
     public Integer traerStockMax(Product product) {
         return stockService.verStockTotalProducto(product);
     }
@@ -69,8 +73,6 @@ public class SaleController {
     public Double obtenerPrecio(Product product) {
         return stockService.obtenerPrecioVentaProducto(product);
     }
-
-    
 
     public SaleLine getNewSaleLine() {
         return saleLineService.getNewSaleLine();
@@ -88,30 +90,18 @@ public class SaleController {
         this.saleService.saveSale(sale);
 
     }
-    
-    public void saveSaleModif(Sale sale){
-         if (sale.getSaleLines() == null) {
-            throw new IllegalArgumentException("La lista de SaleLine no puede ser nula");
-        }
 
-        // Establecer la relación entre Sale y SaleLine
-        for (SaleLine saleLine : sale.getSaleLines()) {
-            saleLine.setSale(sale);
-        }
-
-        // Guardar la venta en la base de datos
-        this.saleService.saveSale(sale);
+    public void actualizarStockLote(LoteProduct loteProduct) throws Exception {
+        this.stockService.actualizaStock(loteProduct);
     }
-    
-    
-    public int validarProductoACargar(LoteProduct loteProductSelected){
-        
-      int resultado=0;
-      resultado=this.stockService.verStockTotalProducto(loteProductSelected.getProduct())-loteProductSelected.getCantidadActual();
-      
- 
-      return resultado;
-     
+
+    public int validarProductoACargar(LoteProduct loteProductSelected) {
+
+        int resultado = 0;
+        resultado = this.stockService.verStockTotalProducto(loteProductSelected.getProduct()) - loteProductSelected.getCantidadActual();
+
+        return resultado;
+
     }
 
 }

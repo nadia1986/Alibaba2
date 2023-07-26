@@ -10,7 +10,10 @@ import java.awt.Color;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -251,8 +254,15 @@ public class JPanel_Comprapaso1 extends javax.swing.JPanel {
         Seller seller = (Seller) jComboBox_seller.getSelectedItem();
         this.controlador.getNewPurchase().setSeller(seller);
         this.controlador.savePurchase(this.controlador.getNewPurchase());
-        actualizarStock();
+        try {
+            actualizarStock();
+        } catch (Exception ex) {
+            Logger.getLogger(JPanel_Comprapaso1.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
+        JOptionPane.showMessageDialog(null, "Stock actualizado Correctamente");
+        this.panelMenu.bloquearBotones(true);
+        this.panelMenu.limpiarPanelContenido();
 
     }//GEN-LAST:event_jButton_savepurchaseActionPerformed
 
@@ -295,7 +305,7 @@ public class JPanel_Comprapaso1 extends javax.swing.JPanel {
         this.controlador = controlador;
     }
 
-    public void actualizarStock() {
+    public void actualizarStock() throws Exception {
         int rowCount = tableModelPurchaseLine.getRowCount();
         for (int i = 0; i < rowCount; i++) {
             String productCode = (String) tableModelPurchaseLine.getValueAt(i, 0);
@@ -308,10 +318,10 @@ public class JPanel_Comprapaso1 extends javax.swing.JPanel {
             System.out.println(newStock);
             loteProduct.setCantidadActual(newStock);
             this.controlador.actualizarStockLote(loteProduct);
-             
+
             System.out.println(loteProduct.getCantidadActual());
-           
+
         }
-      
+
     }
 }

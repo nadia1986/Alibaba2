@@ -1,87 +1,98 @@
 
 n
-java:S1192]"QDefine a constant instead of duplicating this literal "Times New Roman" 14 times.(©ßîñ8–¸äü1
+java:S1192^"QDefine a constant instead of duplicating this literal "Times New Roman" 14 times.(©ßîñ8–¸äü1
 E
-java:S1604q"(Make this anonymous inner class a lambda(ëÌÊÁ8—¸äü1
+java:S1604r"(Make this anonymous inner class a lambda(ëÌÊÁ8—¸äü1
 F
-java:S1604‚"(Make this anonymous inner class a lambda(øÖ¾8—¸äü1
+java:S1604ƒ"(Make this anonymous inner class a lambda(øÖ¾8—¸äü1
 K
-java:S1604Š"(Make this anonymous inner class a lambda(›˜±‚øÿÿÿÿ8˜¸äü1
+java:S1604‹"(Make this anonymous inner class a lambda(›˜±‚øÿÿÿÿ8˜¸äü1
 K
-java:S1604"(Make this anonymous inner class a lambda(¦ÿóˆÿÿÿÿÿ8˜¸äü1
+java:S1604Ÿ"(Make this anonymous inner class a lambda(¦ÿóˆÿÿÿÿÿ8˜¸äü1
 K
-java:S1604³"(Make this anonymous inner class a lambda(Şõ’šşÿÿÿÿ8˜¸äü1
-g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ğ·ÈÙüÿÿÿÿ
-|	java:S116Í"ZRename this field "jBtn_addproduct" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„Ğé¦ûÿÿÿÿ8û¸äü1
-r	java:S116×"URename this field "jLabel_iva" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úòùñ8û¸äü1
-|	java:S116Ø"ZRename this field "jLabel_subtotal" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×Œ›³ÿÿÿÿÿ8ü¸äü1
-y	java:S116Ù"WRename this field "jLabel_total" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(á™üÿÿÿÿ8ı¸äü1
-	java:S116Û"_Rename this field "jbtn_atrasventapaso2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ìÅÆÀúÿÿÿÿ8ı¸äü1
-	java:S116Ü"bRename this field "jbtn_cancelarventapaso2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çæ¢8ı¸äü1
-x	java:S116İ"[Rename this field "jbtn_confirmsale" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ó¥¾²8ı¸äü1
-{	java:S116Ş"^Rename this field "jbtn_deletesaleline" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôÔŞ’8ı¸äü1
-y	java:S116ß"WRename this field "jlbl_cliente" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ëüñ†üÿÿÿÿ8ş¸äü1
-v	java:S116à"TRename this field "jlbl_date" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ûè¥ğşÿÿÿÿ8ş¸äü1
-z	java:S116á"XRename this field "jlbl_employee" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾¯ÒÇÿÿÿÿÿ8ş¸äü1
-q	java:S116â"TRename this field "jlbl_time" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›©Îö8ş¸äü1
-€	java:S116ã"^Rename this field "jtable_lineadeventa" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÏùØàşÿÿÿÿ8ÿ¸äü1
+java:S1604´"(Make this anonymous inner class a lambda(Şõ’šşÿÿÿÿ8˜¸äü1
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ğ·ÈÙüÿÿÿÿ
+|	java:S116Ö"ZRename this field "jBtn_addproduct" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„Ğé¦ûÿÿÿÿ8û¸äü1
+r	java:S116à"URename this field "jLabel_iva" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úòùñ8û¸äü1
+|	java:S116á"ZRename this field "jLabel_subtotal" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×Œ›³ÿÿÿÿÿ8ü¸äü1
+y	java:S116â"WRename this field "jLabel_total" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(á™üÿÿÿÿ8ı¸äü1
+	java:S116ä"_Rename this field "jbtn_atrasventapaso2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ìÅÆÀúÿÿÿÿ8ı¸äü1
+	java:S116å"bRename this field "jbtn_cancelarventapaso2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çæ¢8ı¸äü1
+x	java:S116æ"[Rename this field "jbtn_confirmsale" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ó¥¾²8ı¸äü1
+{	java:S116ç"^Rename this field "jbtn_deletesaleline" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôÔŞ’8ı¸äü1
+y	java:S116è"WRename this field "jlbl_cliente" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ëüñ†üÿÿÿÿ8ş¸äü1
+v	java:S116é"TRename this field "jlbl_date" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ûè¥ğşÿÿÿÿ8ş¸äü1
+z	java:S116ê"XRename this field "jlbl_employee" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾¯ÒÇÿÿÿÿÿ8ş¸äü1
+q	java:S116ë"TRename this field "jlbl_time" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›©Îö8ş¸äü1
+€	java:S116ì"^Rename this field "jtable_lineadeventa" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÏùØàşÿÿÿÿ8ÿ¸äü1
 ¤
-java:S1186æ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÙœõÍÿÿÿÿÿ8…¹äü1
+java:S1186ï"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÙœõÍÿÿÿÿÿ8…¹äü1
 
-java:S1450Í"^Remove the "jBtn_addproduct" field and declare it as a local variable in the relevant methods.(„Ğé¦ûÿÿÿÿ8‹¹äü1
+java:S1450Ö"^Remove the "jBtn_addproduct" field and declare it as a local variable in the relevant methods.(„Ğé¦ûÿÿÿÿ8‹¹äü1
 y
-java:S1450Î"VRemove the "jLabel1" field and declare it as a local variable in the relevant methods.(°ãÉ¸ÿÿÿÿÿ8Œ¹äü1
+java:S1450×"VRemove the "jLabel1" field and declare it as a local variable in the relevant methods.(°ãÉ¸ÿÿÿÿÿ8Œ¹äü1
 y
-java:S1450Ï"VRemove the "jLabel2" field and declare it as a local variable in the relevant methods.(™úòˆüÿÿÿÿ8—¹äü1
+java:S1450Ø"VRemove the "jLabel2" field and declare it as a local variable in the relevant methods.(™úòˆüÿÿÿÿ8—¹äü1
 y
-java:S1450Ğ"VRemove the "jLabel3" field and declare it as a local variable in the relevant methods.(Îä€øÿÿÿÿ8˜¹äü1
+java:S1450Ù"VRemove the "jLabel3" field and declare it as a local variable in the relevant methods.(Îä€øÿÿÿÿ8˜¹äü1
 t
-java:S1450Ñ"VRemove the "jLabel4" field and declare it as a local variable in the relevant methods.(«¢•ã8™¹äü1
+java:S1450Ú"VRemove the "jLabel4" field and declare it as a local variable in the relevant methods.(«¢•ã8™¹äü1
 t
-java:S1450Ò"VRemove the "jLabel5" field and declare it as a local variable in the relevant methods.(ó Ù®8™¹äü1
+java:S1450Û"VRemove the "jLabel5" field and declare it as a local variable in the relevant methods.(ó Ù®8™¹äü1
 y
-java:S1450Ó"VRemove the "jLabel6" field and declare it as a local variable in the relevant methods.(¸ôÂøÿÿÿÿ8š¹äü1
+java:S1450Ü"VRemove the "jLabel6" field and declare it as a local variable in the relevant methods.(¸ôÂøÿÿÿÿ8š¹äü1
 t
-java:S1450Ô"VRemove the "jLabel7" field and declare it as a local variable in the relevant methods.(×ê˜Ÿ8š¹äü1
+java:S1450İ"VRemove the "jLabel7" field and declare it as a local variable in the relevant methods.(×ê˜Ÿ8š¹äü1
 t
-java:S1450Õ"VRemove the "jLabel8" field and declare it as a local variable in the relevant methods.(å»«¢8›¹äü1
+java:S1450Ş"VRemove the "jLabel8" field and declare it as a local variable in the relevant methods.(å»«¢8›¹äü1
 y
-java:S1450Ö"VRemove the "jLabel9" field and declare it as a local variable in the relevant methods.(Ì’óĞşÿÿÿÿ8œ¹äü1
+java:S1450ß"VRemove the "jLabel9" field and declare it as a local variable in the relevant methods.(Ì’óĞşÿÿÿÿ8œ¹äü1
 ~
-java:S1450Ú"[Remove the "jScrollPane2" field and declare it as a local variable in the relevant methods.(ŠÌ«·şÿÿÿÿ8œ¹äü1
+java:S1450ã"[Remove the "jScrollPane2" field and declare it as a local variable in the relevant methods.(ŠÌ«·şÿÿÿÿ8œ¹äü1
 †
-java:S1450Û"cRemove the "jbtn_atrasventapaso2" field and declare it as a local variable in the relevant methods.(ìÅÆÀúÿÿÿÿ8œ¹äü1
+java:S1450ä"cRemove the "jbtn_atrasventapaso2" field and declare it as a local variable in the relevant methods.(ìÅÆÀúÿÿÿÿ8œ¹äü1
 „
-java:S1450Ü"fRemove the "jbtn_cancelarventapaso2" field and declare it as a local variable in the relevant methods.(çæ¢8¹äü1
+java:S1450å"fRemove the "jbtn_cancelarventapaso2" field and declare it as a local variable in the relevant methods.(çæ¢8¹äü1
 }
-java:S1450İ"_Remove the "jbtn_confirmsale" field and declare it as a local variable in the relevant methods.(ó¥¾²8¹äü1
+java:S1450æ"_Remove the "jbtn_confirmsale" field and declare it as a local variable in the relevant methods.(ó¥¾²8¹äü1
 €
-java:S1450Ş"bRemove the "jbtn_deletesaleline" field and declare it as a local variable in the relevant methods.(ôÔŞ’8¹äü1
-]	java:S1259"<This block of commented-out lines of code should be removed.(×¯®„üÿÿÿÿ8ª¹äü1
-p	java:S100©"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â£¿·üÿÿÿÿ8Ñ¹äü1
-M
-java:S1172©"*Remove this unused method parameter "evt".(Â£¿·üÿÿÿÿ8Ò¹äü1
-k	java:S100¹"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Äå”8×¹äü1
-H
-java:S1172¹"*Remove this unused method parameter "evt".(Äå”8Ø¹äü1
-k	java:S100¾"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹Ù¸¾8Ø¹äü1
-H
-java:S1172¾"*Remove this unused method parameter "evt".(‹Ù¸¾8Ù¹äü1
-k	java:S100Ã"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íñ‡ƒ8Ü¹äü1
-H
-java:S1172Ã"*Remove this unused method parameter "evt".(íñ‡ƒ8İ¹äü1
+java:S1450ç"bRemove the "jbtn_deletesaleline" field and declare it as a local variable in the relevant methods.(ôÔŞ’8¹äü1
 U
-java:S1135Ä"2Complete the task associated to this TODO comment.(ÜÀ†áûÿÿÿÿ8Ş¹äü1
-k	java:S100Ç"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾¸Ï8Ş¹äü1
-H
-java:S1172Ç"*Remove this unused method parameter "evt".(¾¸Ï8ß¹äü1
-U
-java:S1135È"2Complete the task associated to this TODO comment.(ÜÀ†áûÿÿÿÿ8ß¹äü1
+java:S1948"3Make "validadorDeCampos" transient or serializable.(«¾º¹úÿÿÿÿ8Á§ß‘™1
+O
+java:S1948"-Make "controlador" transient or serializable.( ³çµıÿÿÿÿ8Á§ß‘™1
+]	java:S125%"<This block of commented-out lines of code should be removed.(»ÀÚøúÿÿÿÿ8Æ§ß‘™1
+X	java:S125."<This block of commented-out lines of code should be removed.(£¨Ü8È§ß‘™1
+]	java:S125:"<This block of commented-out lines of code should be removed.(×¯®„üÿÿÿÿ8ª¹äü1
+p	java:S100ª"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â£¿·üÿÿÿÿ8Ñ¹äü1
 M
-java:S1197ğ"*Move the array designators [] to the type.(ÅÔ‘ëÿÿÿÿÿ8ã¹äü1
-^	java:S125…"<This block of commented-out lines of code should be removed.(·úöÊûÿÿÿÿ8×ÆÖê1
+java:S1172ª"*Remove this unused method parameter "evt".(Â£¿·üÿÿÿÿ8Ò¹äü1
+k	java:S100º"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Äå”8×¹äü1
+H
+java:S1172º"*Remove this unused method parameter "evt".(Äå”8Ø¹äü1
+k	java:S100¿"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹Ù¸¾8Ø¹äü1
+H
+java:S1172¿"*Remove this unused method parameter "evt".(‹Ù¸¾8Ù¹äü1
+k	java:S100Ì"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íñ‡ƒ8Ü¹äü1
+H
+java:S1172Ì"*Remove this unused method parameter "evt".(íñ‡ƒ8İ¹äü1
+U
+java:S1135Í"2Complete the task associated to this TODO comment.(ÜÀ†áûÿÿÿÿ8Ş¹äü1
+k	java:S100Ğ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾¸Ï8Ş¹äü1
+H
+java:S1172Ğ"*Remove this unused method parameter "evt".(¾¸Ï8ß¹äü1
+U
+java:S1135Ñ"2Complete the task associated to this TODO comment.(ÜÀ†áûÿÿÿÿ8ß¹äü1
+M
+java:S1197ù"*Move the array designators [] to the type.(ÅÔ‘ëÿÿÿÿÿ8ã¹äü1
+V	java:S106“"9Replace this use of System.out or System.err by a logger.(ğ¬”8–¨ß‘™1
+[	java:S106•"9Replace this use of System.out or System.err by a logger.(˜…ßşÿÿÿÿ8—¨ß‘™1
+V	java:S106™"9Replace this use of System.out or System.err by a logger.(ğ¬”8—¨ß‘™1
+^	java:S125¢"<This block of commented-out lines of code should be removed.(·úöÊûÿÿÿÿ8×ÆÖê1
 Z
-java:S1854"<Remove this useless assignment to local variable "subtotal".(›®º8¾€™ü1
+java:S1854­"<Remove this useless assignment to local variable "subtotal".(›®º8¾€™ü1
 K
-java:S1481"-Remove this unused "subtotal" local variable.(›®º8¾€™ü1
-K	java:S108’")Either remove or fill this block of code.(à˜ä—ÿÿÿÿÿ8¿€™ü1
+java:S1481­"-Remove this unused "subtotal" local variable.(›®º8¾€™ü1
+K	java:S108¯")Either remove or fill this block of code.(à˜ä—ÿÿÿÿÿ8¿€™ü1
+Z
+java:S1068"8Remove this unused "saleLineSeleccionada" private field.(Ğê”ıÿÿÿÿ8¨ß‘™1

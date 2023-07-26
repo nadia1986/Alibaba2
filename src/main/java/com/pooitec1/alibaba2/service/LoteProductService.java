@@ -168,11 +168,11 @@ public class LoteProductService {
 
     }
 
-    public void actualizaStock(LoteProduct loteProduct) {
+    public void actualizaStock(LoteProduct loteProduct) throws Exception {
         for (LoteProduct stockPr : this.stockRepository.findLoteProductEntities()) {
 
             if (stockPr.equals(loteProduct)) {
-                this.stockRepository.updateLoteProduct(loteProduct);
+                this.stockRepository.edit(loteProduct);
             }
         }
         

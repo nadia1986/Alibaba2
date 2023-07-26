@@ -1,4 +1,3 @@
-
 package com.pooitec1.alibaba2.entity.repository;
 
 import com.pooitec1.alibaba2.entity.LoteProduct;
@@ -160,33 +159,5 @@ public class LoteProductRepository implements Serializable {
             em.close();
         }
     }
-    
-    //public void updateLoteProduct(LoteProduct loteProduct) {
-    //EntityManager em = Conexion.getEm();
-   // try {
-        //em.getTransaction().begin();
-       // em.merge(loteProduct);
-        //em.getTransaction().commit();
-    //} finally {
-       // if (em != null) {
-           // em.close();
-        //}
-    //}
-//}
-    public void updateLoteProduct(LoteProduct loteProduct) {
-    EntityManager em = Conexion.getEm();
-    if (!em.isOpen()) {
-        em = Conexion.getEmf().createEntityManager();
-    }
-    try {
-        em.getTransaction().begin();
-        em.merge(loteProduct);
-        em.getTransaction().commit();
-    } finally {
-        if (em.isOpen()) {
-            em.close();
-        }
-    }
-}
-    
+
 }

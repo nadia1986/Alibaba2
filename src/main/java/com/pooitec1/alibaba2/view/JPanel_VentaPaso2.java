@@ -1,10 +1,13 @@
 package com.pooitec1.alibaba2.view;
 
 import com.pooitec1.alibaba2.controller.SaleController;
+import com.pooitec1.alibaba2.entity.LoteProduct;
 import com.pooitec1.alibaba2.entity.SaleLine;
 import com.pooitec1.alibaba2.view.resources.ValidadorDeCampos;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 
@@ -316,6 +319,11 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
     private void jbtn_confirmsaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_confirmsaleActionPerformed
 
         this.controlador.saveSale(this.controlador.getNewSale());
+        try {
+            discontStock();
+        } catch (Exception ex) {
+            Logger.getLogger(JPanel_VentaPaso2.class.getName()).log(Level.SEVERE, null, ex);
+        }
         JOptionPane.showMessageDialog(null, "Venta Registrada Correctamente");
         this.panelMenu.bloquearBotones(true);
         this.panelMenu.limpiarPanelContenido();
@@ -382,6 +390,26 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
         jLabel_subtotal.setText(pasarMoneda(subtotal));
         jLabel_total.setText(pasarMoneda(total));
         jtable_lineadeventa.setModel(modeloTableSaleLine);
+    }
+    
+    public void discontStock() throws Exception {
+        int rowCount = modeloTableSaleLine.getRowCount();
+        for (int i = 0; i < rowCount; i++) {
+            String productCode = (String) modeloTableSaleLine.getValueAt(i, 0);
+            int cantidad = (int) modeloTableSaleLine.getValueAt(i, 3);
+
+            LoteProduct loteProduct = this.controlador.buscarLoteProduct(productCode);
+            int stockActual = loteProduct.getCantidadActual();
+            System.out.println(loteProduct.getCantidadActual());
+            int newStock = stockActual - cantidad;
+            System.out.println(newStock);
+            loteProduct.setCantidadActual(newStock);
+            this.controlador.actualizarStockLote(loteProduct);
+
+            System.out.println(loteProduct.getCantidadActual());
+
+        }
+
     }
 
     public void seleccionarLineaVenta() {
