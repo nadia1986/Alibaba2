@@ -2,8 +2,6 @@ package com.pooitec1.alibaba2.view;
 
 import com.pooitec1.alibaba2.controller.PurchaseController;
 import com.pooitec1.alibaba2.entity.LoteProduct;
-import com.pooitec1.alibaba2.entity.Product;
-import com.pooitec1.alibaba2.entity.PurchaseLine;
 import com.pooitec1.alibaba2.entity.Seller;
 import com.pooitec1.alibaba2.view.resources.TableModelListenerPurchaseLine;
 import com.pooitec1.alibaba2.view.resources.TableModelPurchaseLine;
@@ -302,26 +300,18 @@ public class JPanel_Comprapaso1 extends javax.swing.JPanel {
         for (int i = 0; i < rowCount; i++) {
             String productCode = (String) tableModelPurchaseLine.getValueAt(i, 0);
             int cantidad = (int) tableModelPurchaseLine.getValueAt(i, 2);
+
             LoteProduct loteProduct = this.controlador.buscarLoteProduct(productCode);
-            int currentStock = loteProduct.getCantidadActual();
+            int stockActual = loteProduct.getCantidadActual();
             System.out.println(loteProduct.getCantidadActual());
-            int newStock = currentStock + cantidad;
+            int newStock = stockActual + cantidad;
             System.out.println(newStock);
             loteProduct.setCantidadActual(newStock);
+            this.controlador.actualizarStockLote(loteProduct);
+             
             System.out.println(loteProduct.getCantidadActual());
-
+           
         }
-    }
-
-    public void actualizar() {
-        for (PurchaseLine purchaseLine : this.controlador.getNewPurchase().getPurchaseLines()) {
-            Product product = purchaseLine.getProduct();
-            // LoteProduct loteProduct = this.controlador.buscarLoteProduct(product);
-            //int cantidadCompra = purchaseLine.getQuantity();
-            // int stockActual = loteProduct.getCantidadActual();
-            // int nuevoStock = stockActual + cantidadCompra;
-            // loteProduct.setCantidadActual(nuevoStock);
-
-        }
+      
     }
 }

@@ -23,19 +23,17 @@ import javax.swing.JComboBox;
 public class PurchaseController {
 
     private Purchase newPurchase;
-    private Wharehouse wharehouse;
     private final UserService userService;
     private final WharehouseService wharehouseService;
     private final LoteProductService stockService;
     private final SellerService sellerService;
-    private final SectorService sectorService;
+   
 
     private final PurchaseService purchaseService;
 
     public PurchaseController() {
 
         this.newPurchase = new Purchase();
-        this.sectorService = new SectorService();
         this.purchaseService = new PurchaseService();
         this.stockService = new LoteProductService();
         this.userService = new UserService();
@@ -51,7 +49,7 @@ public class PurchaseController {
         this.stockService = new LoteProductService();
         this.wharehouseService = new WharehouseService();
         this.sellerService = new SellerService();
-        this.sectorService = new SectorService();
+        
         newPurchase.setEmployee(this.userService.findEmployeeByUser(user));
     }
 
@@ -83,8 +81,8 @@ public class PurchaseController {
         return sellerService.getSeller();
     }
 
-    public void actualizarStock(LoteProduct loteProduct, Integer quantity) {
-        this.stockService.actualizarStock(loteProduct, quantity);
+    public void actualizarStockLote(LoteProduct loteProduct) {
+        this.stockService.actualizaStock(loteProduct);
     }
     
     public LoteProduct buscarLoteProduct(String  code){
@@ -95,6 +93,9 @@ public class PurchaseController {
         return this.stockService.getLoteProduct();
     }
     
+    public void findLoteProductById(Long idLote){
+        this.stockService.findLoteProductById(idLote);
+    }
     public void savePurchase(Purchase purchase){
         this.purchaseService.savePurchase(purchase);
     }

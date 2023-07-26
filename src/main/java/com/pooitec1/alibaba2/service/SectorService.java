@@ -20,14 +20,4 @@ public class SectorService {
         this.repository = new SectorRepository(Conexion.getEmf());
     }
     
-    public LoteProduct buscarLoteProductPorProducto(Product product) {
-    for (Sector sector : repository.findSectorEntities()) {
-        for (LoteProduct loteProduct : sector.getStocksProcucts()) {
-            if (loteProduct.getProduct().equals(product)) {
-                return loteProduct;
-            }
-        }
-    }
-    return null;
-}
 }

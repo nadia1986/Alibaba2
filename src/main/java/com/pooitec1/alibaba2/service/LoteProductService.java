@@ -46,6 +46,11 @@ public class LoteProductService {
         return productsfound;
     }
 
+    public void findLoteProductById(Long idLote) {
+        this.stockRepository.findLoteProduct(idLote);
+
+    }
+
     //FALTA AGREGAR QUE BUSQUE POR CODIGO Y TRAIGA UN SOLO PRODUCTO
     public List<LoteProduct> getLoteProduct() {
         List<LoteProduct> listLoteProducts = stockRepository.findLoteProductEntities();
@@ -163,21 +168,14 @@ public class LoteProductService {
 
     }
 
-    public void actualizarStock(LoteProduct loteSeleccionado, int quantity) {
+    public void actualizaStock(LoteProduct loteProduct) {
+        for (LoteProduct stockPr : this.stockRepository.findLoteProductEntities()) {
 
-        for (LoteProduct stockProduct : this.stockRepository.findLoteProductEntities()) {
-            if (stockProduct.equals(loteSeleccionado)) {
-
-                int productStock = loteSeleccionado.getCantidadActual();
-                int nuevoStock = productStock + quantity;
-
-                loteSeleccionado.setCantidadActual(nuevoStock);
-
-                //System.out.println("el stock es " + productStock);
-                //System.out.println(loteSeleccionado.getCantidadActual());
+            if (stockPr.equals(loteProduct)) {
+                this.stockRepository.updateLoteProduct(loteProduct);
             }
-
         }
+        
     }
 
     public void saveLoteProduct(LoteProduct loteProduct) {
