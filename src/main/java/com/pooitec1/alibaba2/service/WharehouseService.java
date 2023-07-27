@@ -23,7 +23,7 @@ public class WharehouseService {
     }
 
     public Wharehouse selectWharehouse(Wharehouse wharehouse) {
-       
+
         return this.repository.findWharehouse(wharehouse.getId());
 
     }
@@ -49,23 +49,6 @@ public class WharehouseService {
 
     }
 
-    public String verificarSectorByLote(LoteProduct loteproduct, Wharehouse wharehouse) {
-        Sector sectorVerify = null;
-        for (Sector sectorR : wharehouse.getSectors()) {
-            if (sectorR.equals(loteproduct.getSector())) {
-                sectorVerify = sectorR;
-                System.out.println("Sector Verify" + " SECTOR: " + sectorR.getDescription());
-                break;
-            }
-
-        }
-        if (sectorVerify == null) {
-            System.out.println("Este producto no se encuentra almacenado en el wharehouse seleccionado");
-        }
-
-        return null;
-    }
-
     public boolean verificarSectorLote(LoteProduct loteproduct, Wharehouse wharehouse) {
         for (Sector sectorR : wharehouse.getSectors()) {
             if (sectorR.equals(loteproduct.getSector())) {
@@ -86,6 +69,19 @@ public class WharehouseService {
             // Maneja el caso cuando el elemento seleccionado no es un objeto Wharehouse
             throw new IllegalArgumentException("El elemento seleccionado no es un Wharehouse");
         }
+    }
+
+    public Wharehouse getWharehouseByName(String name) {
+        Wharehouse wharehouseSelected = null;
+
+        for (Wharehouse wharehouseR : this.repository.findWharehouseEntities()) {
+            if (wharehouseR.getEmail().equals(name)) {
+                wharehouseSelected = wharehouseR;
+               
+            }
+        }
+
+        return wharehouseSelected;
     }
 
 }

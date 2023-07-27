@@ -1,73 +1,9 @@
 
-L
-java:S3740K"/Provide the parametrized type for this generic.(©é¦ 8Š‰¥‘™1
-R
-java:S3740“"/Provide the parametrized type for this generic.(¥»ë€ùÿÿÿÿ8Š‰¥‘™1
-m
-java:S1192V"PDefine a constant instead of duplicating this literal "Times New Roman" 3 times.(ÈÙó¥8Š‰¥‘™1
-i
-java:S1192_"GDefine a constant instead of duplicating this literal "Tahoma" 9 times.(µ’Çïıÿÿÿÿ8Š‰¥‘™1
-J
-java:S1604Y"(Make this anonymous inner class a lambda(ÏË£ıÿÿÿÿ8Š‰¥‘™1
-J
-java:S1604b"(Make this anonymous inner class a lambda(‘ôò¦üÿÿÿÿ8‘‰¥‘™1
-K
-java:S1604‚"(Make this anonymous inner class a lambda(„È­ùÿÿÿÿ8‘‰¥‘™1
-F
-java:S1604Š"(Make this anonymous inner class a lambda(–ÃöÔ8‘‰¥‘™1
 i	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¥ª÷8‘‰¥‘™1
-x	java:S116"[Rename this field "jButton_cancelar" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—£·ß8à‰¥‘™1
-|	java:S116"ZRename this field "jButton_product" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öœ©‚úÿÿÿÿ8à‰¥‘™1
-u	java:S116‘"YRename this field "jButton_remove" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹Ü×T8à‰¥‘™1
-	java:S116’"_Rename this field "jButton_savepurchase" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²´âøÿÿÿÿ8à‰¥‘™1
-}	java:S116“"[Rename this field "jComboBox_seller" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥»ë€ùÿÿÿÿ8à‰¥‘™1
-x	java:S116™"VRename this field "jLabel_date" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ØàŒøÿÿÿÿ8à‰¥‘™1
-|	java:S116š"ZRename this field "jLabel_employee" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àï½Áûÿÿÿÿ8à‰¥‘™1
-r	java:S116›"VRename this field "jLabel_time" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Åˆ±#8à‰¥‘™1
-}	java:S116"[Rename this field "jtb_purchaseLine" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÚÑô¥øÿÿÿÿ8à‰¥‘™1
-
-java:S1450"^Remove the "jButton_product" field and declare it as a local variable in the relevant methods.(öœ©‚úÿÿÿÿ8ğ‰¥‘™1
-z
-java:S1450‘"]Remove the "jButton_remove" field and declare it as a local variable in the relevant methods.(‹Ü×T8ğ‰¥‘™1
-†
-java:S1450’"cRemove the "jButton_savepurchase" field and declare it as a local variable in the relevant methods.(²´âøÿÿÿÿ8ğ‰¥‘™1
-y
-java:S1450”"VRemove the "jLabel1" field and declare it as a local variable in the relevant methods.(°ãÉ¸ÿÿÿÿÿ8ğ‰¥‘™1
-y
-java:S1450•"VRemove the "jLabel2" field and declare it as a local variable in the relevant methods.(™úòˆüÿÿÿÿ8ğ‰¥‘™1
-y
-java:S1450–"VRemove the "jLabel3" field and declare it as a local variable in the relevant methods.(Îä€øÿÿÿÿ8ğ‰¥‘™1
-t
-java:S1450—"VRemove the "jLabel4" field and declare it as a local variable in the relevant methods.(«¢•ã8ğ‰¥‘™1
-y
-java:S1450˜"VRemove the "jLabel6" field and declare it as a local variable in the relevant methods.(¸ôÂøÿÿÿÿ8ğ‰¥‘™1
-~
-java:S1450œ"[Remove the "jScrollPane1" field and declare it as a local variable in the relevant methods.(¤á×ÿÿÿÿÿ8ğ‰¥‘™1
 U
 java:S1948"3Make "validadorDeCampos" transient or serializable.(«¾º¹úÿÿÿÿ8ğ‰¥‘™1
 J
 java:S1948"-Make "controlador" transient or serializable.(‹¨•Â8û‰¥‘™1
-k	java:S100ä"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒ—Ø•8½Š¥‘™1
-H
-java:S1172ä"*Remove this unused method parameter "evt".(ƒ—Ø•8½Š¥‘™1
-^	java:S125å"<This block of commented-out lines of code should be removed.(åËıûÿÿÿÿ8¾Š¥‘™1
-U
-java:S1135ç"2Complete the task associated to this TODO comment.(ÜÀ†áûÿÿÿÿ8¾Š¥‘™1
-j	java:S100ê"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æ†Èt8¾Š¥‘™1
-G
-java:S1172ê"*Remove this unused method parameter "evt".(æ†Èt8¿Š¥‘™1
-U
-java:S1135õ"2Complete the task associated to this TODO comment.(ÜÀ†áûÿÿÿÿ8ÁŠ¥‘™1
-p	java:S100ø"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì± ôøÿÿÿÿ8ÁŠ¥‘™1
-M
-java:S1172ø"*Remove this unused method parameter "evt".(ì± ôøÿÿÿÿ8ÂŠ¥‘™1
-O
-java:S1135ú"2Complete the task associated to this TODO comment.(²¥Ön8ÃŠ¥‘™1
-p	java:S100ı"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›°Òúÿÿÿÿ8ÃŠ¥‘™1
-M
-java:S1172ı"*Remove this unused method parameter "evt".(›°Òúÿÿÿÿ8ÄŠ¥‘™1
-V	java:S106¼"9Replace this use of System.out or System.err by a logger.(ğ¬”8ÑŠ¥‘™1
-[	java:S106¾"9Replace this use of System.out or System.err by a logger.(˜…ßşÿÿÿÿ8ÔŠ¥‘™1
-V	java:S106Â"9Replace this use of System.out or System.err by a logger.(ğ¬”8ÕŠ¥‘™1
-X
-java:S1068"6Remove this unused "sellerSeleccionado" private field.(Úˆÿ¤ıÿÿÿÿ8ÖŠ¥‘™1
+V	java:S106¾"9Replace this use of System.out or System.err by a logger.(ğ¬”8ÑŠ¥‘™1
+[	java:S106À"9Replace this use of System.out or System.err by a logger.(˜…ßşÿÿÿÿ8ÔŠ¥‘™1
+V	java:S106Ä"9Replace this use of System.out or System.err by a logger.(ğ¬”8ÕŠ¥‘™1

@@ -18,20 +18,22 @@ public class SellerService {
         this.repository = new SellerRepository(Conexion.getEmf());
     }
 
-    public List<Seller> findBySellerName(String name) {
-        List<Seller> sellerfound = new ArrayList<>();
-
-        for (Seller sellerSearch : repository.findSellerEntities()) {
-            if (sellerSearch.getName().contains(name)) {
-                sellerfound.add(sellerSearch);
-            }
-        }
-        return sellerfound;
-    }
-
     public List<Seller> getSeller() {
         return this.repository.findSellerEntities();
 
+    }
+    
+     public Seller getSellerByName(String name) {
+        Seller sellerSelected = null;
+
+        for (Seller sellerR : this.repository.findSellerEntities()) {
+            if (sellerR.getName().equals(name)) {
+                sellerSelected = sellerR;
+               
+            }
+        }
+
+        return sellerSelected;
     }
 
 }

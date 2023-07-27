@@ -21,21 +21,13 @@ public class PurchaseController {
 
     private Purchase newPurchase;
     private final UserService userService;
-    private final WharehouseService wharehouseService;
-    private final LoteProductService stockService;
-    private final SellerService sellerService;
-   
-
     private final PurchaseService purchaseService;
 
     public PurchaseController() {
 
         this.newPurchase = new Purchase();
         this.purchaseService = new PurchaseService();
-        this.stockService = new LoteProductService();
         this.userService = new UserService();
-        this.wharehouseService = new WharehouseService();
-        this.sellerService = new SellerService();
 
     }
 
@@ -43,57 +35,54 @@ public class PurchaseController {
         this.newPurchase = new Purchase();
         this.purchaseService = new PurchaseService();
         this.userService = new UserService();
-        this.stockService = new LoteProductService();
-        this.wharehouseService = new WharehouseService();
-        this.sellerService = new SellerService();
-        
         newPurchase.setEmployee(this.userService.findEmployeeByUser(user));
     }
 
     public List<LoteProduct> findByProductCode(String code) {
-        return stockService.findByCodeProduct(code);
+        return purchaseService.findByProductCode(code);
     }
 
     public Purchase getNewPurchase() {
         return newPurchase;
     }
 
-    public Wharehouse getWharehouse(JComboBox comboBox) {
-        return (Wharehouse) wharehouseService.obtenerAlmacenSeleccionado(comboBox);
-    }
-
     public List<Wharehouse> getWharehouses() {
-        return wharehouseService.getWharehouse();
+        return purchaseService.getWharehouses();
     }
 
-    public Wharehouse selectWharehouse(JComboBox<Wharehouse> comboBox) {
-        return this.wharehouseService.obtenerAlmacenSeleccionado(comboBox);
+    public Wharehouse getWharehouseByName(String name) {
+        return this.purchaseService.getWharehouseByName(name);
+    }
+    
+      public Seller getSellerByName(String name){
+        return purchaseService.getSellerByName(name);
     }
 
     public boolean verificarSectorProducto(LoteProduct loteProduct, Wharehouse wharehouse) {
-        return wharehouseService.verificarSectorLote(loteProduct, wharehouse);
+        return purchaseService.verificarSectorProducto(loteProduct, wharehouse);
     }
 
     public List<Seller> getMayoristas() {
-        return sellerService.getSeller();
+        return purchaseService.getMayoristas();
     }
 
     public void actualizarStockLote(LoteProduct loteProduct) throws Exception {
-        this.stockService.actualizaStock(loteProduct);
+        this.purchaseService.actualizarStockLote(loteProduct);
     }
-    
-    public LoteProduct buscarLoteProduct(String  code){
-       return  this.stockService.buscarStockByProduct(code);
+
+    public LoteProduct buscarLoteProduct(String code) {
+        return purchaseService.buscarLoteProduct(code);
     }
-    
-    public List<LoteProduct> listarLoteProduct(){
-        return this.stockService.getLoteProduct();
+
+    public List<LoteProduct> listarLoteProduct() {
+        return this.purchaseService.listarLoteProduct();
     }
-    
-    public void findLoteProductById(Long idLote){
-        this.stockService.findLoteProductById(idLote);
+
+    public void findLoteProductById(Long idLote) {
+        this.purchaseService.findLoteProductById(idLote);
     }
-    public void savePurchase(Purchase purchase){
+
+    public void savePurchase(Purchase purchase) {
         this.purchaseService.savePurchase(purchase);
     }
 }

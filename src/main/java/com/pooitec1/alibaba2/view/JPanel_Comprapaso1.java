@@ -9,7 +9,6 @@ import com.pooitec1.alibaba2.view.resources.ValidadorDeCampos;
 import java.awt.Color;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -27,7 +26,7 @@ public class JPanel_Comprapaso1 extends javax.swing.JPanel {
     private final TableModelPurchaseLine tableModelPurchaseLine;
     private PurchaseController controlador;
     private JPanelAplication panelMenu;
-    private Seller sellerSeleccionado;
+    
     DefaultComboBoxModel<Seller> comboBoxModelSeller = new DefaultComboBoxModel<>();
 
     public JPanel_Comprapaso1(JPanelAplication panelMenu, PurchaseController controladorP) {
@@ -251,8 +250,11 @@ public class JPanel_Comprapaso1 extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton_cancelarActionPerformed
 
     private void jButton_savepurchaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_savepurchaseActionPerformed
-        Seller seller = (Seller) jComboBox_seller.getSelectedItem();
+        
+        String name = (String) jComboBox_seller.getSelectedItem();
+        Seller  seller = this.controlador.getSellerByName(name);
         this.controlador.getNewPurchase().setSeller(seller);
+        this.controlador.getNewPurchase().setPurchaseDate(fi);
         this.controlador.savePurchase(this.controlador.getNewPurchase());
         try {
             actualizarStock();
@@ -290,11 +292,10 @@ public class JPanel_Comprapaso1 extends javax.swing.JPanel {
     }
 
     private void cargarMayoristas() {
-        List<Seller> sellers = this.controlador.getMayoristas();
-        for (Seller seller : sellers) {
-            comboBoxModelSeller.addElement(seller);
-            jComboBox_seller.setModel(comboBoxModelSeller);
-        }
+       
+        for (Seller seller : this.controlador.getMayoristas()) {
+            jComboBox_seller.addItem(seller.getName());
+                  }
     }
 
     public PurchaseController getControlador() {

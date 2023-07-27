@@ -23,11 +23,15 @@ r
 Bsrc/main/java/com/pooitec1/alibaba2/service/WharehouseService.java,7\0\70317b1db96b356265ca32c0e755fb82301e320d
 p
 @src/main/java/com/pooitec1/alibaba2/view/JPanel_Comprapaso2.java,0\c\0c8c3689d0d6a8e91037b3184f38d1130365a035
-a
-1src/main/java/com/pooitec1/alibaba2/Alibaba2.java,a\8\a8061c90b6d7dd6373cb35bc4dc75df5189d0ebb
-v
-Fsrc/main/java/com/pooitec1/alibaba2/controller/PurchaseController.java,5\8\58a3aea094f6c31a797eaa17c8b71fe94fba9e9a
-p
-@src/main/java/com/pooitec1/alibaba2/view/JPanel_Comprapaso1.java,3\1\31e0c0385e51dc28a77ec9cc5f811341a1868104
 o
 ?src/main/java/com/pooitec1/alibaba2/view/JPanel_VentaPaso2.java,e\9\e90f58249e1c539f5f8ff0ba4b57bd77565571f1
+K
+Documentos/script carga.txt,2\0\207108d92d504676b16ab3ee93de13455ea28670
+e
+5Documentos/enlace para acceder Diagrama de clases.txt,6\2\62c2cb3799e6e994375b707e8564906527403b0e
+v
+Fsrc/main/java/com/pooitec1/alibaba2/controller/PurchaseController.java,5\8\58a3aea094f6c31a797eaa17c8b71fe94fba9e9a
+a
+1src/main/java/com/pooitec1/alibaba2/Alibaba2.java,a\8\a8061c90b6d7dd6373cb35bc4dc75df5189d0ebb
+p
+@src/main/java/com/pooitec1/alibaba2/view/JPanel_Comprapaso1.java,3\1\31e0c0385e51dc28a77ec9cc5f811341a1868104

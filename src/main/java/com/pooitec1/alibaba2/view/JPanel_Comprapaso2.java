@@ -8,10 +8,6 @@ import com.pooitec1.alibaba2.view.resources.TableModelListenerProductPurchase;
 import com.pooitec1.alibaba2.view.resources.TableModelProduct;
 import com.pooitec1.alibaba2.view.resources.ValidadorDeCampos;
 import java.awt.Color;
-import static java.lang.Integer.parseInt;
-import java.util.List;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,8 +21,7 @@ public class JPanel_Comprapaso2 extends javax.swing.JPanel {
     ValidadorDeCampos validadorDeCampos;
     private LoteProduct loteProductSelected;
     private final TableModelProduct tableModelProduct;
-    DefaultComboBoxModel<Wharehouse> comboBoxModel = new DefaultComboBoxModel<>();
-
+  
     public JPanel_Comprapaso2(JPanelAplication panelMenu, PurchaseController controladorV) {
         this.tableModelProduct = new TableModelProduct();
         this.validadorDeCampos = new ValidadorDeCampos();
@@ -131,8 +126,6 @@ public class JPanel_Comprapaso2 extends javax.swing.JPanel {
         jLabel_quantity.setText("QUANTITY:");
 
         jComboBox_Wharehouse.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jComboBox_Wharehouse.setModel(comboBoxModel);
-        jComboBox_Wharehouse.setSelectedItem(comboBoxModel);
         jComboBox_Wharehouse.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jComboBox_WharehouseKeyReleased(evt);
@@ -229,7 +222,7 @@ public class JPanel_Comprapaso2 extends javax.swing.JPanel {
 
     private void jTextField_codProductoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_codProductoKeyReleased
         if (this.jTextField_codProducto.isEditable()) {
-            //Actualizar el TableModel con la lista del controlador
+     
             this.tableModelProduct.setProducts(this.controlador.findByProductCode(this.jTextField_codProducto.getText()));
 
             //Refrescar el modelo en la tabla
@@ -238,8 +231,10 @@ public class JPanel_Comprapaso2 extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField_codProductoKeyReleased
 
     private void jButton_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_addActionPerformed
+        
+        String name = (String) jComboBox_Wharehouse.getSelectedItem();
+        Wharehouse wharehouseSeleccionado = this.controlador.getWharehouseByName(name);
 
-        Wharehouse wharehouseSeleccionado = this.controlador.selectWharehouse(jComboBox_Wharehouse);
         if (this.loteProductSelected != null && this.controlador.verificarSectorProducto(loteProductSelected, wharehouseSeleccionado)) {
 
             PurchaseLine purchaseLine = new PurchaseLine();
@@ -267,7 +262,7 @@ public class JPanel_Comprapaso2 extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton_addActionPerformed
 
     private void jComboBox_WharehouseKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jComboBox_WharehouseKeyReleased
-        this.controlador.selectWharehouse(jComboBox_Wharehouse);
+        // this.controlador.selectWharehouse(jComboBox_Wharehouse);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox_WharehouseKeyReleased
@@ -304,7 +299,6 @@ public class JPanel_Comprapaso2 extends javax.swing.JPanel {
 
             this.jLabel_description.setText(this.loteProductSelected.getProduct().getProductType().getDescription());
 
-            //  this.jLabel_sector.setText(this.loteProductSelected.getSector().getDescription());
         }
     }
 
@@ -323,7 +317,6 @@ public class JPanel_Comprapaso2 extends javax.swing.JPanel {
                 purchase.setQuantity(purchase.getQuantity() + newPurchaseLine.getQuantity());
                 return true;
             }
-
         }
         return false;
     }
@@ -331,9 +324,10 @@ public class JPanel_Comprapaso2 extends javax.swing.JPanel {
     private void cargarDepositos() {
 
         for (Wharehouse wharehouse : this.controlador.getWharehouses()) {
-            comboBoxModel.addElement(wharehouse);
-            jComboBox_Wharehouse.setModel(comboBoxModel);
+            jComboBox_Wharehouse.addItem(wharehouse.getEmail());
+          
         }
+
     }
 
     public PurchaseController getControlador() {
