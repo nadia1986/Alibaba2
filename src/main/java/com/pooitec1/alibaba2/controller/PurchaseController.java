@@ -5,13 +5,10 @@ import com.pooitec1.alibaba2.entity.Purchase;
 import com.pooitec1.alibaba2.entity.Seller;
 import com.pooitec1.alibaba2.entity.User;
 import com.pooitec1.alibaba2.entity.Wharehouse;
-import com.pooitec1.alibaba2.service.LoteProductService;
 import com.pooitec1.alibaba2.service.PurchaseService;
-import com.pooitec1.alibaba2.service.SellerService;
 import com.pooitec1.alibaba2.service.UserService;
-import com.pooitec1.alibaba2.service.WharehouseService;
 import java.util.List;
-import javax.swing.JComboBox;
+
 
 /**
  *
