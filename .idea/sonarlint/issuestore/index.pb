@@ -7,8 +7,6 @@ m
 =src/main/java/com/pooitec1/alibaba2/service/BuyerService.java,f\b\fb69ebfb71bdc1393f95d0158784ef56982573f8
 e
 5src/main/java/com/pooitec1/alibaba2/entity/Buyer.java,9\5\95ae8f6582f612df7873095f74d789249045a8f7
-v
-Fsrc/main/java/com/pooitec1/alibaba2/controller/SaleLineController.java,3\7\37dfd6b6409414ae65eda14afe305a0c0a3d4280
 l
 <src/main/java/com/pooitec1/alibaba2/service/SaleService.java,f\0\f06ca39ed6400795276cfcdb6a906ef05685914f
 r

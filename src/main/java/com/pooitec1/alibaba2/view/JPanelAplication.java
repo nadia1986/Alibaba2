@@ -42,7 +42,7 @@ public class JPanelAplication extends javax.swing.JPanel {
         jPanel_boton = new javax.swing.JPanel();
         jbtn_nuevaVenta = new javax.swing.JButton();
         jbtn_nuevaCompra = new javax.swing.JButton();
-        jbtn_clientes = new javax.swing.JButton();
+        jbtn_buscarVencimientos = new javax.swing.JButton();
         jbtn_proveedores = new javax.swing.JButton();
         jbtn_productos = new javax.swing.JButton();
         jPanel_contenido = new javax.swing.JPanel();
@@ -67,8 +67,13 @@ public class JPanelAplication extends javax.swing.JPanel {
             }
         });
 
-        jbtn_clientes.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jbtn_clientes.setText("Clientes");
+        jbtn_buscarVencimientos.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jbtn_buscarVencimientos.setText("Buscar Vencimientos");
+        jbtn_buscarVencimientos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_buscarVencimientosActionPerformed(evt);
+            }
+        });
 
         jbtn_proveedores.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         jbtn_proveedores.setText("Proveedores");
@@ -85,7 +90,7 @@ public class JPanelAplication extends javax.swing.JPanel {
                 .addGroup(jPanel_botonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jbtn_productos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbtn_proveedores, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
-                    .addComponent(jbtn_clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbtn_buscarVencimientos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel_botonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jbtn_nuevaVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jbtn_nuevaCompra, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)))
@@ -99,11 +104,11 @@ public class JPanelAplication extends javax.swing.JPanel {
                 .addGap(43, 43, 43)
                 .addComponent(jbtn_nuevaCompra)
                 .addGap(47, 47, 47)
-                .addComponent(jbtn_clientes)
-                .addGap(47, 47, 47)
-                .addComponent(jbtn_proveedores)
-                .addGap(36, 36, 36)
+                .addComponent(jbtn_buscarVencimientos)
+                .addGap(37, 37, 37)
                 .addComponent(jbtn_productos)
+                .addGap(29, 29, 29)
+                .addComponent(jbtn_proveedores)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -191,12 +196,16 @@ public class JPanelAplication extends javax.swing.JPanel {
         bloquearBotones(false);   // TODO add your handling code here:
     }//GEN-LAST:event_jbtn_nuevaCompraActionPerformed
 
+    private void jbtn_buscarVencimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_buscarVencimientosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtn_buscarVencimientosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel_boton;
     private javax.swing.JPanel jPanel_contenido;
     private javax.swing.JPanel jPanel_user;
-    private javax.swing.JButton jbtn_clientes;
+    private javax.swing.JButton jbtn_buscarVencimientos;
     private javax.swing.JButton jbtn_nuevaCompra;
     private javax.swing.JButton jbtn_nuevaVenta;
     private javax.swing.JButton jbtn_productos;
@@ -207,7 +216,7 @@ public class JPanelAplication extends javax.swing.JPanel {
     public void bloquearBotones(boolean estado) {
         this.jbtn_nuevaVenta.setEnabled(estado);
         this.jbtn_nuevaCompra.setEnabled(estado);
-        this.jbtn_clientes.setEnabled(estado);
+        this.jbtn_buscarVencimientos.setEnabled(estado);
         this.jbtn_proveedores.setEnabled(estado);
         this.jbtn_productos.setEnabled(estado);
 

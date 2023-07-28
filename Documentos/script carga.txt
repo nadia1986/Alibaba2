@@ -6,20 +6,32 @@ INSERT INTO `alibaba2`.`wharehouse` (`ID`, `DIRECTION`, `EMAIL`, `PHONE`) VALUES
 
 
 INSERT INTO `alibaba2`.`sector` (`ID`, `DESCRIPTION`, `SECTORCODE`) VALUES ('1', 'FRESCOS', 'A');
-INSERT INTO `alibaba2`.`sector` (`ID`, `DESCRIPTION`, `SECTORCODE`) VALUES ('2', 'CONGELADOS NORTE ', 'B');
-INSERT INTO `alibaba2`.`sector` (`ID`, `DESCRIPTION`, `SECTORCODE`) VALUES ('3', 'CONGELADOS SUR', 'C');
-INSERT INTO `alibaba2`.`sector` (`ID`, `DESCRIPTION`, `SECTORCODE`) VALUES ('4', 'REFRIGERADOS', 'D');
-INSERT INTO `alibaba2`.`sector` (`ID`, `DESCRIPTION`, `SECTORCODE`) VALUES ('5', 'SECOS', 'D');
+INSERT INTO `alibaba2`.`sector` (`ID`, `DESCRIPTION`, `SECTORCODE`) VALUES ('2', 'CONGELADOS NORTE(CARNE)', 'B');
+INSERT INTO `alibaba2`.`sector` (`ID`, `DESCRIPTION`, `SECTORCODE`) VALUES ('3', 'CONGELADOS SUR (VEGETRALES) ', 'C');
+INSERT INTO `alibaba2`.`sector` (`ID`, `DESCRIPTION`, `SECTORCODE`) VALUES ('4', 'REFRIGERADOS ', 'D');
+INSERT INTO `alibaba2`.`sector` (`ID`, `DESCRIPTION`, `SECTORCODE`) VALUES ('5', 'SECOS', 'E');
+
+INSERT INTO `alibaba2`.`sector` (`ID`, `DESCRIPTION`, `SECTORCODE`) VALUES ('6', 'FRESCOS FRUTAS Y VERDURAS', 'F');
+INSERT INTO `alibaba2`.`sector` (`ID`, `DESCRIPTION`, `SECTORCODE`) VALUES ('7', 'CONGELADOS  ESTE (PESCADOS Y MARISCOS)', 'G');
+INSERT INTO `alibaba2`.`sector` (`ID`, `DESCRIPTION`, `SECTORCODE`) VALUES ('8', 'CONGELADOS  OESTE (AVE)', 'H');
+INSERT INTO `alibaba2`.`sector` (`ID`, `DESCRIPTION`, `SECTORCODE`) VALUES ('9', 'CONGELADOS  NORTE (VACUNO)', 'H');
+INSERT INTO `alibaba2`.`sector` (`ID`, `DESCRIPTION`, `SECTORCODE`) VALUES ('10', 'REFRIGERADOS LACTEOS', 'I');
+INSERT INTO `alibaba2`.`sector` (`ID`, `DESCRIPTION`, `SECTORCODE`) VALUES ('11', 'REFRIGERADOS CARNES', 'J');
+INSERT INTO `alibaba2`.`sector` (`ID`, `DESCRIPTION`, `SECTORCODE`) VALUES ('12', 'REFRIGERADOS BEBIBLES', 'K');
 
 INSERT INTO `alibaba2`.`wharehouse_sector` (`Wharehouse_ID`, `sectors_ID`) VALUES ('1', '1');
 INSERT INTO `alibaba2`.`wharehouse_sector` (`Wharehouse_ID`, `sectors_ID`) VALUES ('1', '2');
 INSERT INTO `alibaba2`.`wharehouse_sector` (`Wharehouse_ID`, `sectors_ID`) VALUES ('1', '3');
 INSERT INTO `alibaba2`.`wharehouse_sector` (`Wharehouse_ID`, `sectors_ID`) VALUES ('1', '4');
 
-INSERT INTO `alibaba2`.`wharehouse_sector` (`Wharehouse_ID`, `sectors_ID`) VALUES ('2', '1');
-INSERT INTO `alibaba2`.`wharehouse_sector` (`Wharehouse_ID`, `sectors_ID`) VALUES ('2', '2');
-INSERT INTO `alibaba2`.`wharehouse_sector` (`Wharehouse_ID`, `sectors_ID`) VALUES ('2', '3');
-INSERT INTO `alibaba2`.`wharehouse_sector` (`Wharehouse_ID`, `sectors_ID`) VALUES ('2', '4');
+INSERT INTO `alibaba2`.`wharehouse_sector` (`Wharehouse_ID`, `sectors_ID`) VALUES ('2', '5');
+INSERT INTO `alibaba2`.`wharehouse_sector` (`Wharehouse_ID`, `sectors_ID`) VALUES ('2', '6');
+INSERT INTO `alibaba2`.`wharehouse_sector` (`Wharehouse_ID`, `sectors_ID`) VALUES ('2', '7');
+INSERT INTO `alibaba2`.`wharehouse_sector` (`Wharehouse_ID`, `sectors_ID`) VALUES ('2', '8');
+INSERT INTO `alibaba2`.`wharehouse_sector` (`Wharehouse_ID`, `sectors_ID`) VALUES ('2', '9');
+INSERT INTO `alibaba2`.`wharehouse_sector` (`Wharehouse_ID`, `sectors_ID`) VALUES ('2', '10');
+INSERT INTO `alibaba2`.`wharehouse_sector` (`Wharehouse_ID`, `sectors_ID`) VALUES ('2', '11');
+INSERT INTO `alibaba2`.`wharehouse_sector` (`Wharehouse_ID`, `sectors_ID`) VALUES ('2', '12');
 
 INSERT INTO `alibaba2`.`employee` (`ID`, `dni`, `first_name`, `last_name`, `WHAREHOUSE_ID`) VALUES ('1', '32255', 'Rafael', 'Nadal', '1');
 INSERT INTO `alibaba2`.`employee` (`ID`, `dni`, `first_name`, `last_name`, `WHAREHOUSE_ID`) VALUES ('2', '99999999', 'Novac', 'Djokovic', '1');
@@ -44,24 +56,32 @@ INSERT INTO `alibaba2`.`buyer` (`ID`, `address`, `dni`, `email`, `first_name`, `
 INSERT INTO `alibaba2`.`buyer` (`ID`, `address`, `dni`, `email`, `first_name`, `last_name`, `phone`) VALUES ('6', 'Santa Rita', '39000222', 'clementero@gmail.com', 'Romina', 'Clemente', '35647585');
 
 
-INSERT INTO `alibaba2`.`seller` (`ID`, `DIRECTION`, `EMAIL`, `NAME`, `PHONE`) VALUES ('1', 'Calle 1234  Posadas,Mmisiones', 'laserenisima@gmail.com', 'La Serenisima', '123454646');
+INSERT INTO `alibaba2`.`seller` (`ID`, `DIRECTION`, `EMAIL`, `NAME`, `PHONE`) VALUES ('1', 'Calle 1234  Posadas,Mmisiones', 'laserenisima@gmail.com', 'LA SERENISIMA', '123454646');
 INSERT INTO `alibaba2`.`seller` (`ID`, `DIRECTION`, `EMAIL`, `NAME`, `PHONE`) VALUES ('2', 'calle 5678 Posadas, Misiones', 'ilolay@gamil.com', 'ILOLAY', '5473883389');
 INSERT INTO `alibaba2`.`seller` (`ID`, `DIRECTION`, `EMAIL`, `NAME`, `PHONE`) VALUES ('3', 'Calle 8958469', 'paladini@gmail.com', 'PALADINI', '4633783838');
-INSERT INTO `alibaba2`.`seller` (`ID`, `DIRECTION`, `EMAIL`, `NAME`, `PHONE`) VALUES ('4', 'Callle 674', 'frigorposadas@gmail.com', 'FRIGOR', '53673838');
+INSERT INTO `alibaba2`.`seller` (`ID`, `DIRECTION`, `EMAIL`, `NAME`, `PHONE`) VALUES ('4', 'Callle 674', 'granjadelsol@gmail.com', 'GRANJA DEL SOL', '53673838');
 INSERT INTO `alibaba2`.`seller` (`ID`, `DIRECTION`, `EMAIL`, `NAME`, `PHONE`) VALUES ('5', 'Calle 64', 'abastoconcordia@gmail.com', 'ABASTO CONCORDIA', '4353673');
 INSERT INTO `alibaba2`.`seller` (`ID`, `DIRECTION`, `EMAIL`, `NAME`, `PHONE`) VALUES ('6', 'Calle 75', 'cocacolaargentina@yahoo.com', 'COCA COLA ', '5677455');
 INSERT INTO `alibaba2`.`seller` (`ID`, `DIRECTION`, `EMAIL`, `NAME`, `PHONE`) VALUES ('7', 'Calle 12', 'matarazzo@gmial.com', 'MATARAZZO', '64848994');
 INSERT INTO `alibaba2`.`seller` (`ID`, `DIRECTION`, `EMAIL`, `NAME`, `PHONE`) VALUES ('8', 'Calle 1234', 'swift@gmial.com', 'SWIFT', '2746464');
 INSERT INTO `alibaba2`.`seller` (`ID`, `DIRECTION`, `EMAIL`, `NAME`, `PHONE`) VALUES ('9', 'Calle 5678', 'lapaulina@gmial.com', 'LA PAULINA', '64848994');
+INSERT INTO `alibaba2`.`seller` (`ID`, `DIRECTION`, `EMAIL`, `NAME`, `PHONE`) VALUES ('10', 'Calle gorriti 29', 'sancorargentina@gmial.com', 'SANCOR', '64848994');
+INSERT INTO `alibaba2`.`seller` (`ID`, `DIRECTION`, `EMAIL`, `NAME`, `PHONE`) VALUES ('11', 'Pascale 45', 'ctricjugos@gmial.com', 'CITRIC', '64848994');
 
 
-
-
-INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('1', 'queso cremoso la paulina horma ');
-INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('2', 'queso untable cheedar por 200gr paladini');
-INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('3', 'manteca 500gr la serenisima');
-INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('4', 'Hamburguesas Swift  x275gr');
+INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('1', 'Queso cremoso la paulina horma');
+INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('2', 'Queso untable cheedar por 200gr paladini');
+INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('3', 'Manteca 500gr la serenisima');
+INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('4', 'Hamburguesas King  x275gr');
 INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('5', 'Hamburguesas Swift XL 500gr ');
+INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('6', 'Arvejas congeladas granja del sol por 1kg');
+INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('7', 'Espinaca congelada granja del sol por 500gr');
+INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('8', 'Vacio congelado Swift x 3kg ');
+INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('9', 'Yogurt yogs bebible Vainilla satchet x 1kg');
+INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('10', 'Milanesa de soja-tomate-arveja x 4u');
+INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('11', 'Coca cola 2.25lt ');
+INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('12', 'Yogur yogs colchon de fruta durazno');
+INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('13', 'Jugo Citric 5 lt Naranja');
 
 
 
@@ -70,11 +90,27 @@ INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('5', 'Hamburg
 INSERT INTO `alibaba2`.`product` (`ID`, `CODPROD`, `DESCRIPTION`, `PRODUCTTYPE_ID`, `SELLER_ID`) VALUES ('1', '1234', 'Queso Cremoso', '1', '9');
 INSERT INTO `alibaba2`.`product` (`ID`, `CODPROD`, `DESCRIPTION`, `PRODUCTTYPE_ID`, `SELLER_ID`) VALUES ('2', '5678', 'Queso Untable', '2', '3');
 INSERT INTO `alibaba2`.`product` (`ID`, `CODPROD`, `DESCRIPTION`, `PRODUCTTYPE_ID`, `SELLER_ID`) VALUES ('3', '9101', 'Manteca', '3', '1');
-INSERT INTO `alibaba2`.`product` (`ID`, `CODPROD`, `DESCRIPTION`, `PRODUCTTYPE_ID`, `SELLER_ID`) VALUES ('4', '5464477', 'Hamburguesa', '4', '8');
+INSERT INTO `alibaba2`.`product` (`ID`, `CODPROD`, `DESCRIPTION`, `PRODUCTTYPE_ID`, `SELLER_ID`) VALUES ('4', '5464', 'Hamburguesa', '4', '8');
 INSERT INTO `alibaba2`.`product` (`ID`, `CODPROD`, `DESCRIPTION`, `PRODUCTTYPE_ID`, `SELLER_ID`) VALUES ('5', '1213', 'Hamburguesa', '5', '8');
+INSERT INTO `alibaba2`.`product` (`ID`, `CODPROD`, `DESCRIPTION`, `PRODUCTTYPE_ID`, `SELLER_ID`) VALUES ('6', '1219', 'Arvejas', '6', '4');
+INSERT INTO `alibaba2`.`product` (`ID`, `CODPROD`, `DESCRIPTION`, `PRODUCTTYPE_ID`, `SELLER_ID`) VALUES ('7', '4567', 'Espinaca', '7', '4');
+INSERT INTO `alibaba2`.`product` (`ID`, `CODPROD`, `DESCRIPTION`, `PRODUCTTYPE_ID`, `SELLER_ID`) VALUES ('8', '0067', 'Vacio Congelado', '8', '8');
+INSERT INTO `alibaba2`.`product` (`ID`, `CODPROD`, `DESCRIPTION`, `PRODUCTTYPE_ID`, `SELLER_ID`) VALUES ('9', '0089', 'Yogur', '9', '10');
+INSERT INTO `alibaba2`.`product` (`ID`, `CODPROD`, `DESCRIPTION`, `PRODUCTTYPE_ID`, `SELLER_ID`) VALUES ('10', '0016', 'Milanesa de soja', '10', '4');
+INSERT INTO `alibaba2`.`product` (`ID`, `CODPROD`, `DESCRIPTION`, `PRODUCTTYPE_ID`, `SELLER_ID`) VALUES ('11', '0046', 'Coca Cola', '11', '6');
+INSERT INTO `alibaba2`.`product` (`ID`, `CODPROD`, `DESCRIPTION`, `PRODUCTTYPE_ID`, `SELLER_ID`) VALUES ('12', '0035', 'Yogur', '12', '10');
+INSERT INTO `alibaba2`.`product` (`ID`, `CODPROD`, `DESCRIPTION`, `PRODUCTTYPE_ID`, `SELLER_ID`) VALUES ('13', '0011', 'Jugo', '13', '11');
 
-
-INSERT INTO `alibaba2`.`loteproduct` (`IDLOTE`, `CANTIDADACTUAL`, `EXPIRATION`, `PRICE`, `PRICEUNIT`, `QUANTITY`, `SALEPRICE`, `STOCKMAX`, `STOCKMIN`, `PRODUCT_ID`, `SECTOR_ID`) VALUES ('12345', '60', '2023-12-23', '5000', '50', '90', '120', '500', '20', '3', '1');
-INSERT INTO `alibaba2`.`loteproduct` (`IDLOTE`, `CANTIDADACTUAL`, `EXPIRATION`, `PRICE`, `PRICEUNIT`, `QUANTITY`, `SALEPRICE`, `STOCKMAX`, `STOCKMIN`, `PRODUCT_ID`, `SECTOR_ID`) VALUES ('34546', '15', '2023-12-19', '10000', '350', '50', '700', '200', '20', '1', '4');
-INSERT INTO `alibaba2`.`loteproduct` (`IDLOTE`, `CANTIDADACTUAL`, `EXPIRATION`, `PRICE`, `PRICEUNIT`, `QUANTITY`, `SALEPRICE`, `STOCKMAX`, `STOCKMIN`, `PRODUCT_ID`, `SECTOR_ID`) VALUES ('85956', '15', '2023-12-18', '15000', '130', '30000', '300', '50000', '50', '4', '2');
-INSERT INTO `alibaba2`.`loteproduct` (`IDLOTE`, `CANTIDADACTUAL`, `EXPIRATION`, `PRICE`, `PRICEUNIT`, `QUANTITY`, `SALEPRICE`, `STOCKMAX`, `STOCKMIN`, `PRODUCT_ID`, `SECTOR_ID`) VALUES ('98644', '350', '2023-12-08', '20000', '180', '10000', '350', '50000', '50', '5', '3');
+INSERT INTO `alibaba2`.`loteproduct` (`IDLOTE`, `CANTIDADACTUAL`, `EXPIRATION`, `PRICE`, `PRICEUNIT`, `QUANTITY`, `SALEPRICE`, `STOCKMAX`, `STOCKMIN`, `PRODUCT_ID`, `SECTOR_ID`) VALUES ('00012', '800', '2023-12-23', '1040000', '1350', '800', '1950', '1500', '50', '1', '4');
+INSERT INTO `alibaba2`.`loteproduct` (`IDLOTE`, `CANTIDADACTUAL`, `EXPIRATION`, `PRICE`, `PRICEUNIT`, `QUANTITY`, `SALEPRICE`, `STOCKMAX`, `STOCKMIN`, `PRODUCT_ID`, `SECTOR_ID`) VALUES ('00013', '500', '2023-12-19', '85000', '170', '500', '256', '1500', '500', '2', '4');
+INSERT INTO `alibaba2`.`loteproduct` (`IDLOTE`, `CANTIDADACTUAL`, `EXPIRATION`, `PRICE`, `PRICEUNIT`, `QUANTITY`, `SALEPRICE`, `STOCKMAX`, `STOCKMIN`, `PRODUCT_ID`, `SECTOR_ID`) VALUES ('00014', '1000', '2023-09-18', '250000', '250', '2000', '380', '3000', '500', '3', '10');
+INSERT INTO `alibaba2`.`loteproduct` (`IDLOTE`, `CANTIDADACTUAL`, `EXPIRATION`, `PRICE`, `PRICEUNIT`, `QUANTITY`, `SALEPRICE`, `STOCKMAX`, `STOCKMIN`, `PRODUCT_ID`, `SECTOR_ID`) VALUES ('00015', '350', '2023-12-08', '49000', '140', '10000', '280', '5000', '50', '4', '11');
+INSERT INTO `alibaba2`.`loteproduct` (`IDLOTE`, `CANTIDADACTUAL`, `EXPIRATION`, `PRICE`, `PRICEUNIT`, `QUANTITY`, `SALEPRICE`, `STOCKMAX`, `STOCKMIN`, `PRODUCT_ID`, `SECTOR_ID`) VALUES ('00016', '15000', '2023-08-27', '4800000', '320', '35000', '670', '5000', '50', '5', '4');
+INSERT INTO `alibaba2`.`loteproduct` (`IDLOTE`, `CANTIDADACTUAL`, `EXPIRATION`, `PRICE`, `PRICEUNIT`, `QUANTITY`, `SALEPRICE`, `STOCKMAX`, `STOCKMIN`, `PRODUCT_ID`, `SECTOR_ID`) VALUES ('00017', '5000', '2024-12-19', '680000', '68', '10000', '140', '1500', '500', '6', '5');
+INSERT INTO `alibaba2`.`loteproduct` (`IDLOTE`, `CANTIDADACTUAL`, `EXPIRATION`, `PRICE`, `PRICEUNIT`, `QUANTITY`, `SALEPRICE`, `STOCKMAX`, `STOCKMIN`, `PRODUCT_ID`, `SECTOR_ID`) VALUES ('00018', '1000', '2023-08-11', '1740000', '580', '3000', '1200', '500', '50', '7', '3');
+INSERT INTO `alibaba2`.`loteproduct` (`IDLOTE`, `CANTIDADACTUAL`, `EXPIRATION`, `PRICE`, `PRICEUNIT`, `QUANTITY`, `SALEPRICE`, `STOCKMAX`, `STOCKMIN`, `PRODUCT_ID`, `SECTOR_ID`) VALUES ('00019', '4500', '2023-12-08', '4050000', '900', '10000', '2700', '100', '50', '8', '2');
+INSERT INTO `alibaba2`.`loteproduct` (`IDLOTE`, `CANTIDADACTUAL`, `EXPIRATION`, `PRICE`, `PRICEUNIT`, `QUANTITY`, `SALEPRICE`, `STOCKMAX`, `STOCKMIN`, `PRODUCT_ID`, `SECTOR_ID`) VALUES ('00022', '4000', '2023-12-08', '1800000', '180', '10000', '380', '200', '50', '9', '10');
+INSERT INTO `alibaba2`.`loteproduct` (`IDLOTE`, `CANTIDADACTUAL`, `EXPIRATION`, `PRICE`, `PRICEUNIT`, `QUANTITY`, `SALEPRICE`, `STOCKMAX`, `STOCKMIN`, `PRODUCT_ID`, `SECTOR_ID`) VALUES ('00023', '1000', '2023-12-08', '166000', '166', '1500', '350', '80', '30', '10', '4');
+INSERT INTO `alibaba2`.`loteproduct` (`IDLOTE`, `CANTIDADACTUAL`, `EXPIRATION`, `PRICE`, `PRICEUNIT`, `QUANTITY`, `SALEPRICE`, `STOCKMAX`, `STOCKMIN`, `PRODUCT_ID`, `SECTOR_ID`) VALUES ('00024', '20000', '2024-12-08', '10500000', '210', '50000', '480', '400', '50', '11', '12');
+INSERT INTO `alibaba2`.`loteproduct` (`IDLOTE`, `CANTIDADACTUAL`, `EXPIRATION`, `PRICE`, `PRICEUNIT`, `QUANTITY`, `SALEPRICE`, `STOCKMAX`, `STOCKMIN`, `PRODUCT_ID`, `SECTOR_ID`) VALUES ('00026', '3000', '2024-12-08', '945000', '189', '50000', '390', '100', '20', '12', '4');
+INSERT INTO `alibaba2`.`loteproduct` (`IDLOTE`, `CANTIDADACTUAL`, `EXPIRATION`, `PRICE`, `PRICEUNIT`, `QUANTITY`, `SALEPRICE`, `STOCKMAX`, `STOCKMIN`, `PRODUCT_ID`, `SECTOR_ID`) VALUES ('00027', '3000', '2024-09-15', '32225000', '705', '50000', '1800', '100', '20', '13', '12');

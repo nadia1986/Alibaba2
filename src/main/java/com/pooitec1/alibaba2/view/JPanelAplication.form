@@ -53,7 +53,7 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="jbtn_productos" alignment="0" max="32767" attributes="0"/>
                       <Component id="jbtn_proveedores" alignment="0" pref="228" max="32767" attributes="0"/>
-                      <Component id="jbtn_clientes" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jbtn_buscarVencimientos" alignment="1" max="32767" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jbtn_nuevaVenta" max="32767" attributes="0"/>
                           <Component id="jbtn_nuevaCompra" pref="228" max="32767" attributes="0"/>
@@ -71,11 +71,11 @@
                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                   <Component id="jbtn_nuevaCompra" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                  <Component id="jbtn_clientes" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                  <Component id="jbtn_proveedores" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="jbtn_buscarVencimientos" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Component id="jbtn_productos" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                  <Component id="jbtn_proveedores" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -104,13 +104,16 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtn_nuevaCompraActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jbtn_clientes">
+        <Component class="javax.swing.JButton" name="jbtn_buscarVencimientos">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Black" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Clientes"/>
+            <Property name="text" type="java.lang.String" value="Buscar Vencimientos"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtn_buscarVencimientosActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jbtn_proveedores">
           <Properties>
