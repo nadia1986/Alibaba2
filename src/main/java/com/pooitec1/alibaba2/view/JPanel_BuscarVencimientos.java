@@ -1,8 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package com.pooitec1.alibaba2.view;
+
+import java.time.LocalDate;
 
 /**
  *
@@ -10,11 +9,14 @@ package com.pooitec1.alibaba2.view;
  */
 public class JPanel_BuscarVencimientos extends javax.swing.JPanel {
 
-    /**
-     * Creates new form JPanel_BuscarVencimientos
-     */
-    public JPanel_BuscarVencimientos() {
+    private JPanelAplication panelMenu;
+    LocalDate fi = LocalDate.now();
+    LocalDate ff = LocalDate.now();
+    public JPanel_BuscarVencimientos(JPanelAplication panelMenu) {
+
+        this.panelMenu = panelMenu;
         initComponents();
+
     }
 
     /**
@@ -26,19 +28,205 @@ public class JPanel_BuscarVencimientos extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextField1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable_vencimientos = new javax.swing.JTable();
+        jButton_aceptar = new javax.swing.JButton();
+        jButton_cancelar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel_producttype = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel_wharehouse = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel_sector = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel_stock = new javax.swing.JLabel();
+        jSlider_diasVencimiento = new javax.swing.JSlider();
+
+        setBackground(new java.awt.Color(204, 204, 255));
+
+        jTextField1.setText("jTextField1");
+
+        jLabel1.setBackground(new java.awt.Color(153, 153, 255));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel1.setText("Ingresar Fecha:");
+
+        jTable_vencimientos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable_vencimientos);
+
+        jButton_aceptar.setText("ACEPTAR");
+        jButton_aceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_aceptarActionPerformed(evt);
+            }
+        });
+
+        jButton_cancelar.setText("CANCELAR");
+        jButton_cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_cancelarActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel2.setText("Product Type:");
+
+        jLabel_producttype.setText("jLabel3");
+
+        jLabel4.setFont(jLabel4.getFont().deriveFont(jLabel4.getFont().getStyle() | java.awt.Font.BOLD, jLabel4.getFont().getSize()+2));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel4.setText("Wharehouse:");
+
+        jLabel_wharehouse.setText("jLabel5");
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel6.setText("Sector:");
+
+        jLabel_sector.setText("jLabel7");
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel8.setText("Stock:");
+
+        jLabel_stock.setText("jLabel9");
+
+        jSlider_diasVencimiento.setMajorTickSpacing(30);
+        jSlider_diasVencimiento.setMaximum(120);
+        jSlider_diasVencimiento.setMinorTickSpacing(1);
+        jSlider_diasVencimiento.setPaintLabels(true);
+        jSlider_diasVencimiento.setPaintTicks(true);
+        jSlider_diasVencimiento.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSlider_diasVencimientoStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSlider_diasVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(49, 49, 49)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel4)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGap(29, 29, 29)
+                                    .addComponent(jLabel_producttype, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(151, 151, 151)
+                            .addComponent(jLabel_sector, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addComponent(jLabel_stock, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGap(151, 151, 151)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel_wharehouse, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButton_cancelar))))
+                            .addGap(149, 149, 149)
+                            .addComponent(jButton_aceptar))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(35, 35, 35)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(52, 52, 52)
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(17, 17, 17)
+                .addComponent(jSlider_diasVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel_producttype))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel_wharehouse))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel_sector))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel_stock))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_cancelar)
+                    .addComponent(jButton_aceptar))
+                .addGap(34, 34, 34))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_cancelarActionPerformed
+        this.panelMenu.bloquearBotones(true);
+        this.panelMenu.limpiarPanelContenido(); // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_cancelarActionPerformed
+
+    private void jButton_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_aceptarActionPerformed
+        this.panelMenu.bloquearBotones(true);
+        this.panelMenu.limpiarPanelContenido();// TODO add your handling code here:
+    }//GEN-LAST:event_jButton_aceptarActionPerformed
+
+    private void jSlider_diasVencimientoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider_diasVencimientoStateChanged
+     System.out.println(jSlider_diasVencimiento.getValue());
+        long d = jSlider_diasVencimiento.getValue();
+        ff = fi.plusDays(d);
+       // this.jlbl_fechaFin.setText(ff.toString());        // TODO add your handling code here:
+    }//GEN-LAST:event_jSlider_diasVencimientoStateChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton_aceptar;
+    private javax.swing.JButton jButton_cancelar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel_producttype;
+    private javax.swing.JLabel jLabel_sector;
+    private javax.swing.JLabel jLabel_stock;
+    private javax.swing.JLabel jLabel_wharehouse;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSlider jSlider_diasVencimiento;
+    private javax.swing.JTable jTable_vencimientos;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

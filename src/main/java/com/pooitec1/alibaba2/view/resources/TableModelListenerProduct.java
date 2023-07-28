@@ -22,7 +22,9 @@ public class TableModelListenerProduct implements ListSelectionListener {
         this.jPanelProcesarVentaPaso3.getSpncantidad().setEnabled(true);
 
         this.jPanelProcesarVentaPaso3.getSpncantidad().setValue(1);
-
+        
+        
+       // this.jPanelProcesarVentaPaso3.getModeloSpinner().setMinimum( 1);
         this.jPanelProcesarVentaPaso3.getModeloSpinner().setMaximum(this.jPanelProcesarVentaPaso3.getLoteProductSelected().getCantidadActual());
         
         //System.out.println(this.jPanelProcesarVentaPaso3.getControlador().validarProductoACargar(this.jPanelProcesarVentaPaso3.getLoteProductSelected()));

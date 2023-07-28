@@ -197,7 +197,14 @@ public class JPanelAplication extends javax.swing.JPanel {
     }//GEN-LAST:event_jbtn_nuevaCompraActionPerformed
 
     private void jbtn_buscarVencimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_buscarVencimientosActionPerformed
-        // TODO add your handling code here:
+       
+        JPanel_BuscarVencimientos panelVencimiento = new JPanel_BuscarVencimientos(this);
+        panelVencimiento.setSize(814, 600);
+        this.jPanel_contenido.removeAll();
+        this.jPanel_contenido.add(panelVencimiento);
+        this.repaint();
+        this.validate();
+        bloquearBotones(false);// TODO add your handling code here:
     }//GEN-LAST:event_jbtn_buscarVencimientosActionPerformed
 
 
