@@ -2,8 +2,6 @@
 package com.pooitec1.alibaba2.controller;
 
 import com.pooitec1.alibaba2.entity.LoteProduct;
-import com.pooitec1.alibaba2.entity.Sector;
-import com.pooitec1.alibaba2.entity.Wharehouse;
 import com.pooitec1.alibaba2.service.LoteProductService;
 import java.time.LocalDate;
 import java.util.List;
@@ -24,7 +22,5 @@ public class LoteProductController {
         return this.loteService.getVencimientos(fi, ff);
     }
      
-    public Wharehouse getWharehouse(Sector sector){
-        return this.loteService.getWharehouse(sector);
-    }
+   
 }

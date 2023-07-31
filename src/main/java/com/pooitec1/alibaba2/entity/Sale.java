@@ -33,8 +33,7 @@ public class Sale implements Serializable {
     @ManyToOne
     private Employee employee;
 
-    //@OneToMany(mappedBy = "sale", cascade = CascadeType.PERSIST)
-    //@OneToMany(mappedBy = "sale", cascade = CascadeType.ALL)
+   
     @OneToMany(mappedBy = "sale", cascade = {CascadeType.PERSIST, CascadeType.MERGE,
         CascadeType.REMOVE}, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<SaleLine> saleLines;

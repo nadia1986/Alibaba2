@@ -20,17 +20,16 @@ public class JPanel_BuscarVencimientos extends javax.swing.JPanel {
     private LoteProduct loteSeleccionado;
     LoteProductController controlador;
 
-    public JPanel_BuscarVencimientos(JPanelAplication panelMenu,LoteProductController controladorL ) {
+    public JPanel_BuscarVencimientos(JPanelAplication panelMenu, LoteProductController controladorL) {
 
         this.tableModelVencimientos = new TableModelProduct();
         this.panelMenu = panelMenu;
-        this.controlador=controladorL;
+        this.controlador = controladorL;
         initComponents();
         this.jTable_vencimientos.getSelectionModel().addListSelectionListener(new TableModelListenerVencimientos(this));
 
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -51,13 +50,15 @@ public class JPanel_BuscarVencimientos extends javax.swing.JPanel {
         jSlider_diasVencimiento = new javax.swing.JSlider();
         jLabel3 = new javax.swing.JLabel();
         jLabel_expiracion = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel_sectorCode = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel1.setBackground(new java.awt.Color(153, 153, 255));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 51));
-        jLabel1.setText("Ingresar Fecha:");
+        jLabel1.setText("Días:");
 
         jTable_vencimientos.setModel(tableModelVencimientos);
         jScrollPane1.setViewportView(jTable_vencimientos);
@@ -122,6 +123,12 @@ public class JPanel_BuscarVencimientos extends javax.swing.JPanel {
 
         jLabel_expiracion.setText("jLabel5");
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel5.setText("Nivel:");
+
+        jLabel_sectorCode.setText("jLabel7");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -138,49 +145,52 @@ public class JPanel_BuscarVencimientos extends javax.swing.JPanel {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(52, 52, 52)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
                         .addComponent(jSlider_diasVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel_wharehouse, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel_sector, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel_sector, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel_sectorCode, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel_producttype, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel_expiracion, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel_stock, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(jLabel3)
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel_expiracion, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel_wharehouse, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(113, 113, 113)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel_stock, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSlider_diasVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jSlider_diasVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(54, 54, 54)
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(57, 57, 57)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -190,13 +200,15 @@ public class JPanel_BuscarVencimientos extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel_wharehouse)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel_sector))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel_stock))
-                .addGap(18, 18, 18)
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel_sector)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel_sectorCode))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel_expiracion))
@@ -223,20 +235,18 @@ public class JPanel_BuscarVencimientos extends javax.swing.JPanel {
         System.out.println(jSlider_diasVencimiento.getValue());
         long d = jSlider_diasVencimiento.getValue();
         ff = fi.plusDays(d);
-          this.tableModelVencimientos.setProducts(this.controlador.getVencimientos(fi, ff));
-            //System.out.println("Hola" + ff);
-            this.tableModelVencimientos.fireTableDataChanged();
-            // TODO add your handling code here:
+        this.tableModelVencimientos.setProducts(this.controlador.getVencimientos(fi, ff));
+        //System.out.println("Hola" + ff);
+        this.tableModelVencimientos.fireTableDataChanged();
+        // TODO add your handling code here:
     }//GEN-LAST:event_jSlider_diasVencimientoStateChanged
 
     private void jSlider_diasVencimientoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jSlider_diasVencimientoKeyReleased
-        
-         
-           // this.tableModelVencimientos.setProducts(this.controlador.getVencimientos(fi, ff));
-           // System.out.println("Hola" + ff);
 
-            //Refrescar el modelo en la tabla
-           // this.tableModelVencimientos.fireTableDataChanged();
+        // this.tableModelVencimientos.setProducts(this.controlador.getVencimientos(fi, ff));
+        // System.out.println("Hola" + ff);
+        //Refrescar el modelo en la tabla
+        // this.tableModelVencimientos.fireTableDataChanged();
         // TODO add your handling code here:
     }//GEN-LAST:event_jSlider_diasVencimientoKeyReleased
 
@@ -248,11 +258,13 @@ public class JPanel_BuscarVencimientos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel_expiracion;
     private javax.swing.JLabel jLabel_producttype;
     private javax.swing.JLabel jLabel_sector;
+    private javax.swing.JLabel jLabel_sectorCode;
     private javax.swing.JLabel jLabel_stock;
     private javax.swing.JLabel jLabel_wharehouse;
     private javax.swing.JScrollPane jScrollPane1;
@@ -260,7 +272,6 @@ public class JPanel_BuscarVencimientos extends javax.swing.JPanel {
     private javax.swing.JTable jTable_vencimientos;
     // End of variables declaration//GEN-END:variables
 
-    
     public void seleccionarProducto() {
         //obtiene el indice de la fila seleccionada en la tabla de buyer
         int filaSeleccionada = this.jTable_vencimientos.getSelectedRow();
@@ -268,11 +279,11 @@ public class JPanel_BuscarVencimientos extends javax.swing.JPanel {
         if (filaSeleccionada >= 0) {
             this.loteSeleccionado = this.tableModelVencimientos.getProductIn(filaSeleccionada);
             this.jLabel_producttype.setText(this.loteSeleccionado.getProduct().getProductType().getDescription());
-            this.jLabel_wharehouse.setText(this.controlador.getWharehouse(this.loteSeleccionado.getSector()).getEmail());
+            this.jLabel_wharehouse.setText(this.loteSeleccionado.getSector().getWharehouse().getEmail());
             this.jLabel_sector.setText(this.loteSeleccionado.getSector().getDescription());
             this.jLabel_stock.setText(this.loteSeleccionado.getCantidadActual().toString());
             this.jLabel_expiracion.setText(this.loteSeleccionado.getExpiration().toString());
-           
+            this.jLabel_sectorCode.setText(this.loteSeleccionado.getSector().getSectorCode());
 
         }
     }

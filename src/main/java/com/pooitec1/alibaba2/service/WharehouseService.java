@@ -83,15 +83,5 @@ public class WharehouseService {
         return wharehouseSelected;
     }
 
-    public Wharehouse buscarWharehousePorSector(Sector sector) {
-
-        for (Wharehouse almacen : this.repository.findWharehouseEntities()) {
-            if (almacen.getSectors().contains(sector)) {
-                return almacen;
-            }
-        }
-
-        return null;
-    }
 
 }

@@ -29,7 +29,8 @@ public class Wharehouse implements Serializable {
     private String phone;
     private String email;
 
-    @OneToMany
+    @OneToMany (mappedBy = "wharehouse", cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+        CascadeType.REMOVE}, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Sector> sectors;
 
     @OneToMany

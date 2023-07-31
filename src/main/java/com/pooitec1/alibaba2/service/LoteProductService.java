@@ -2,8 +2,6 @@ package com.pooitec1.alibaba2.service;
 
 import com.pooitec1.alibaba2.entity.Product;
 import com.pooitec1.alibaba2.entity.LoteProduct;
-import com.pooitec1.alibaba2.entity.Sector;
-import com.pooitec1.alibaba2.entity.Wharehouse;
 import com.pooitec1.alibaba2.entity.repository.Conexion;
 import com.pooitec1.alibaba2.entity.repository.LoteProductRepository;
 
@@ -193,9 +191,6 @@ public class LoteProductService {
         
     }
     
-    public Wharehouse getWharehouse(Sector sector){
-        return this.wharehouseService.buscarWharehousePorSector(sector);
-    }
 
     public void saveLoteProduct(LoteProduct loteProduct) {
         this.stockRepository.create(loteProduct);

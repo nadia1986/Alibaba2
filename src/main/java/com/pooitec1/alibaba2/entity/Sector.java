@@ -28,7 +28,7 @@ public class Sector implements Serializable {
     private String sectorCode;
     private String description;
 
-    //@OneToMany
+    
     @OneToMany(mappedBy = "sector", cascade = {CascadeType.PERSIST, CascadeType.MERGE,
         CascadeType.REMOVE}, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<LoteProduct> stocksProcucts;
@@ -37,6 +37,7 @@ public class Sector implements Serializable {
     private ProductType productTypes;
 
     @ManyToOne
+    @JoinColumn(nullable = false)
     private Wharehouse wharehouse;
 
     public Sector() {
