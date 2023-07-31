@@ -2,6 +2,8 @@ package com.pooitec1.alibaba2.service;
 
 import com.pooitec1.alibaba2.entity.Product;
 import com.pooitec1.alibaba2.entity.LoteProduct;
+import com.pooitec1.alibaba2.entity.Sector;
+import com.pooitec1.alibaba2.entity.Wharehouse;
 import com.pooitec1.alibaba2.entity.repository.Conexion;
 import com.pooitec1.alibaba2.entity.repository.LoteProductRepository;
 
@@ -16,9 +18,11 @@ import java.util.List;
 public class LoteProductService {
 
     private final LoteProductRepository stockRepository;
+    private final WharehouseService wharehouseService;
 
     public LoteProductService() {
         this.stockRepository = new LoteProductRepository(Conexion.getEmf());
+        this.wharehouseService= new WharehouseService();
 
     }
 
@@ -151,6 +155,17 @@ public class LoteProductService {
 
         return state;
     }
+    
+    public List<LoteProduct> getVencimientos(LocalDate fi, LocalDate ff){
+         List<LoteProduct> stockProductVencidos = new ArrayList<>();
+        for (LoteProduct stockProduct: this.stockRepository.findLoteProductEntities()){
+            if(stockProduct.getExpiration().isAfter(fi) && stockProduct.getExpiration().isBefore(ff) ){
+                stockProductVencidos.add(stockProduct);
+            }
+            
+        }
+        return stockProductVencidos;
+    }
 
     public void discountStockProduct(Product productSeleccionado, int quantity) {
 
@@ -176,6 +191,10 @@ public class LoteProductService {
             }
         }
         
+    }
+    
+    public Wharehouse getWharehouse(Sector sector){
+        return this.wharehouseService.buscarWharehousePorSector(sector);
     }
 
     public void saveLoteProduct(LoteProduct loteProduct) {

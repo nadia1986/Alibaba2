@@ -4,6 +4,7 @@
  */
 package com.pooitec1.alibaba2.view;
 
+import com.pooitec1.alibaba2.controller.LoteProductController;
 import com.pooitec1.alibaba2.controller.PurchaseController;
 import com.pooitec1.alibaba2.controller.SaleController;
 import com.pooitec1.alibaba2.controller.UserController;
@@ -197,8 +198,9 @@ public class JPanelAplication extends javax.swing.JPanel {
     }//GEN-LAST:event_jbtn_nuevaCompraActionPerformed
 
     private void jbtn_buscarVencimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_buscarVencimientosActionPerformed
-       
-        JPanel_BuscarVencimientos panelVencimiento = new JPanel_BuscarVencimientos(this);
+        
+        LoteProductController controladorLote= new LoteProductController();
+        JPanel_BuscarVencimientos panelVencimiento = new JPanel_BuscarVencimientos(this, controladorLote);
         panelVencimiento.setSize(814, 600);
         this.jPanel_contenido.removeAll();
         this.jPanel_contenido.add(panelVencimiento);

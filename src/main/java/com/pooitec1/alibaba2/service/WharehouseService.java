@@ -6,7 +6,6 @@ import com.pooitec1.alibaba2.entity.Sector;
 import com.pooitec1.alibaba2.entity.Wharehouse;
 import com.pooitec1.alibaba2.entity.repository.Conexion;
 import com.pooitec1.alibaba2.entity.repository.WharehouseRepository;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JComboBox;
 
@@ -77,11 +76,22 @@ public class WharehouseService {
         for (Wharehouse wharehouseR : this.repository.findWharehouseEntities()) {
             if (wharehouseR.getEmail().equals(name)) {
                 wharehouseSelected = wharehouseR;
-               
+
             }
         }
 
         return wharehouseSelected;
+    }
+
+    public Wharehouse buscarWharehousePorSector(Sector sector) {
+
+        for (Wharehouse almacen : this.repository.findWharehouseEntities()) {
+            if (almacen.getSectors().contains(sector)) {
+                return almacen;
+            }
+        }
+
+        return null;
     }
 
 }
