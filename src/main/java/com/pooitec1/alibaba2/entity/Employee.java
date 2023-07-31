@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.pooitec1.alibaba2.entity;
 
 import java.io.Serializable;
@@ -10,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
@@ -23,8 +20,8 @@ public class Employee implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
-     @Column(name = "first_name")
+
+    @Column(name = "first_name")
     private String firstName;
 
     @Column(name = "last_name")
@@ -32,8 +29,10 @@ public class Employee implements Serializable {
 
     @Column(name = "dni")
     private String dni;
-    
+
+    //@ManyToOne
     @ManyToOne
+    @JoinColumn(nullable = false)
     private Wharehouse wharehouse;
 
     public Employee() {
@@ -110,6 +109,5 @@ public class Employee implements Serializable {
     public void setWharehouse(Wharehouse wharehouse) {
         this.wharehouse = wharehouse;
     }
-    
-    
+
 }

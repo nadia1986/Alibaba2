@@ -58,19 +58,19 @@ public class JPanel_BuscarVencimientos extends javax.swing.JPanel {
         jLabel1.setBackground(new java.awt.Color(153, 153, 255));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 51));
-        jLabel1.setText("Días:");
+        jLabel1.setText("Days:");
 
         jTable_vencimientos.setModel(tableModelVencimientos);
         jScrollPane1.setViewportView(jTable_vencimientos);
 
-        jButton_aceptar.setText("ACEPTAR");
+        jButton_aceptar.setText("ACCEPT");
         jButton_aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_aceptarActionPerformed(evt);
             }
         });
 
-        jButton_cancelar.setText("CANCELAR");
+        jButton_cancelar.setText("BACK");
         jButton_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_cancelarActionPerformed(evt);

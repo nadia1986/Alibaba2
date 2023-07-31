@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package com.pooitec1.alibaba2.view;
 
 import com.pooitec1.alibaba2.controller.LoteProductController;
@@ -44,8 +41,9 @@ public class JPanelAplication extends javax.swing.JPanel {
         jbtn_nuevaVenta = new javax.swing.JButton();
         jbtn_nuevaCompra = new javax.swing.JButton();
         jbtn_buscarVencimientos = new javax.swing.JButton();
-        jbtn_proveedores = new javax.swing.JButton();
+        jbtn_vencidos = new javax.swing.JButton();
         jbtn_productos = new javax.swing.JButton();
+        jbtn_proveedores1 = new javax.swing.JButton();
         jPanel_contenido = new javax.swing.JPanel();
         jPanel_user = new javax.swing.JPanel();
         jlbl_userName = new javax.swing.JLabel();
@@ -53,7 +51,7 @@ public class JPanelAplication extends javax.swing.JPanel {
         jPanel_boton.setBackground(new java.awt.Color(51, 51, 51));
 
         jbtn_nuevaVenta.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jbtn_nuevaVenta.setText("Registrar Venta");
+        jbtn_nuevaVenta.setText("New Sale");
         jbtn_nuevaVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtn_nuevaVentaActionPerformed(evt);
@@ -61,7 +59,7 @@ public class JPanelAplication extends javax.swing.JPanel {
         });
 
         jbtn_nuevaCompra.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jbtn_nuevaCompra.setText("Registar Compra");
+        jbtn_nuevaCompra.setText("New Purchase");
         jbtn_nuevaCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtn_nuevaCompraActionPerformed(evt);
@@ -69,33 +67,48 @@ public class JPanelAplication extends javax.swing.JPanel {
         });
 
         jbtn_buscarVencimientos.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jbtn_buscarVencimientos.setText("Buscar Vencimientos");
+        jbtn_buscarVencimientos.setText("Search Expirations");
         jbtn_buscarVencimientos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtn_buscarVencimientosActionPerformed(evt);
             }
         });
 
-        jbtn_proveedores.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jbtn_proveedores.setText("Proveedores");
+        jbtn_vencidos.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jbtn_vencidos.setText("Expired Products");
 
         jbtn_productos.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jbtn_productos.setText("Productos");
+        jbtn_productos.setText("Product");
+        jbtn_productos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_productosActionPerformed(evt);
+            }
+        });
+
+        jbtn_proveedores1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jbtn_proveedores1.setText("Wharehouse ");
 
         javax.swing.GroupLayout jPanel_botonLayout = new javax.swing.GroupLayout(jPanel_boton);
         jPanel_boton.setLayout(jPanel_botonLayout);
         jPanel_botonLayout.setHorizontalGroup(
             jPanel_botonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_botonLayout.createSequentialGroup()
+            .addGroup(jPanel_botonLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel_botonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jbtn_productos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbtn_proveedores, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
-                    .addComponent(jbtn_buscarVencimientos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel_botonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jbtn_nuevaVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbtn_nuevaCompra, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)))
-                .addGap(83, 83, 83))
+                .addGroup(jPanel_botonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_botonLayout.createSequentialGroup()
+                        .addGroup(jPanel_botonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jbtn_proveedores1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jbtn_productos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jbtn_buscarVencimientos, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel_botonLayout.createSequentialGroup()
+                                .addGroup(jPanel_botonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jbtn_nuevaVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jbtn_nuevaCompra, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(83, 83, 83))
+                    .addGroup(jPanel_botonLayout.createSequentialGroup()
+                        .addComponent(jbtn_vencidos, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel_botonLayout.setVerticalGroup(
             jPanel_botonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,12 +117,14 @@ public class JPanelAplication extends javax.swing.JPanel {
                 .addComponent(jbtn_nuevaVenta)
                 .addGap(43, 43, 43)
                 .addComponent(jbtn_nuevaCompra)
-                .addGap(47, 47, 47)
-                .addComponent(jbtn_buscarVencimientos)
-                .addGap(37, 37, 37)
+                .addGap(40, 40, 40)
                 .addComponent(jbtn_productos)
-                .addGap(29, 29, 29)
-                .addComponent(jbtn_proveedores)
+                .addGap(39, 39, 39)
+                .addComponent(jbtn_buscarVencimientos)
+                .addGap(39, 39, 39)
+                .addComponent(jbtn_vencidos)
+                .addGap(39, 39, 39)
+                .addComponent(jbtn_proveedores1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -198,8 +213,8 @@ public class JPanelAplication extends javax.swing.JPanel {
     }//GEN-LAST:event_jbtn_nuevaCompraActionPerformed
 
     private void jbtn_buscarVencimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_buscarVencimientosActionPerformed
-        
-        LoteProductController controladorLote= new LoteProductController();
+
+        LoteProductController controladorLote = new LoteProductController();
         JPanel_BuscarVencimientos panelVencimiento = new JPanel_BuscarVencimientos(this, controladorLote);
         panelVencimiento.setSize(814, 600);
         this.jPanel_contenido.removeAll();
@@ -208,6 +223,16 @@ public class JPanelAplication extends javax.swing.JPanel {
         this.validate();
         bloquearBotones(false);// TODO add your handling code here:
     }//GEN-LAST:event_jbtn_buscarVencimientosActionPerformed
+
+    private void jbtn_productosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_productosActionPerformed
+        JPanel_Productos panelProductos = new JPanel_Productos(this);
+        panelProductos.setSize(814, 600);
+        this.jPanel_contenido.removeAll();
+        this.jPanel_contenido.add(panelProductos);
+        this.repaint();
+        this.validate();
+        bloquearBotones(false);// TODO add your handling code here:
+    }//GEN-LAST:event_jbtn_productosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -218,7 +243,8 @@ public class JPanelAplication extends javax.swing.JPanel {
     private javax.swing.JButton jbtn_nuevaCompra;
     private javax.swing.JButton jbtn_nuevaVenta;
     private javax.swing.JButton jbtn_productos;
-    private javax.swing.JButton jbtn_proveedores;
+    private javax.swing.JButton jbtn_proveedores1;
+    private javax.swing.JButton jbtn_vencidos;
     private javax.swing.JLabel jlbl_userName;
     // End of variables declaration//GEN-END:variables
 
@@ -226,8 +252,9 @@ public class JPanelAplication extends javax.swing.JPanel {
         this.jbtn_nuevaVenta.setEnabled(estado);
         this.jbtn_nuevaCompra.setEnabled(estado);
         this.jbtn_buscarVencimientos.setEnabled(estado);
-        this.jbtn_proveedores.setEnabled(estado);
+        this.jbtn_vencidos.setEnabled(estado);
         this.jbtn_productos.setEnabled(estado);
+        this.jbtn_proveedores1.setEnabled(estado);
 
     }
 

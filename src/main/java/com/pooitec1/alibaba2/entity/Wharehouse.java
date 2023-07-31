@@ -1,4 +1,3 @@
-
 package com.pooitec1.alibaba2.entity;
 
 import java.io.Serializable;
@@ -24,16 +23,18 @@ public class Wharehouse implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+
     private String direction;
     private String phone;
     private String email;
 
-    @OneToMany (mappedBy = "wharehouse", cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+    @OneToMany(mappedBy = "wharehouse", cascade = {CascadeType.PERSIST, CascadeType.MERGE,
         CascadeType.REMOVE}, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Sector> sectors;
 
-    @OneToMany
+    //@OneToMany
+    @OneToMany(mappedBy = "wharehouse", cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+        CascadeType.REMOVE}, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Employee> employees;
 
     public Wharehouse() {
@@ -106,7 +107,6 @@ public class Wharehouse implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-
 
     public List<Employee> getEmployees() {
         return employees;
