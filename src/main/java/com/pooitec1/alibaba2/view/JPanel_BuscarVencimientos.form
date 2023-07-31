@@ -189,9 +189,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_producttype">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel3"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -207,9 +204,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_wharehouse">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel5"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
@@ -224,7 +218,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_sector">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel7"/>
+        <Property name="text" type="java.lang.String" value=" "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
@@ -240,16 +234,18 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_stock">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel9"/>
+        <Property name="text" type="java.lang.String" value=" "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSlider" name="jSlider_diasVencimiento">
       <Properties>
         <Property name="majorTickSpacing" type="int" value="30"/>
         <Property name="maximum" type="int" value="120"/>
-        <Property name="minorTickSpacing" type="int" value="1"/>
+        <Property name="minorTickSpacing" type="int" value="30"/>
         <Property name="paintLabels" type="boolean" value="true"/>
         <Property name="paintTicks" type="boolean" value="true"/>
+        <Property name="snapToTicks" type="boolean" value="true"/>
+        <Property name="value" type="int" value="0"/>
       </Properties>
       <Events>
         <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSlider_diasVencimientoStateChanged"/>
@@ -269,7 +265,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_expiracion">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel5"/>
+        <Property name="text" type="java.lang.String" value=" "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
@@ -285,7 +281,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_sectorCode">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel7"/>
+        <Property name="text" type="java.lang.String" value=" "/>
       </Properties>
     </Component>
   </SubComponents>

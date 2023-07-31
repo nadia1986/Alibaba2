@@ -81,31 +81,29 @@ public class JPanel_BuscarVencimientos extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(0, 0, 51));
         jLabel2.setText("Product Type:");
 
-        jLabel_producttype.setText("jLabel3");
-
         jLabel4.setFont(jLabel4.getFont().deriveFont(jLabel4.getFont().getStyle() | java.awt.Font.BOLD, jLabel4.getFont().getSize()+2));
         jLabel4.setForeground(new java.awt.Color(0, 0, 51));
         jLabel4.setText("Wharehouse:");
-
-        jLabel_wharehouse.setText("jLabel5");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 51));
         jLabel6.setText("Sector:");
 
-        jLabel_sector.setText("jLabel7");
+        jLabel_sector.setText(" ");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 51));
         jLabel8.setText("Stock:");
 
-        jLabel_stock.setText("jLabel9");
+        jLabel_stock.setText(" ");
 
         jSlider_diasVencimiento.setMajorTickSpacing(30);
         jSlider_diasVencimiento.setMaximum(120);
-        jSlider_diasVencimiento.setMinorTickSpacing(1);
+        jSlider_diasVencimiento.setMinorTickSpacing(30);
         jSlider_diasVencimiento.setPaintLabels(true);
         jSlider_diasVencimiento.setPaintTicks(true);
+        jSlider_diasVencimiento.setSnapToTicks(true);
+        jSlider_diasVencimiento.setValue(0);
         jSlider_diasVencimiento.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSlider_diasVencimientoStateChanged(evt);
@@ -121,13 +119,13 @@ public class JPanel_BuscarVencimientos extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(0, 0, 51));
         jLabel3.setText("Expiration:");
 
-        jLabel_expiracion.setText("jLabel5");
+        jLabel_expiracion.setText(" ");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 51));
         jLabel5.setText("Nivel:");
 
-        jLabel_sectorCode.setText("jLabel7");
+        jLabel_sectorCode.setText(" ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
