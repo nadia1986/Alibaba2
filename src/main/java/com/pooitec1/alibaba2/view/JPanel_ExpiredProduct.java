@@ -34,7 +34,7 @@ public class JPanel_ExpiredProduct extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_expired = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButton_Cancelar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel_stock = new javax.swing.JLabel();
@@ -48,6 +48,8 @@ public class JPanel_ExpiredProduct extends javax.swing.JPanel {
         jLabel_nivel = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel_expired = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel_type = new javax.swing.JLabel();
 
         jTable_expired.setModel(tableModelExpired);
         jScrollPane1.setViewportView(jTable_expired);
@@ -59,10 +61,10 @@ public class JPanel_ExpiredProduct extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setText("CANCEL");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton_Cancelar.setText("CANCEL");
+        jButton_Cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton_CancelarActionPerformed(evt);
             }
         });
 
@@ -118,6 +120,14 @@ public class JPanel_ExpiredProduct extends javax.swing.JPanel {
         jLabel_expired.setForeground(new java.awt.Color(255, 0, 0));
         jLabel_expired.setText("jLabel8");
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel8.setText("Product Type:");
+
+        jLabel_type.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel_type.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel_type.setText("jLabel9");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -130,7 +140,7 @@ public class JPanel_ExpiredProduct extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton2)
+                                .addComponent(jButton_Cancelar)
                                 .addGap(150, 150, 150)
                                 .addComponent(jButton1))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -163,7 +173,11 @@ public class JPanel_ExpiredProduct extends javax.swing.JPanel {
                                     .addComponent(jLabel_stock, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(15, 15, 15)
-                                .addComponent(jLabel_expired, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jLabel_expired, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel_type, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(109, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -173,7 +187,11 @@ public class JPanel_ExpiredProduct extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel_type))
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel_Wharehouse)
@@ -191,17 +209,17 @@ public class JPanel_ExpiredProduct extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(jLabel_Sector, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(jLabel_nivel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1)
-                            .addComponent(jButton2))
-                        .addContainerGap())))
+                            .addComponent(jButton_Cancelar))))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -210,14 +228,15 @@ public class JPanel_ExpiredProduct extends javax.swing.JPanel {
         this.panelMenu.limpiarPanelContenido(); // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void jButton_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CancelarActionPerformed
+        this.panelMenu.bloquearBotones(true);
+        this.panelMenu.limpiarPanelContenido(); // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_CancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton_Cancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -225,17 +244,19 @@ public class JPanel_ExpiredProduct extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel_Sector;
     private javax.swing.JLabel jLabel_Wharehouse;
     private javax.swing.JLabel jLabel_expired;
     private javax.swing.JLabel jLabel_nivel;
     private javax.swing.JLabel jLabel_seller;
     private javax.swing.JLabel jLabel_stock;
+    private javax.swing.JLabel jLabel_type;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_expired;
     // End of variables declaration//GEN-END:variables
 
-      public void seleccionarProducto() {
+    public void seleccionarProducto() {
 
         int filaSeleccionada = this.jTable_expired.getSelectedRow();
 
@@ -249,11 +270,11 @@ public class JPanel_ExpiredProduct extends javax.swing.JPanel {
             this.jLabel_seller.setText(this.loteProductSelected.getProduct().getSeller().getName());
             this.jLabel_nivel.setText(this.loteProductSelected.getSector().getSectorCode());
             this.jLabel_expired.setText(this.loteProductSelected.getExpiration().toString());
+            this.jLabel_type.setText(this.loteProductSelected.getProduct().getProductType().getDescription());
 
         }
     }
-    
-    
+
     public void setjTable_expired(javax.swing.JTable jTable_expired) {
         this.jTable_expired = jTable_expired;
     }

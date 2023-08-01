@@ -157,6 +157,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value=" Wharehouse Product"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtn_proveedores1ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

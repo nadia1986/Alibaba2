@@ -17,7 +17,6 @@ public class JPanelAplication extends javax.swing.JPanel {
     User user;
     LocalDate fi = LocalDate.now();
 
- 
     public JPanelAplication(UserController controladorP) {
         this.user = controladorP.getUserSelected();
 
@@ -91,6 +90,11 @@ public class JPanelAplication extends javax.swing.JPanel {
 
         jbtn_proveedores1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         jbtn_proveedores1.setText(" Wharehouse Product");
+        jbtn_proveedores1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_proveedores1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel_botonLayout = new javax.swing.GroupLayout(jPanel_boton);
         jPanel_boton.setLayout(jPanel_botonLayout);
@@ -252,6 +256,17 @@ public class JPanelAplication extends javax.swing.JPanel {
         this.validate();
         bloquearBotones(false);// TODO add your handling code here:
     }//GEN-LAST:event_jbtn_vencidosActionPerformed
+
+    private void jbtn_proveedores1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_proveedores1ActionPerformed
+        LoteProductController controladorLote = new LoteProductController();
+        JPanel_WharehouseProduct panelWharehouse = new JPanel_WharehouseProduct(this,controladorLote);
+        panelWharehouse.setSize(814, 600);
+        this.jPanel_contenido.removeAll();
+        this.jPanel_contenido.add(panelWharehouse);
+        this.repaint();
+        this.validate();
+        bloquearBotones(false);  // TODO add your handling code here:
+    }//GEN-LAST:event_jbtn_proveedores1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
