@@ -33,7 +33,3 @@ a
 1src/main/java/com/pooitec1/alibaba2/Alibaba2.java,a\8\a8061c90b6d7dd6373cb35bc4dc75df5189d0ebb
 p
 @src/main/java/com/pooitec1/alibaba2/view/JPanel_Comprapaso1.java,3\1\31e0c0385e51dc28a77ec9cc5f811341a1868104
-n
->src/main/java/com/pooitec1/alibaba2/view/JPanelAplication.java,9\2\922c7365f19dbfe4bea70bd91c40588195c7d864
-y
-Isrc/main/java/com/pooitec1/alibaba2/controller/LoteProductController.java,f\5\f5e67efb9c7c64de23afc480b97b504325d596e4

@@ -30,7 +30,9 @@ public class LoteProductService {
 
         for (LoteProduct productSearch : stockRepository.findLoteProductEntities()) {
             if (productSearch.getProduct().getDescription().contains(description)) {
+               if (verificarVencimiento(productSearch)) {
                 productsfound.add(productSearch);
+            }
             }
         }
         return productsfound;
@@ -98,8 +100,7 @@ public class LoteProductService {
 
     }
 
-    //creo una funcion o agrego una  nueva clase PrecioProducto con precioVenta y precioCompra???
-    public double obtenerPrecioVentaProducto(Product product) {
+      public double obtenerPrecioVentaProducto(Product product) {
 
         double precioProducto = 0;
         for (LoteProduct stockPr : this.stockRepository.findLoteProductEntities()) {
@@ -128,21 +129,6 @@ public class LoteProductService {
         return cantidadTotalProducto;
     }
 
-    public List<LoteProduct> verCantidadDeProductosPorlote(Product product) {
-        List<LoteProduct> stockProductfound = new ArrayList<>();
-        for (LoteProduct stockPr : this.stockRepository.findLoteProductEntities()) {
-            if (stockPr.getProduct().equals(product)) {
-                if (verificarVencimiento(stockPr)) {
-                    stockProductfound.add(stockPr);
-                }
-
-            }
-
-        }
-
-        return stockProductfound;
-
-    }
 
     private Boolean verificarVencimiento(LoteProduct stockProduct) {
         Boolean state = false;

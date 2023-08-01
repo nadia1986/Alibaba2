@@ -70,6 +70,7 @@ public class SaleController {
         return stockService.verStockTotalProducto(product);
     }
 
+  
     public Double obtenerPrecio(Product product) {
         return stockService.obtenerPrecioVentaProducto(product);
     }
