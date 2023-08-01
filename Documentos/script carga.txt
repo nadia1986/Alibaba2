@@ -59,20 +59,20 @@ INSERT INTO `alibaba2`.`seller` (`ID`, `DIRECTION`, `EMAIL`, `NAME`, `PHONE`) VA
 INSERT INTO `alibaba2`.`seller` (`ID`, `DIRECTION`, `EMAIL`, `NAME`, `PHONE`) VALUES ('11', 'Pascale 45', 'ctricjugos@gmial.com', 'CITRIC ARGENTINA', '64848994');
 
 
-INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('1', 'Queso cremoso la paulina horma');
-INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('2', 'Queso untable cheedar por 200gr paladini');
-INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('3', 'Manteca 500gr la serenisima');
+INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('1', 'Queso cremoso horma');
+INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('2', 'Queso untable cheedar por 200gr');
+INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('3', 'Manteca 500gr');
 INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('4', 'Hamburguesas King  x275gr');
-INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('5', 'Hamburguesas Swift XL 500gr ');
-INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('6', 'Arvejas congeladas granja del sol por 1kg');
-INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('7', 'Espinaca congelada granja del sol por 500gr');
-INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('8', 'Vacio congelado Swift x 3kg ');
+INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('5', 'Hamburguesas XL 500gr ');
+INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('6', 'Arvejas congeladas  por 1kg');
+INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('7', 'Espinaca congelada por 500gr');
+INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('8', 'Vacio congelado x 3kg ');
 INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('9', 'Yogurt yogs bebible Vainilla satchet x 1kg');
 INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('10', 'Milanesa de soja-tomate-arveja x 4u');
 INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('11', 'Coca cola 2.25lt ');
 INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('12', 'Yogur yogs colchon de fruta durazno');
-INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('13', 'Jugo Citric 5 lt Naranja');
-INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('14', 'Leche Líquida sancor 1lt');
+INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('13', 'Jugo 5 lt Naranja');
+INSERT INTO `alibaba2`.`producttype` (`ID`, `DESCRIPTION`) VALUES ('14', 'Leche Líquida 1lt');
 
 
 

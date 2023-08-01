@@ -78,7 +78,6 @@ public class JPanel_ExpiredProduct extends javax.swing.JPanel {
 
         jLabel_stock.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel_stock.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel_stock.setText("jLabel3");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 51));
@@ -86,7 +85,6 @@ public class JPanel_ExpiredProduct extends javax.swing.JPanel {
 
         jLabel_Wharehouse.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel_Wharehouse.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel_Wharehouse.setText("jLabel4");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 51));
@@ -98,11 +96,9 @@ public class JPanel_ExpiredProduct extends javax.swing.JPanel {
 
         jLabel_seller.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel_seller.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel_seller.setText("jLabel7");
 
         jLabel_Sector.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel_Sector.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel_Sector.setText("jLabel8");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 51));
@@ -110,7 +106,6 @@ public class JPanel_ExpiredProduct extends javax.swing.JPanel {
 
         jLabel_nivel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel_nivel.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel_nivel.setText("jLabel7");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 51));
@@ -118,7 +113,6 @@ public class JPanel_ExpiredProduct extends javax.swing.JPanel {
 
         jLabel_expired.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel_expired.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel_expired.setText("jLabel8");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 51));
@@ -126,7 +120,6 @@ public class JPanel_ExpiredProduct extends javax.swing.JPanel {
 
         jLabel_type.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel_type.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel_type.setText("jLabel9");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -200,7 +193,7 @@ public class JPanel_ExpiredProduct extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
                     .addComponent(jLabel_stock, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel_seller, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(3, 3, 3)
@@ -215,7 +208,7 @@ public class JPanel_ExpiredProduct extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(jLabel_nivel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1)
                             .addComponent(jButton_Cancelar))))

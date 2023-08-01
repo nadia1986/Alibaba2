@@ -79,24 +79,28 @@ public class JPanel_BuscarVencimientos extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 51));
         jLabel2.setText("Product Type:");
 
-        jLabel4.setFont(jLabel4.getFont().deriveFont(jLabel4.getFont().getStyle() | java.awt.Font.BOLD, jLabel4.getFont().getSize()+2));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 51));
         jLabel4.setText("Wharehouse:");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 51));
         jLabel6.setText("Sector:");
 
+        jLabel_sector.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel_sector.setForeground(new java.awt.Color(255, 0, 0));
         jLabel_sector.setText(" ");
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 51));
         jLabel8.setText("Stock:");
 
+        jLabel_stock.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel_stock.setForeground(new java.awt.Color(255, 0, 0));
         jLabel_stock.setText(" ");
 
         jSlider_diasVencimiento.setMajorTickSpacing(30);
@@ -117,24 +121,28 @@ public class JPanel_BuscarVencimientos extends javax.swing.JPanel {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 51));
         jLabel3.setText("Expiration:");
 
+        jLabel_expiracion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel_expiracion.setForeground(new java.awt.Color(255, 0, 0));
         jLabel_expiracion.setText(" ");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 51));
         jLabel5.setText("Nivel:");
 
+        jLabel_sectorCode.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel_sectorCode.setForeground(new java.awt.Color(255, 0, 0));
         jLabel_sectorCode.setText(" ");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 51));
         jLabel7.setText("Seller:");
 
         jLabel_seller.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel_seller.setText("jLabel9");
+        jLabel_seller.setForeground(new java.awt.Color(0, 0, 51));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -164,8 +172,8 @@ public class JPanel_BuscarVencimientos extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel_wharehouse, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(113, 113, 113)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel8)
+                        .addGap(3, 3, 3)
                         .addComponent(jLabel_stock, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
@@ -228,7 +236,7 @@ public class JPanel_BuscarVencimientos extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jLabel_seller))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_cancelar)
                     .addComponent(jButton_aceptar))

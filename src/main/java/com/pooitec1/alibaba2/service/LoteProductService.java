@@ -2,6 +2,7 @@ package com.pooitec1.alibaba2.service;
 
 import com.pooitec1.alibaba2.entity.Product;
 import com.pooitec1.alibaba2.entity.LoteProduct;
+import com.pooitec1.alibaba2.entity.Wharehouse;
 import com.pooitec1.alibaba2.entity.repository.Conexion;
 import com.pooitec1.alibaba2.entity.repository.LoteProductRepository;
 
@@ -150,6 +151,18 @@ public class LoteProductService {
         }
         return stockProductVencidos;
     }
+    
+     public List<LoteProduct> getProductByWharehouse(Wharehouse wharehouse){
+         List<LoteProduct> stockProductWharehouse = new ArrayList<>();
+        for (LoteProduct stockProduct: this.stockRepository.findLoteProductEntities()){
+            if(stockProduct.getSector().getWharehouse().equals(wharehouse) ){
+                stockProductWharehouse.add(stockProduct);
+            }
+            
+        }
+        return stockProductWharehouse;
+    }
+    
     
     public List<LoteProduct>getExpiredProduct(LocalDate fi){
         List<LoteProduct> stockProductVencidos = new ArrayList<>();

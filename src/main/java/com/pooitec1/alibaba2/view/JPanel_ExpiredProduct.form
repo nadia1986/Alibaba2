@@ -104,7 +104,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" max="-2" attributes="0">
                   <Component id="jLabel_stock" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                  <Component id="jLabel2" alignment="3" pref="34" max="32767" attributes="0"/>
+                  <Component id="jLabel2" alignment="3" max="32767" attributes="0"/>
                   <Component id="jLabel6" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                   <Component id="jLabel_seller" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
               </Group>
@@ -123,7 +123,7 @@
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel_nivel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="32" max="32767" attributes="0"/>
+                      <EmptySpace pref="34" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton_Cancelar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -198,7 +198,6 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jLabel3"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
@@ -220,7 +219,6 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jLabel4"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
@@ -253,7 +251,6 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jLabel7"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_Sector">
@@ -264,7 +261,6 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jLabel8"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -286,7 +282,6 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jLabel7"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
@@ -308,7 +303,6 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jLabel8"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
@@ -330,7 +324,6 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jLabel9"/>
       </Properties>
     </Component>
   </SubComponents>

@@ -37,5 +37,13 @@ public class LoteProductController {
      public List<Wharehouse> getWharehouses( ){
         return this.wharehouseService.getWharehouse();
     } 
+     
+     public List<LoteProduct> getProductByWharehouse(Wharehouse wharehouse){
+         return this.loteService.getProductByWharehouse(wharehouse);
+     }
+     
+     public Wharehouse getWharehouse(String name){
+         return this.wharehouseService.getWharehouseByName(name);
+     }
    
 }

@@ -1,8 +1,10 @@
 package com.pooitec1.alibaba2.view;
 
-
 import com.pooitec1.alibaba2.controller.LoteProductController;
+import com.pooitec1.alibaba2.entity.LoteProduct;
 import com.pooitec1.alibaba2.entity.Wharehouse;
+import com.pooitec1.alibaba2.view.resources.TableModelListenerWharehouseProduct;
+import com.pooitec1.alibaba2.view.resources.TableModelProduct;
 
 /**
  *
@@ -10,14 +12,18 @@ import com.pooitec1.alibaba2.entity.Wharehouse;
  */
 public class JPanel_WharehouseProduct extends javax.swing.JPanel {
 
-    private JPanelAplication panelMenu;
-    private LoteProductController controlador;
+    private final JPanelAplication panelMenu;
+    private final LoteProductController controlador;
+    private final TableModelProduct tableModelWharehouseProduct;
+    private LoteProduct loteProductSelected;
 
-    public JPanel_WharehouseProduct(JPanelAplication panelMenu,LoteProductController controladorL) {
+    public JPanel_WharehouseProduct(JPanelAplication panelMenu, LoteProductController controladorL) {
 
+        this.tableModelWharehouseProduct = new TableModelProduct();
         this.panelMenu = panelMenu;
-        this.controlador=controladorL;
+        this.controlador = controladorL;
         initComponents();
+        this.jTable_productWharehouse.getSelectionModel().addListSelectionListener(new TableModelListenerWharehouseProduct(this));
         cargarMayoristas();
 
     }
@@ -44,6 +50,10 @@ public class JPanel_WharehouseProduct extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel_stock = new javax.swing.JLabel();
         jButton_cancel = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel_expiration = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel_seller = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -51,17 +61,13 @@ public class JPanel_WharehouseProduct extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(0, 0, 51));
         jLabel1.setText("Wharehouse:");
 
-        jTable_productWharehouse.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+        jComboBox_Wharehouse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_WharehouseActionPerformed(evt);
             }
-        ));
+        });
+
+        jTable_productWharehouse.setModel(tableModelWharehouseProduct);
         jScrollPane1.setViewportView(jTable_productWharehouse);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -99,6 +105,22 @@ public class JPanel_WharehouseProduct extends javax.swing.JPanel {
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel5.setText("Expiration:");
+
+        jLabel_expiration.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel_expiration.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel_expiration.setText("jLabel7");
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel7.setText("Seller:");
+
+        jLabel_seller.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel_seller.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel_seller.setText("jLabel8");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,36 +128,46 @@ public class JPanel_WharehouseProduct extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 574, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox_Wharehouse, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox_Wharehouse, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(60, 60, 60)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel2)
-                                .addGap(60, 60, 60)
-                                .addComponent(jLabel_type, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel_type, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(68, 68, 68)
-                                .addComponent(jLabel_sector, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(39, 39, 39)
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel_nivel, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(jLabel3)
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton_cancel)
-                            .addComponent(jLabel_stock, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(79, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel_stock, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel_sector, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel6)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel_nivel, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel_expiration, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(jLabel_seller, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(98, 98, 98)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,25 +176,31 @@ public class JPanel_WharehouseProduct extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox_Wharehouse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel_type))
-                .addGap(35, 35, 35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel_sector)
                     .addComponent(jLabel6)
-                    .addComponent(jLabel_nivel))
-                .addGap(29, 29, 29)
+                    .addComponent(jLabel_nivel)
+                    .addComponent(jLabel_sector))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel_stock))
-                .addGap(49, 49, 49)
+                    .addComponent(jLabel_stock)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel_expiration))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel_seller))
+                .addGap(47, 47, 47)
                 .addComponent(jButton_cancel)
-                .addGap(70, 70, 70))
+                .addGap(38, 38, 38))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -170,6 +208,13 @@ public class JPanel_WharehouseProduct extends javax.swing.JPanel {
         this.panelMenu.bloquearBotones(true);
         this.panelMenu.limpiarPanelContenido();
     }//GEN-LAST:event_jButton_cancelActionPerformed
+
+    private void jComboBox_WharehouseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_WharehouseActionPerformed
+        String name = (String) jComboBox_Wharehouse.getSelectedItem();
+        Wharehouse wharehouseSeleccionado = this.controlador.getWharehouse(name);
+        this.tableModelWharehouseProduct.setProducts(this.controlador.getProductByWharehouse(wharehouseSeleccionado));
+        this.tableModelWharehouseProduct.fireTableDataChanged();
+    }//GEN-LAST:event_jComboBox_WharehouseActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -179,9 +224,13 @@ public class JPanel_WharehouseProduct extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel_expiration;
     private javax.swing.JLabel jLabel_nivel;
     private javax.swing.JLabel jLabel_sector;
+    private javax.swing.JLabel jLabel_seller;
     private javax.swing.JLabel jLabel_stock;
     private javax.swing.JLabel jLabel_type;
     private javax.swing.JScrollPane jScrollPane1;
@@ -189,10 +238,28 @@ public class JPanel_WharehouseProduct extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void cargarMayoristas() {
-       
+
         for (Wharehouse wharehouse : this.controlador.getWharehouses()) {
             jComboBox_Wharehouse.addItem(wharehouse.getEmail());
-                  }
+        }
+    }
+
+    public void seleccionarProducto() {
+
+        int filaSeleccionada = this.jTable_productWharehouse.getSelectedRow();
+
+        if (filaSeleccionada >= 0) {
+
+            this.loteProductSelected = this.tableModelWharehouseProduct.getProductIn(filaSeleccionada);
+
+            this.jLabel_type.setText(this.loteProductSelected.getProduct().getProductType().getDescription());
+            this.jLabel_stock.setText(this.loteProductSelected.getCantidadActual().toString());
+            this.jLabel_sector.setText(this.loteProductSelected.getSector().getDescription());
+            this.jLabel_nivel.setText(this.loteProductSelected.getSector().getSectorCode());
+            this.jLabel_expiration.setText(this.loteProductSelected.getExpiration().toString());
+            this.jLabel_seller.setText(this.loteProductSelected.getProduct().getSeller().getName());
+
+        }
     }
 
 }

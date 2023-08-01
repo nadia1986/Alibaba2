@@ -52,6 +52,8 @@ public class JPanel_Productos extends javax.swing.JPanel {
         jLabel_stock = new javax.swing.JLabel();
         jLabel_sector = new javax.swing.JLabel();
         jLabel_wharehouse = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel_seller = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -110,6 +112,13 @@ public class JPanel_Productos extends javax.swing.JPanel {
         jLabel_wharehouse.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel_wharehouse.setForeground(new java.awt.Color(0, 0, 51));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel6.setText("Seller:");
+
+        jLabel_seller.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel_seller.setForeground(new java.awt.Color(0, 0, 51));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -143,7 +152,11 @@ public class JPanel_Productos extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel_productType, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel_wharehouse, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(jLabel_wharehouse, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel_seller, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,7 +192,11 @@ public class JPanel_Productos extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel_wharehouse))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel_seller))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_aceptar)
                     .addComponent(jButton_cancelar))
@@ -217,8 +234,10 @@ public class JPanel_Productos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel_productType;
     private javax.swing.JLabel jLabel_sector;
+    private javax.swing.JLabel jLabel_seller;
     private javax.swing.JLabel jLabel_stock;
     private javax.swing.JLabel jLabel_wharehouse;
     private javax.swing.JScrollPane jScrollPane1;
@@ -238,6 +257,7 @@ public class JPanel_Productos extends javax.swing.JPanel {
             this.jLabel_stock.setText(this.loteProductSelected.getCantidadActual().toString());
             this.jLabel_sector.setText(this.loteProductSelected.getSector().getDescription());
             this.jLabel_wharehouse.setText(this.loteProductSelected.getSector().getWharehouse().getEmail());
+            this.jLabel_seller.setText(this.loteProductSelected.getProduct().getSeller().getName());
 
         }
     }
