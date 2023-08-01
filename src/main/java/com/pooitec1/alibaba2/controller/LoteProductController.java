@@ -21,6 +21,14 @@ public class LoteProductController {
     public List<LoteProduct> getVencimientos(LocalDate fi, LocalDate ff){
         return this.loteService.getVencimientos(fi, ff);
     }
+    
+    public List<LoteProduct> getLoteProducts(String code){
+        return this.loteService.findByCodeProduct(code);
+    }
+    
+    public List<LoteProduct> getExpired(LocalDate fi){
+        return this.loteService.getExpiredProduct(fi);
+    }
      
    
 }

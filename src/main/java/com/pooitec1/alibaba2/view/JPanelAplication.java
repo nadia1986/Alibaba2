@@ -1,4 +1,3 @@
-
 package com.pooitec1.alibaba2.view;
 
 import com.pooitec1.alibaba2.controller.LoteProductController;
@@ -6,6 +5,7 @@ import com.pooitec1.alibaba2.controller.PurchaseController;
 import com.pooitec1.alibaba2.controller.SaleController;
 import com.pooitec1.alibaba2.controller.UserController;
 import com.pooitec1.alibaba2.entity.User;
+import java.time.LocalDate;
 
 /**
  *
@@ -15,10 +15,9 @@ public class JPanelAplication extends javax.swing.JPanel {
 
     UserController controlador;
     User user;
+    LocalDate fi = LocalDate.now();
 
-    /**
-     * Creates new form JPanelAplication
-     */
+ 
     public JPanelAplication(UserController controladorP) {
         this.user = controladorP.getUserSelected();
 
@@ -76,6 +75,11 @@ public class JPanelAplication extends javax.swing.JPanel {
 
         jbtn_vencidos.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         jbtn_vencidos.setText("Expired Products");
+        jbtn_vencidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_vencidosActionPerformed(evt);
+            }
+        });
 
         jbtn_productos.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jbtn_productos.setText("Product");
@@ -225,7 +229,9 @@ public class JPanelAplication extends javax.swing.JPanel {
     }//GEN-LAST:event_jbtn_buscarVencimientosActionPerformed
 
     private void jbtn_productosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_productosActionPerformed
-        JPanel_Productos panelProductos = new JPanel_Productos(this);
+
+        LoteProductController controladorLote = new LoteProductController();
+        JPanel_Productos panelProductos = new JPanel_Productos(this, controladorLote);
         panelProductos.setSize(814, 600);
         this.jPanel_contenido.removeAll();
         this.jPanel_contenido.add(panelProductos);
@@ -233,6 +239,19 @@ public class JPanelAplication extends javax.swing.JPanel {
         this.validate();
         bloquearBotones(false);// TODO add your handling code here:
     }//GEN-LAST:event_jbtn_productosActionPerformed
+
+    private void jbtn_vencidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_vencidosActionPerformed
+
+        LoteProductController controladorLote = new LoteProductController();
+        JPanel_ExpiredProduct panelExpired = new JPanel_ExpiredProduct(this);
+        panelExpired.setSize(814, 600);
+        panelExpired.getTableModelExpired().setProducts(controladorLote.getExpired(fi));
+        this.jPanel_contenido.removeAll();
+        this.jPanel_contenido.add(panelExpired);
+        this.repaint();
+        this.validate();
+        bloquearBotones(false);// TODO add your handling code here:
+    }//GEN-LAST:event_jbtn_vencidosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

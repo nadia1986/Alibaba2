@@ -226,26 +226,22 @@ public class JPanel_BuscarVencimientos extends javax.swing.JPanel {
     private void jButton_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_aceptarActionPerformed
         this.panelMenu.bloquearBotones(true);
         this.panelMenu.limpiarPanelContenido();
-        System.out.println(ff);// TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton_aceptarActionPerformed
 
     private void jSlider_diasVencimientoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider_diasVencimientoStateChanged
-        System.out.println(jSlider_diasVencimiento.getValue());
+        
+        
         long d = jSlider_diasVencimiento.getValue();
         ff = fi.plusDays(d);
         this.tableModelVencimientos.setProducts(this.controlador.getVencimientos(fi, ff));
-        //System.out.println("Hola" + ff);
+        
         this.tableModelVencimientos.fireTableDataChanged();
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jSlider_diasVencimientoStateChanged
 
     private void jSlider_diasVencimientoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jSlider_diasVencimientoKeyReleased
 
-        // this.tableModelVencimientos.setProducts(this.controlador.getVencimientos(fi, ff));
-        // System.out.println("Hola" + ff);
-        //Refrescar el modelo en la tabla
-        // this.tableModelVencimientos.fireTableDataChanged();
-        // TODO add your handling code here:
     }//GEN-LAST:event_jSlider_diasVencimientoKeyReleased
 
 

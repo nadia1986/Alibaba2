@@ -8,11 +8,11 @@ import javax.swing.event.ListSelectionListener;
  *
  * @author nadia
  */
-public class TableModelListenerProduct implements ListSelectionListener {
+public class TableModelListenerSaleProduct implements ListSelectionListener {
 
     private final JPanel_VentaPaso3 jPanelProcesarVentaPaso3;
 
-    public TableModelListenerProduct(JPanel_VentaPaso3 pantallaContenido) {
+    public TableModelListenerSaleProduct(JPanel_VentaPaso3 pantallaContenido) {
         this.jPanelProcesarVentaPaso3 = pantallaContenido;
     }
 

@@ -16,11 +16,11 @@ import java.util.List;
 public class LoteProductService {
 
     private final LoteProductRepository stockRepository;
-    private final WharehouseService wharehouseService;
+   
 
     public LoteProductService() {
         this.stockRepository = new LoteProductRepository(Conexion.getEmf());
-        this.wharehouseService= new WharehouseService();
+       
 
     }
 
@@ -163,6 +163,18 @@ public class LoteProductService {
             
         }
         return stockProductVencidos;
+    }
+    
+    public List<LoteProduct>getExpiredProduct(LocalDate fi){
+        List<LoteProduct> stockProductVencidos = new ArrayList<>();
+        for (LoteProduct stockProduct: this.stockRepository.findLoteProductEntities()){
+            if( stockProduct.getExpiration().isBefore(fi) ){
+                stockProductVencidos.add(stockProduct);
+            }
+            
+        }
+        return stockProductVencidos;
+    
     }
 
     public void discountStockProduct(Product productSeleccionado, int quantity) {

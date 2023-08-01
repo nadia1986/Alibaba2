@@ -3,7 +3,7 @@ package com.pooitec1.alibaba2.view;
 import com.pooitec1.alibaba2.controller.SaleController;
 import com.pooitec1.alibaba2.entity.LoteProduct;
 import com.pooitec1.alibaba2.entity.SaleLine;
-import com.pooitec1.alibaba2.view.resources.TableModelListenerProduct;
+import com.pooitec1.alibaba2.view.resources.TableModelListenerSaleProduct;
 import com.pooitec1.alibaba2.view.resources.TableModelProduct;
 import com.pooitec1.alibaba2.view.resources.ValidadorDeCampos;
 import java.awt.Color;
@@ -43,7 +43,7 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
 
         this.panelMenu = panelMenu;
         initComponents();
-        this.jtbl_products.getSelectionModel().addListSelectionListener(new TableModelListenerProduct(this));
+        this.jtbl_products.getSelectionModel().addListSelectionListener(new TableModelListenerSaleProduct(this));
 
         validadarCampos();
 
@@ -288,7 +288,7 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
             if (!buscarSaleLine(saleLine)) {
                 this.controlador.getNewSale().getSaleLines().add(saleLine);
             }
-            
+
             JPanel_VentaPaso2 panelPaso2 = new JPanel_VentaPaso2(this.panelMenu, this.controlador);
 
             panelPaso2.setSize(814, 600);
@@ -300,7 +300,7 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
 
         } else {
             JOptionPane.showMessageDialog(null, "Hola. Selecciona un producto");
-            //System.out.println("selecciona Producto");
+
         } // TODO add your handling code here:
     }//GEN-LAST:event_jbtn_agregarsalelineActionPerformed
 
