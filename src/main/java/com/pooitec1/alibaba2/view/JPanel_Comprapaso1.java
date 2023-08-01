@@ -255,6 +255,7 @@ public class JPanel_Comprapaso1 extends javax.swing.JPanel {
         Seller  seller = this.controlador.getSellerByName(name);
         this.controlador.getNewPurchase().setSeller(seller);
         this.controlador.getNewPurchase().setPurchaseDate(fi);
+        if(!this.controlador.getNewPurchase().getPurchaseLines().isEmpty()){
         this.controlador.savePurchase(this.controlador.getNewPurchase());
         try {
             actualizarStock();
@@ -262,10 +263,12 @@ public class JPanel_Comprapaso1 extends javax.swing.JPanel {
             Logger.getLogger(JPanel_Comprapaso1.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        JOptionPane.showMessageDialog(null, "Stock actualizado Correctamente");
+        JOptionPane.showMessageDialog(null, "Saved Purchase");
         this.panelMenu.bloquearBotones(true);
         this.panelMenu.limpiarPanelContenido();
-
+        } else{
+           JOptionPane.showMessageDialog(null, "Purchase detail isEmpty"); 
+        }
     }//GEN-LAST:event_jButton_savepurchaseActionPerformed
 
 

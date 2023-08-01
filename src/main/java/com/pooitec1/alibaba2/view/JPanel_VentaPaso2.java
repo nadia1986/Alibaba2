@@ -406,13 +406,13 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
 
             LoteProduct loteProduct = this.controlador.buscarLoteProduct(productCode);
             int stockActual = loteProduct.getCantidadActual();
-            System.out.println(loteProduct.getCantidadActual());
+            //System.out.println(loteProduct.getCantidadActual());
             int newStock = stockActual - cantidad;
-            System.out.println(newStock);
+            //System.out.println(newStock);
             loteProduct.setCantidadActual(newStock);
             this.controlador.actualizarStockLote(loteProduct);
 
-            System.out.println(loteProduct.getCantidadActual());
+           // System.out.println(loteProduct.getCantidadActual());
 
         }
 
