@@ -317,16 +317,22 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
     }//GEN-LAST:event_jbtn_cancelarventapaso2ActionPerformed
 
     private void jbtn_confirmsaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_confirmsaleActionPerformed
-
-        this.controlador.saveSale(this.controlador.getNewSale());
-        try {
-            discontStock();
-        } catch (Exception ex) {
-            Logger.getLogger(JPanel_VentaPaso2.class.getName()).log(Level.SEVERE, null, ex);
+        if (!this.controlador.getNewSale().getSaleLines().isEmpty()) {
+            this.controlador.saveSale(this.controlador.getNewSale());
+            try {
+                discontStock();
+            } catch (Exception ex) {
+                Logger.getLogger(JPanel_VentaPaso2.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(null, "Saved sale");
+            this.panelMenu.bloquearBotones(true);
+            this.panelMenu.limpiarPanelContenido();
+        } else {
+            //throw new IllegalStateException("Cannot save sale without sale lines");
+            System.out.println("Seleccionar Productos");
+            JOptionPane.showMessageDialog(null, " Not saved!Sale Detail isempty");
         }
-        JOptionPane.showMessageDialog(null, "Venta Registrada Correctamente");
-        this.panelMenu.bloquearBotones(true);
-        this.panelMenu.limpiarPanelContenido();
+        
     }//GEN-LAST:event_jbtn_confirmsaleActionPerformed
 
     private void jbtn_atrasventapaso2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_atrasventapaso2ActionPerformed
@@ -391,7 +397,7 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
         jLabel_total.setText(pasarMoneda(total));
         jtable_lineadeventa.setModel(modeloTableSaleLine);
     }
-    
+
     public void discontStock() throws Exception {
         int rowCount = modeloTableSaleLine.getRowCount();
         for (int i = 0; i < rowCount; i++) {

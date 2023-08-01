@@ -90,7 +90,7 @@ public class JPanelAplication extends javax.swing.JPanel {
         });
 
         jbtn_proveedores1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jbtn_proveedores1.setText("Wharehouse ");
+        jbtn_proveedores1.setText(" Wharehouse Product");
 
         javax.swing.GroupLayout jPanel_botonLayout = new javax.swing.GroupLayout(jPanel_boton);
         jPanel_boton.setLayout(jPanel_botonLayout);
