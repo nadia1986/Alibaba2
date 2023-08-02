@@ -2,7 +2,9 @@
 package com.pooitec1.alibaba2.service;
 
 import com.pooitec1.alibaba2.entity.LoteProduct;
+import com.pooitec1.alibaba2.entity.Product;
 import com.pooitec1.alibaba2.entity.Purchase;
+import com.pooitec1.alibaba2.entity.Sector;
 import com.pooitec1.alibaba2.entity.Seller;
 import com.pooitec1.alibaba2.entity.Wharehouse;
 import com.pooitec1.alibaba2.entity.repository.Conexion;
@@ -70,7 +72,7 @@ public class PurchaseService {
         return wharehouseService.getWharehouse();
     }
 
-    public boolean verificarSectorProducto(LoteProduct loteProduct, Wharehouse wharehouse) {
-        return wharehouseService.verificarSectorLote(loteProduct, wharehouse);
+    public Sector verificarSectorProducto(Product product, Wharehouse wharehouse) {
+        return wharehouseService.verificarSectorProducto(product, wharehouse);
     }
 }

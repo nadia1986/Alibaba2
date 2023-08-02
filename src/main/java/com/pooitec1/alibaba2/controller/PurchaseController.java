@@ -1,7 +1,9 @@
 package com.pooitec1.alibaba2.controller;
 
 import com.pooitec1.alibaba2.entity.LoteProduct;
+import com.pooitec1.alibaba2.entity.Product;
 import com.pooitec1.alibaba2.entity.Purchase;
+import com.pooitec1.alibaba2.entity.Sector;
 import com.pooitec1.alibaba2.entity.Seller;
 import com.pooitec1.alibaba2.entity.User;
 import com.pooitec1.alibaba2.entity.Wharehouse;
@@ -55,8 +57,8 @@ public class PurchaseController {
         return purchaseService.getSellerByName(name);
     }
 
-    public boolean verificarSectorProducto(LoteProduct loteProduct, Wharehouse wharehouse) {
-        return purchaseService.verificarSectorProducto(loteProduct, wharehouse);
+    public Sector verificarSectorProducto(Product product, Wharehouse wharehouse) {
+        return purchaseService.verificarSectorProducto(product, wharehouse);
     }
 
     public List<Seller> getMayoristas() {

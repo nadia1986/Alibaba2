@@ -13,7 +13,7 @@ import javax.swing.table.AbstractTableModel;
  * @author nadia
  */
 public class TableModelProduct extends AbstractTableModel {
-    private static final String[] COLUMNAS = {"Cod_prod", "Producto", "Descripcion", "StockProduct ", "Precio"};
+    private static final String[] COLUMNAS = {"Cod_prod", "Producto", "StockProduct ", "Precio"};
     private List<LoteProduct> loteProducts;
     private LoteProductService loteProductService;
     
@@ -44,15 +44,12 @@ public class TableModelProduct extends AbstractTableModel {
             case 1:
                 retorno = loteProduct.getProduct().getDescription();
                 break;
-            case 2:
-                retorno = loteProduct.getProduct().getProductType().getDescription();
-                break;
             
-            case 3:
+            case 2:
                retorno= loteProduct.getCantidadActual();
               // retorno=this.loteProductService.verStockTotalProducto(loteProduct.getProduct());
                 break;
-           case 4:
+           case 3:
                 retorno=loteProduct.getSalePrice();
                 break;
         }

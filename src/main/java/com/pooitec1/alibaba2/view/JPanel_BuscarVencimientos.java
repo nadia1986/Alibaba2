@@ -300,7 +300,7 @@ public class JPanel_BuscarVencimientos extends javax.swing.JPanel {
         // si la fila esta seleccionada, seteamos  buyer auxiliar, llamando al modelo de tabla
         if (filaSeleccionada >= 0) {
             this.loteSeleccionado = this.tableModelVencimientos.getProductIn(filaSeleccionada);
-            this.jLabel_producttype.setText(this.loteSeleccionado.getProduct().getProductType().getDescription());
+            this.jLabel_producttype.setText(this.loteSeleccionado.getProduct().getDescription());
             this.jLabel_wharehouse.setText(this.loteSeleccionado.getSector().getWharehouse().getEmail());
             this.jLabel_sector.setText(this.loteSeleccionado.getSector().getDescription());
             this.jLabel_stock.setText(this.loteSeleccionado.getCantidadActual().toString());

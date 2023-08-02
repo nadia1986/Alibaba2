@@ -263,7 +263,7 @@ public class JPanel_ExpiredProduct extends javax.swing.JPanel {
             this.jLabel_seller.setText(this.loteProductSelected.getProduct().getSeller().getName());
             this.jLabel_nivel.setText(this.loteProductSelected.getSector().getSectorCode());
             this.jLabel_expired.setText(this.loteProductSelected.getExpiration().toString());
-            this.jLabel_type.setText(this.loteProductSelected.getProduct().getProductType().getDescription());
+            this.jLabel_type.setText(this.loteProductSelected.getProduct().getDescription());
 
         }
     }

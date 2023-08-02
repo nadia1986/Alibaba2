@@ -348,7 +348,7 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
             this.loteProductSelected = this.tableModelProduct.getProductIn(filaSeleccionada);
 
             this.jlblcode.setText(this.loteProductSelected.getProduct().getCodProd());
-            this.jlbldescription.setText(this.loteProductSelected.getProduct().getProductType().getDescription());
+            this.jlbldescription.setText(this.loteProductSelected.getProduct().getDescription());
             this.jlblprice.setText(pasarMoneda(this.loteProductSelected.getSalePrice()));
             jlblsubtotal.setText(pasarMoneda(this.loteProductSelected.getSalePrice()));
 

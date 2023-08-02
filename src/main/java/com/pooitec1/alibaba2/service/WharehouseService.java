@@ -47,18 +47,8 @@ public class WharehouseService {
         return sectorVerify;
 
     }
-
-    public boolean verificarSectorLote(LoteProduct loteproduct, Wharehouse wharehouse) {
-        for (Sector sectorR : wharehouse.getSectors()) {
-            if (sectorR.equals(loteproduct.getSector())) {
-                System.out.println("Sector Verify" + " SECTOR: " + sectorR.getDescription());
-                return true;
-            }
-        }
-
-        System.out.println("El Producto no tiene sector asignado en este Wharehouse");
-        return false;
-    }
+    
+    
 
     public Wharehouse obtenerAlmacenSeleccionado(JComboBox<Wharehouse> comboBox) {
         Object selectedItem = comboBox.getSelectedItem();

@@ -3,6 +3,7 @@ package com.pooitec1.alibaba2.view;
 import com.pooitec1.alibaba2.controller.PurchaseController;
 import com.pooitec1.alibaba2.entity.LoteProduct;
 import com.pooitec1.alibaba2.entity.PurchaseLine;
+import com.pooitec1.alibaba2.entity.Sector;
 import com.pooitec1.alibaba2.entity.Wharehouse;
 import com.pooitec1.alibaba2.view.resources.TableModelListenerProductPurchase;
 import com.pooitec1.alibaba2.view.resources.TableModelProduct;
@@ -242,8 +243,8 @@ public class JPanel_Comprapaso2 extends javax.swing.JPanel {
         
         String name = (String) jComboBox_Wharehouse.getSelectedItem();
         Wharehouse wharehouseSeleccionado = this.controlador.getWharehouseByName(name);
-
-        if (this.loteProductSelected != null && this.controlador.verificarSectorProducto(loteProductSelected, wharehouseSeleccionado)) {
+        Sector sectorVerify=this.controlador.verificarSectorProducto(this.loteProductSelected.getProduct(), wharehouseSeleccionado);
+        if (this.loteProductSelected != null && sectorVerify !=null) {
 
             PurchaseLine purchaseLine = new PurchaseLine();
             purchaseLine.setProduct(loteProductSelected.getProduct());
@@ -305,7 +306,7 @@ public class JPanel_Comprapaso2 extends javax.swing.JPanel {
 
             this.loteProductSelected = this.tableModelProduct.getProductIn(filaSeleccionada);
 
-            this.jLabel_description.setText(this.loteProductSelected.getProduct().getProductType().getDescription());
+            this.jLabel_description.setText(this.loteProductSelected.getProduct().getDescription());
 
         }
     }

@@ -253,7 +253,7 @@ public class JPanel_Productos extends javax.swing.JPanel {
 
             this.loteProductSelected = this.tableModelProduct.getProductIn(filaSeleccionada);
 
-            this.jLabel_productType.setText(this.loteProductSelected.getProduct().getProductType().getDescription());
+            this.jLabel_productType.setText(this.loteProductSelected.getProduct().getDescription());
             this.jLabel_stock.setText(this.loteProductSelected.getCantidadActual().toString());
             this.jLabel_sector.setText(this.loteProductSelected.getSector().getDescription());
             this.jLabel_wharehouse.setText(this.loteProductSelected.getSector().getWharehouse().getEmail());
