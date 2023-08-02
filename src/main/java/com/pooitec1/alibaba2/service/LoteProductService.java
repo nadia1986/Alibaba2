@@ -17,35 +17,35 @@ import java.util.List;
 public class LoteProductService {
 
     private final LoteProductRepository stockRepository;
-   
 
     public LoteProductService() {
         this.stockRepository = new LoteProductRepository(Conexion.getEmf());
-       
 
     }
 
-    //BUSCO UN PRODUCTO POR DESCRIPCION
+  
     public List<LoteProduct> findByProductDescription(String description) {
         List<LoteProduct> productsfound = new ArrayList<>();
 
         for (LoteProduct productSearch : stockRepository.findLoteProductEntities()) {
             if (productSearch.getProduct().getDescription().contains(description)) {
-               if (verificarVencimiento(productSearch)) {
-                productsfound.add(productSearch);
-            }
+                if (verificarVencimiento(productSearch)) {
+                    productsfound.add(productSearch);
+                }
             }
         }
         return productsfound;
     }
 
-    //Busco el producto por codigo
+   
     public List<LoteProduct> findByCodeProduct(String code) {
         List<LoteProduct> productsfound = new ArrayList<>();
 
         for (LoteProduct productSearch : stockRepository.findLoteProductEntities()) {
             if (productSearch.getProduct().getCodProd().contains(code)) {
-                productsfound.add(productSearch);
+                if (verificarVencimiento(productSearch)) {
+                    productsfound.add(productSearch);
+                }
             }
         }
         return productsfound;
@@ -63,17 +63,7 @@ public class LoteProductService {
 
     }
 
-    public Product getOneProduct(String codeProduct) {
-        Product product = null;
-        for (LoteProduct stockPr : this.stockRepository.findLoteProductEntities()) {
-            if (stockPr.getProduct().getCodProd().equals(codeProduct)) {
-                product = stockPr.getProduct();
-
-            }
-        }
-
-        return product;
-    }
+   
 
     public LoteProduct buscarStockByProduct(String code) {
         LoteProduct loteProduct = null;
@@ -101,7 +91,7 @@ public class LoteProductService {
 
     }
 
-      public double obtenerPrecioVentaProducto(Product product) {
+    public double obtenerPrecioVentaProducto(Product product) {
 
         double precioProducto = 0;
         for (LoteProduct stockPr : this.stockRepository.findLoteProductEntities()) {
@@ -130,7 +120,6 @@ public class LoteProductService {
         return cantidadTotalProducto;
     }
 
-
     private Boolean verificarVencimiento(LoteProduct stockProduct) {
         Boolean state = false;
 
@@ -140,55 +129,38 @@ public class LoteProductService {
 
         return state;
     }
-    
-    public List<LoteProduct> getVencimientos(LocalDate fi, LocalDate ff){
-         List<LoteProduct> stockProductVencidos = new ArrayList<>();
-        for (LoteProduct stockProduct: this.stockRepository.findLoteProductEntities()){
-            if(stockProduct.getExpiration().isAfter(fi) && stockProduct.getExpiration().isBefore(ff) ){
+
+    public List<LoteProduct> getVencimientos(LocalDate fi, LocalDate ff) {
+        List<LoteProduct> stockProductVencidos = new ArrayList<>();
+        for (LoteProduct stockProduct : this.stockRepository.findLoteProductEntities()) {
+            if (stockProduct.getExpiration().isAfter(fi) && stockProduct.getExpiration().isBefore(ff)) {
                 stockProductVencidos.add(stockProduct);
             }
-            
+
         }
         return stockProductVencidos;
     }
-    
-     public List<LoteProduct> getProductByWharehouse(Wharehouse wharehouse){
-         List<LoteProduct> stockProductWharehouse = new ArrayList<>();
-        for (LoteProduct stockProduct: this.stockRepository.findLoteProductEntities()){
-            if(stockProduct.getSector().getWharehouse().equals(wharehouse) ){
+
+    public List<LoteProduct> getProductByWharehouse(Wharehouse wharehouse) {
+        List<LoteProduct> stockProductWharehouse = new ArrayList<>();
+        for (LoteProduct stockProduct : this.stockRepository.findLoteProductEntities()) {
+            if (stockProduct.getSector().getWharehouse().equals(wharehouse)) {
                 stockProductWharehouse.add(stockProduct);
             }
-            
+
         }
         return stockProductWharehouse;
     }
-    
-    
-    public List<LoteProduct>getExpiredProduct(LocalDate fi){
+
+    public List<LoteProduct> getExpiredProduct(LocalDate fi) {
         List<LoteProduct> stockProductVencidos = new ArrayList<>();
-        for (LoteProduct stockProduct: this.stockRepository.findLoteProductEntities()){
-            if( stockProduct.getExpiration().isBefore(fi) ){
+        for (LoteProduct stockProduct : this.stockRepository.findLoteProductEntities()) {
+            if (stockProduct.getExpiration().isBefore(fi)) {
                 stockProductVencidos.add(stockProduct);
             }
-            
+
         }
         return stockProductVencidos;
-    
-    }
-
-    public void discountStockProduct(Product productSeleccionado, int quantity) {
-
-        Integer productStock = verStockTotalProducto(productSeleccionado);
-
-        for (LoteProduct stockProduct : this.stockRepository.findLoteProductEntities()) {
-            if (stockProduct.getProduct().equals(productSeleccionado)) {
-
-                productStock = productStock - quantity;
-                System.out.println("el stock es " + productStock);
-
-            }
-
-        }
 
     }
 
@@ -199,9 +171,8 @@ public class LoteProductService {
                 this.stockRepository.edit(loteProduct);
             }
         }
-        
+
     }
-    
 
     public void saveLoteProduct(LoteProduct loteProduct) {
         this.stockRepository.create(loteProduct);
