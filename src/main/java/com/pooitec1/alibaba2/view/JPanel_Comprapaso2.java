@@ -322,7 +322,7 @@ public class JPanel_Comprapaso2 extends javax.swing.JPanel {
 
     public boolean buscarPurchaseLine(PurchaseLine newPurchaseLine) {
         for (PurchaseLine purchase : this.controlador.getNewPurchase().getPurchaseLines()) {
-            if (purchase.getProduct().getCodProd() == newPurchaseLine.getProduct().getCodProd()) {
+            if (purchase.getProduct().getCodProd().equals(newPurchaseLine.getProduct().getCodProd())) {
                 purchase.setQuantity(purchase.getQuantity() + newPurchaseLine.getQuantity());
                 return true;
             }
@@ -338,21 +338,5 @@ public class JPanel_Comprapaso2 extends javax.swing.JPanel {
         }
 
     }
-
-    public PurchaseController getControlador() {
-        return controlador;
-    }
-
-    public void setControlador(PurchaseController controlador) {
-        this.controlador = controlador;
-    }
-
-    public LoteProduct getLoteProductSelected() {
-        return loteProductSelected;
-    }
-
-    public void setLoteProductSelected(LoteProduct loteProductSelected) {
-        this.loteProductSelected = loteProductSelected;
-    }
-
+  
 }

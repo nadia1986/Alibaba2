@@ -23,40 +23,31 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
     LocalDateTime localDate = LocalDateTime.now();
 
     ValidadorDeCampos validadorDeCampos;
-    private SaleLine saleLineSeleccionada;
 
     DefaultTableModel modeloTableSaleLine = new DefaultTableModel();
     SaleController controlador;
 
     private JPanelAplication panelMenu;
 
-    /**
-     * Creates new form JPanel_VentaPaso2
-     */
     public JPanel_VentaPaso2(JPanelAplication panelMenu, SaleController controladorP) {
-        //public JPanel_VentaPaso2(JPanelAplication panelMenu, SaleController controladorP) {
 
         this.validadorDeCampos = new ValidadorDeCampos();
-
         this.controlador = controladorP;
         this.panelMenu = panelMenu;
 
         initComponents();
 
-        // System.out.println(this.controlador.getNewSale().getEmployee().getFirstName());
         this.jlbl_employee.setText(this.controlador.getNewSale().getEmployee().getFirstName() + " " + this.controlador.getNewSale().getEmployee().getLastName());
         this.jlbl_date.setText(this.controlador.getNewSale().getDateSale().toString());
         this.jlbl_cliente.setText(this.controlador.getNewSale().getBuyer().getFirstName() + " " + this.controlador.getNewSale().getBuyer().getLastName());
         this.jlbl_time.setText(this.localDate.getHour() + ":" + this.localDate.getMinute() + ":" + this.localDate.getSecond());
-        calcularSubtotal();
 
         modeloTableSaleLine.addColumn("Code Product");
         modeloTableSaleLine.addColumn("Description");
         modeloTableSaleLine.addColumn("Price");
         modeloTableSaleLine.addColumn("Quantity");
         modeloTableSaleLine.addColumn("Subtotal");
-        //saleLines.add(this.controlador.getNewSaleLine());
-        //this.controlador.getNewSale().setSaleLines(saleLines);
+
         actualizarTabla();
 
     }
@@ -332,7 +323,7 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
             System.out.println("Seleccionar Productos");
             JOptionPane.showMessageDialog(null, " Not saved!Sale Detail isempty");
         }
-        
+
     }//GEN-LAST:event_jbtn_confirmsaleActionPerformed
 
     private void jbtn_atrasventapaso2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_atrasventapaso2ActionPerformed
@@ -370,10 +361,6 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
     private javax.swing.JTable jtable_lineadeventa;
     // End of variables declaration//GEN-END:variables
 
-    public void calcularPrecio() {
-
-    }
-
     public void actualizarTabla() {
         while (modeloTableSaleLine.getRowCount() > 0) {
             modeloTableSaleLine.removeRow(0);
@@ -383,18 +370,18 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
             Object x[] = new Object[5];
             x[0] = saleLine.getProduct().getCodProd();
             x[1] = saleLine.getProduct().getDescription();
-            x[2] = pasarMoneda(this.controlador.obtenerPrecio(saleLine.getProduct()));
+            x[2] = convertir(this.controlador.obtenerPrecio(saleLine.getProduct()));
             x[3] = saleLine.getQuantity();
-            x[4] = pasarMoneda(this.controlador.obtenerPrecio(saleLine.getProduct()) * saleLine.getQuantity());
+            x[4] = convertir(this.controlador.obtenerPrecio(saleLine.getProduct()) * saleLine.getQuantity());
             subtotal += this.controlador.obtenerPrecio(saleLine.getProduct()) * saleLine.getQuantity();
             modeloTableSaleLine.addRow(x);
 
         }
         double iva = subtotal * 0.21;
         double total = subtotal + iva;
-        jLabel_iva.setText(pasarMoneda(iva));
-        jLabel_subtotal.setText(pasarMoneda(subtotal));
-        jLabel_total.setText(pasarMoneda(total));
+        jLabel_iva.setText(convertir(iva));
+        jLabel_subtotal.setText(convertir(subtotal));
+        jLabel_total.setText(convertir(total));
         jtable_lineadeventa.setModel(modeloTableSaleLine);
     }
 
@@ -406,37 +393,18 @@ public class JPanel_VentaPaso2 extends javax.swing.JPanel {
 
             LoteProduct loteProduct = this.controlador.buscarLoteProduct(productCode);
             int stockActual = loteProduct.getCantidadActual();
-            //System.out.println(loteProduct.getCantidadActual());
+
             int newStock = stockActual - cantidad;
-            //System.out.println(newStock);
+
             loteProduct.setCantidadActual(newStock);
             this.controlador.actualizarStockLote(loteProduct);
 
-           // System.out.println(loteProduct.getCantidadActual());
-
         }
 
     }
 
-    public void seleccionarLineaVenta() {
-        int filaSeleccionada = this.jtable_lineadeventa.getSelectedRow();
-        if (filaSeleccionada > 0) {
-            //this.saleLineSeleccionada = this.modeloTableSaleLine(filaSeleccionada);
-        }
-
-    }
-
-    public String pasarMoneda(Double precio) {
+    public String convertir(Double precio) {
         return "$ " + Math.round(precio * 100.0) / 100.0;
-
-    }
-
-    private void calcularSubtotal() {
-        double subtotal = 0.0;
-
-        for (int i = 0; i < modeloTableSaleLine.getRowCount(); i++) {
-
-        }
 
     }
 

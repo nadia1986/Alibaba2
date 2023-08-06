@@ -27,7 +27,7 @@ public class JPanel_Comprapaso1 extends javax.swing.JPanel {
     private PurchaseController controlador;
     private JPanelAplication panelMenu;
     
-    DefaultComboBoxModel<Seller> comboBoxModelSeller = new DefaultComboBoxModel<>();
+ 
 
     public JPanel_Comprapaso1(JPanelAplication panelMenu, PurchaseController controladorP) {
         this.validadorDeCampos = new ValidadorDeCampos();
@@ -145,7 +145,6 @@ public class JPanel_Comprapaso1 extends javax.swing.JPanel {
         jLabel3.setText("SELLER:");
 
         jComboBox_seller.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboBox_seller.setModel(comboBoxModelSeller);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -317,13 +316,13 @@ public class JPanel_Comprapaso1 extends javax.swing.JPanel {
 
             LoteProduct loteProduct = this.controlador.buscarLoteProduct(productCode);
             int stockActual = loteProduct.getCantidadActual();
-            System.out.println(loteProduct.getCantidadActual());
+           // System.out.println(loteProduct.getCantidadActual());
             int newStock = stockActual + cantidad;
-            System.out.println(newStock);
+            //System.out.println(newStock);
             loteProduct.setCantidadActual(newStock);
             this.controlador.actualizarStockLote(loteProduct);
 
-            System.out.println(loteProduct.getCantidadActual());
+            //System.out.println(loteProduct.getCantidadActual());
 
         }
 
