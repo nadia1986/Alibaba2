@@ -5,14 +5,10 @@ o
 ?src/main/java/com/pooitec1/alibaba2/service/ProductService.java,7\4\74e6e60ccb072d589e9eabe34d55072dc5a37a56
 m
 =src/main/java/com/pooitec1/alibaba2/service/BuyerService.java,f\b\fb69ebfb71bdc1393f95d0158784ef56982573f8
-e
-5src/main/java/com/pooitec1/alibaba2/entity/Buyer.java,9\5\95ae8f6582f612df7873095f74d789249045a8f7
 l
 <src/main/java/com/pooitec1/alibaba2/service/SaleService.java,f\0\f06ca39ed6400795276cfcdb6a906ef05685914f
 r
 Bsrc/main/java/com/pooitec1/alibaba2/controller/SaleController.java,6\7\679a4f496b39eadd7f3e8cf1864d1000c8952ff2
-y
-Isrc/main/java/com/pooitec1/alibaba2/entity/repository/SaleRepository.java,f\7\f700bbcbec6906342c58762e25d0d6e70e66649a
 s
 Csrc/main/java/com/pooitec1/alibaba2/service/LoteProductService.java,1\7\17d99ef407b0ae5122bdc661f584918d82d379ab
 p
@@ -33,7 +29,7 @@ a
 1src/main/java/com/pooitec1/alibaba2/Alibaba2.java,a\8\a8061c90b6d7dd6373cb35bc4dc75df5189d0ebb
 p
 @src/main/java/com/pooitec1/alibaba2/view/JPanel_Comprapaso1.java,3\1\31e0c0385e51dc28a77ec9cc5f811341a1868104
-n
->src/main/java/com/pooitec1/alibaba2/view/JPanelAplication.java,9\2\922c7365f19dbfe4bea70bd91c40588195c7d864
 y
 Isrc/main/java/com/pooitec1/alibaba2/controller/LoteProductController.java,f\5\f5e67efb9c7c64de23afc480b97b504325d596e4
+n
+>src/main/java/com/pooitec1/alibaba2/view/JPanelAplication.java,9\2\922c7365f19dbfe4bea70bd91c40588195c7d864

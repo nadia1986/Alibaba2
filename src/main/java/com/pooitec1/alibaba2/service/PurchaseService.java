@@ -1,11 +1,13 @@
 
 package com.pooitec1.alibaba2.service;
 
+import com.pooitec1.alibaba2.entity.Employee;
 import com.pooitec1.alibaba2.entity.LoteProduct;
 import com.pooitec1.alibaba2.entity.Product;
 import com.pooitec1.alibaba2.entity.Purchase;
 import com.pooitec1.alibaba2.entity.Sector;
 import com.pooitec1.alibaba2.entity.Seller;
+import com.pooitec1.alibaba2.entity.User;
 import com.pooitec1.alibaba2.entity.Wharehouse;
 import com.pooitec1.alibaba2.entity.repository.Conexion;
 import com.pooitec1.alibaba2.entity.repository.PurchaseRepository;
@@ -21,6 +23,7 @@ public class PurchaseService {
     private final SellerService sellerService;
     private final LoteProductService loteService;
     private final WharehouseService wharehouseService;
+    private final UserService userService;
 
     public PurchaseService() {
 
@@ -28,15 +31,20 @@ public class PurchaseService {
         this.loteService = new LoteProductService();
         this.sellerService = new SellerService();
         this.wharehouseService = new WharehouseService();
+        this.userService= new UserService();
 
     }
+    
+     public Employee findEmployeeByUser(User user){
+         return userService.findEmployeeByUser(user);
+     }
 
     public void actualizarStockLote(LoteProduct loteProduct) throws Exception {
         this.loteService.actualizaStock(loteProduct);
     }
 
     public LoteProduct buscarLoteProduct(String code) {
-        return loteService.buscarStockByProduct(code);
+        return loteService.buscarLoteByCodeProduct(code);
     }
 
     public List<LoteProduct> listarLoteProduct() {

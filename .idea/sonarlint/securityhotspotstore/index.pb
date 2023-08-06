@@ -5,14 +5,10 @@ o
 ?src/main/java/com/pooitec1/alibaba2/service/ProductService.java,7\4\74e6e60ccb072d589e9eabe34d55072dc5a37a56
 m
 =src/main/java/com/pooitec1/alibaba2/service/BuyerService.java,f\b\fb69ebfb71bdc1393f95d0158784ef56982573f8
-e
-5src/main/java/com/pooitec1/alibaba2/entity/Buyer.java,9\5\95ae8f6582f612df7873095f74d789249045a8f7
 r
 Bsrc/main/java/com/pooitec1/alibaba2/controller/SaleController.java,6\7\679a4f496b39eadd7f3e8cf1864d1000c8952ff2
 l
 <src/main/java/com/pooitec1/alibaba2/service/SaleService.java,f\0\f06ca39ed6400795276cfcdb6a906ef05685914f
-y
-Isrc/main/java/com/pooitec1/alibaba2/entity/repository/SaleRepository.java,f\7\f700bbcbec6906342c58762e25d0d6e70e66649a
 s
 Csrc/main/java/com/pooitec1/alibaba2/service/LoteProductService.java,1\7\17d99ef407b0ae5122bdc661f584918d82d379ab
 ‰

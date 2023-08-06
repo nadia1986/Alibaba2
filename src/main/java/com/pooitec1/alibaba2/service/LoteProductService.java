@@ -17,13 +17,14 @@ import java.util.List;
 public class LoteProductService {
 
     private final LoteProductRepository stockRepository;
+    private final WharehouseService wharehouseService;
 
     public LoteProductService() {
         this.stockRepository = new LoteProductRepository(Conexion.getEmf());
+        this.wharehouseService = new WharehouseService();
 
     }
 
-  
     public List<LoteProduct> findByProductDescription(String description) {
         List<LoteProduct> productsfound = new ArrayList<>();
 
@@ -37,7 +38,6 @@ public class LoteProductService {
         return productsfound;
     }
 
-   
     public List<LoteProduct> findByCodeProduct(String code) {
         List<LoteProduct> productsfound = new ArrayList<>();
 
@@ -63,9 +63,7 @@ public class LoteProductService {
 
     }
 
-   
-
-    public LoteProduct buscarStockByProduct(String code) {
+    public LoteProduct buscarLoteByCodeProduct(String code) {
         LoteProduct loteProduct = null;
         for (LoteProduct stockPr : this.stockRepository.findLoteProductEntities()) {
             if (stockPr.getProduct().getCodProd().equals(code)) {
@@ -177,6 +175,14 @@ public class LoteProductService {
     public void saveLoteProduct(LoteProduct loteProduct) {
         this.stockRepository.create(loteProduct);
 
+    }
+
+    public List<Wharehouse> getWharehouses() {
+        return wharehouseService.getWharehouse();
+    }
+
+    public Wharehouse getWharehouse(String name) {
+        return wharehouseService.getWharehouseByName(name);
     }
 
 }

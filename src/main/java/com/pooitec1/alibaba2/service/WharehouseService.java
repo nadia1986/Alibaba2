@@ -1,13 +1,12 @@
 package com.pooitec1.alibaba2.service;
 
-import com.pooitec1.alibaba2.entity.LoteProduct;
 import com.pooitec1.alibaba2.entity.Product;
 import com.pooitec1.alibaba2.entity.Sector;
 import com.pooitec1.alibaba2.entity.Wharehouse;
 import com.pooitec1.alibaba2.entity.repository.Conexion;
 import com.pooitec1.alibaba2.entity.repository.WharehouseRepository;
 import java.util.List;
-import javax.swing.JComboBox;
+
 
 /**
  *
@@ -48,17 +47,7 @@ public class WharehouseService {
 
     }
     
-    
-
-    public Wharehouse obtenerAlmacenSeleccionado(JComboBox<Wharehouse> comboBox) {
-        Object selectedItem = comboBox.getSelectedItem();
-        if (selectedItem instanceof Wharehouse) {
-            return (Wharehouse) selectedItem;
-        } else {
-            // Maneja el caso cuando el elemento seleccionado no es un objeto Wharehouse
-            throw new IllegalArgumentException("El elemento seleccionado no es un Wharehouse");
-        }
-    }
+   
 
     public Wharehouse getWharehouseByName(String name) {
         Wharehouse wharehouseSelected = null;

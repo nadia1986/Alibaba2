@@ -285,8 +285,10 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
             SaleLine saleLine = new SaleLine();
             saleLine.setProduct(loteProductSelected.getProduct());
             saleLine.setQuantity(Integer.parseInt(spncantidad.getValue().toString()));
-            if (!buscarSaleLine(saleLine)) {
+            if (!buscarSaleLine(saleLine) &&  saleLine.getQuantity()>0) {
                 this.controlador.getNewSale().getSaleLines().add(saleLine);
+               
+                
             }
 
             JPanel_VentaPaso2 panelPaso2 = new JPanel_VentaPaso2(this.panelMenu, this.controlador);
@@ -357,8 +359,8 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
 
     public void calcularSubtotal() {
         Double precio = this.loteProductSelected.getSalePrice();
-        Integer cantidad = Integer.parseInt(spncantidad.getValue().toString());
-
+       // Integer cantidad = Integer.parseInt(spncantidad.getValue().toString());
+       Integer cantidad = Integer.valueOf(spncantidad.getValue().toString());
         jlblsubtotal.setText(pasarMoneda(precio * cantidad));
     }
 
@@ -383,16 +385,25 @@ public class JPanel_VentaPaso3 extends javax.swing.JPanel {
     }
 
     private void actualizarTabla() {
-        for (int i = 0; i < tableModelProduct.getRowCount(); i++) {
-            if (loteProductSelected.equals(tableModelProduct.getProductIn(i))) {
-                discountStock(loteProductSelected, Integer.parseInt(spncantidad.getValue().toString()));
-            }
-        }
+     
+        int selectedRow = this.jtbl_products.getSelectedRow();
+     
+        
+        // Get the selected quantity from the spinner
+        int selectedQuantity = Integer.parseInt(spncantidad.getValue().toString());
+        
+        // Update the quantity in the TableModelProduct
+        LoteProduct selectedProduct = tableModelProduct.getProductIn(selectedRow);
+        int currentQuantity = selectedProduct.getQuantity();
+        selectedProduct.setQuantity(currentQuantity - selectedQuantity);
+        //tableModelProduct.setValueAt((tableModelProduct.getValueAt(, selectedRow, 2);
+        // Update the table
+        tableModelProduct.fireTableDataChanged();
     }
 
     public boolean buscarSaleLine(SaleLine newSaleLine) {
         for (SaleLine s : this.controlador.getNewSale().getSaleLines()) {
-            if (s.getProduct().getCodProd() == newSaleLine.getProduct().getCodProd()) {
+            if (s.getProduct().getCodProd().equals(newSaleLine.getProduct().getCodProd())) {
                 s.setQuantity(s.getQuantity() + newSaleLine.getQuantity());
                 return true;
             }

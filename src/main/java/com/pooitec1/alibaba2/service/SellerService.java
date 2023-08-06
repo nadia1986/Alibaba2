@@ -3,7 +3,7 @@ package com.pooitec1.alibaba2.service;
 import com.pooitec1.alibaba2.entity.Seller;
 import com.pooitec1.alibaba2.entity.repository.Conexion;
 import com.pooitec1.alibaba2.entity.repository.SellerRepository;
-import java.util.ArrayList;
+
 import java.util.List;
 
 /**

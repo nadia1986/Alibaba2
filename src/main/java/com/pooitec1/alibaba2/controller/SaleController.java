@@ -6,11 +6,7 @@ import com.pooitec1.alibaba2.entity.Product;
 import com.pooitec1.alibaba2.entity.Sale;
 import com.pooitec1.alibaba2.entity.SaleLine;
 import com.pooitec1.alibaba2.entity.User;
-import com.pooitec1.alibaba2.service.BuyerService;
 import com.pooitec1.alibaba2.service.SaleService;
-import com.pooitec1.alibaba2.service.LoteProductService;
-import com.pooitec1.alibaba2.service.SaleLineService;
-import com.pooitec1.alibaba2.service.UserService;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -21,20 +17,14 @@ import java.util.List;
 public class SaleController {
 
     private Sale newSale;
-    private final BuyerService buyerService;
-    private final LoteProductService stockService;
-    private final SaleLineService saleLineService;
+
     private final SaleService saleService;
-    private final UserService userService;
 
     public SaleController() {
 
         this.newSale = new Sale();
-        this.buyerService = new BuyerService();
-        this.stockService = new LoteProductService();
+
         this.saleService = new SaleService();
-        this.saleLineService = new SaleLineService();
-        this.userService = new UserService();
 
     }
 
@@ -42,45 +32,41 @@ public class SaleController {
 
         this.newSale = new Sale();
 
-        this.buyerService = new BuyerService();
-        this.stockService = new LoteProductService();
         this.saleService = new SaleService();
-        this.saleLineService = new SaleLineService();
-        this.userService = new UserService();
+
         newSale.setDateSale(LocalDate.now());
-        newSale.setEmployee(this.userService.findEmployeeByUser(user));
+        newSale.setEmployee(this.saleService.findEmployeeByUser(user));
 
     }
 
     //FUNCION QUE LLAMO EN VENTA PASO 1 PARA BUSCAR CLIENTE
     public List<Buyer> findBuyerByDni(String dni) {
-        return buyerService.findByDni(dni);
+        return saleService.findBuyerByDni(dni);
     }
 
     //FUNCION QUE LLAMO EN VENTA PASO 3 PARA BUSCAR PRODUCTOS EN LoteProduct(porque el lote es quien tiene el producto)
     public List<LoteProduct> findProductByDescription(String description) {
-        return stockService.findByProductDescription(description);
+        return saleService.findProductByDescription(description);
     }
 
     public LoteProduct buscarLoteProduct(String code) {
-        return this.stockService.buscarStockByProduct(code);
+        return saleService.buscarLoteProduct(code);
     }
 
     public Integer traerStockMax(Product product) {
-        return stockService.verStockTotalProducto(product);
+        return saleService.traerStockMax(product);
     }
 
-  
     public Double obtenerPrecio(Product product) {
-        return stockService.obtenerPrecioVentaProducto(product);
+        return saleService.obtenerPrecio(product);
     }
 
     public SaleLine getNewSaleLine() {
-        return saleLineService.getNewSaleLine();
+        return saleService.getNewSaleLine();
     }
 
     public void saveSaleLine(SaleLine saleLine) {
-        this.saleLineService.saveSaleLine(saleLine);
+        this.saleService.saveSaleLine(saleLine);
     }
 
     public Sale getNewSale() {
@@ -93,16 +79,7 @@ public class SaleController {
     }
 
     public void actualizarStockLote(LoteProduct loteProduct) throws Exception {
-        this.stockService.actualizaStock(loteProduct);
-    }
-
-    public int validarProductoACargar(LoteProduct loteProductSelected) {
-
-        int resultado = 0;
-        resultado = this.stockService.verStockTotalProducto(loteProductSelected.getProduct()) - loteProductSelected.getCantidadActual();
-
-        return resultado;
-
+        this.saleService.actualizarStockLote(loteProduct);
     }
 
 }

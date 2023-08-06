@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.pooitec1.alibaba2.entity;
 
 import java.io.Serializable;
@@ -22,8 +19,8 @@ public class Buyer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
-     @Column(name = "first_name")
+
+    @Column(name = "first_name")
     private String firstName;
 
     @Column(name = "last_name")
@@ -43,7 +40,6 @@ public class Buyer implements Serializable {
 
     public Buyer() {
     }
-
 
     public Buyer(String firstName, String lastName, String dni, String address, String phone, String email) {
         this.firstName = firstName;
@@ -134,5 +130,5 @@ public class Buyer implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
 }
